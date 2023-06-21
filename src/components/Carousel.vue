@@ -1,35 +1,5 @@
-<script>
-var slider = new Vue({
-  el: "#slider",
-  data: {
-    current: 0,
-    direction: 1,
-    transitionName: "fade",
-    show: false,
-    slides: [
-      { className: "blue" },
-      { className: "red" },
-      { className: "yellow" }
-    ]
-  },
-  methods: {
-    slide(dir) {
-      this.direction = dir;
-      dir === 1
-        ? (this.transitionName = "slide-next")
-        : (this.transitionName = "slide-prev");
-      var len = this.slides.length;
-      this.current = (this.current + dir % len + len) % len;
-    }
-  },
-  mounted() {
-    this.show = true;
-  }
-});
-</script>
-
 <template>
-<div id="slider">
+  <div id="slider">
     <transition-group tag="div" :name="transitionName" class="slides-group">
       <div v-if="show" :key="current" class="slide" :class="slides[current].className">
         <p>I'm {{slides[current].className}}!</p>
@@ -39,11 +9,42 @@ var slider = new Vue({
       &#10094;
     </div>
     <div class="btn btn-next" aria-label="Next slide" @click="slide(1)">
-      &#10095
+      &#10095;
     </div>
   </div>
 </template>
 
+<script>
+  export default {
+    name: "my-slider",
+    data() {
+      return {
+        current: 0,
+        direction: 1,
+        transitionName: "fade",
+        show: false,
+        slides: [
+          { className: "blue" },
+          { className: "red" },
+          { className: "yellow" },
+        ],
+      };
+    },
+    methods: {
+      slide(dir) {
+        this.direction = dir;
+        dir === 1
+          ? (this.transitionName = "slide-next")
+          : (this.transitionName = "slide-prev");
+        var len = this.slides.length;
+        this.current = ((this.current + dir) % len + len) % len;
+      },
+    },
+    mounted() {
+      this.show = true;
+    },
+  };
+</script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text");
 
