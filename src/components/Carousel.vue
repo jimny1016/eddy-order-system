@@ -1,48 +1,61 @@
-<script>
-var slider = new Vue({
-  el: "#slider",
-  data: {
-    current: 0,
-    direction: 1,
-    transitionName: "fade",
-    show: false,
-    slides: [
-      { className: "blue" },
-      { className: "red" },
-      { className: "yellow" }
-    ]
-  },
-  methods: {
-    slide(dir) {
-      this.direction = dir;
-      dir === 1
-        ? (this.transitionName = "slide-next")
-        : (this.transitionName = "slide-prev");
-      var len = this.slides.length;
-      this.current = (this.current + dir % len + len) % len;
-    }
-  },
-  mounted() {
-    this.show = true;
-  }
-});
-</script>
-
 <template>
-<div id="slider">
-    <transition-group tag="div" :name="transitionName" class="slides-group">
-      <div v-if="show" :key="current" class="slide" :class="slides[current].className">
-        <p>I'm {{slides[current].className}}!</p>
+  <!--Reference: https://vuejsexamples.com/10-vue-carousel-code-examples/-->
+  <div id="my-slider">
+      <transition-group tag="div" :name="transitionName" class="slides-group">
+        <div v-if="show" :key="current" class="slide" :class="slides[current].className">
+          <p>I'm {{slides[current].className}}!</p>
+        </div>
+        
+      </transition-group>
+      <div class="btn btn-prev" aria-label="Previous slide" @click="slide(-1)">
+        &#10094;
       </div>
-    </transition-group>
-    <div class="btn btn-prev" aria-label="Previous slide" @click="slide(-1)">
-      &#10094;
-    </div>
-    <div class="btn btn-next" aria-label="Next slide" @click="slide(1)">
-      &#10095
-    </div>
+      <div class="btn btn-next" aria-label="Next slide" @click="slide(1)">
+        &#10095;
+      </div>
+      
   </div>
+  
+  <div v-show="isShow"><button @click="strOrder">Start Ordering</button></div>
+      
 </template>
+  
+<script>
+  export default {
+    name: "my-slider",
+    data() {
+      return {
+        current: 0,
+        direction: 1,
+        transitionName: "fade",
+        show: false,
+        slides: [
+          { className: "blue" },
+          { className: "red" },
+          { className: "yellow" },
+        ],
+      };
+    },
+    methods: {
+      slide(dir) {
+        this.direction = dir;
+        dir === 1
+          ? (this.transitionName = "slide-next")
+          : (this.transitionName = "slide-prev");
+        var len = this.slides.length;
+        this.current = ((this.current + dir) % len + len) % len;
+      },
+      strOrder(){
+        var len = this.slides.length;
+        this.current===len?this.isShow=true :this.isShow=false;
+      }
+    },
+    mounted() {
+      this.show = true;
+    },
+    template:''
+  };
+</script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text");
@@ -80,4 +93,67 @@ var slider = new Vue({
 }
 
 /* SLIDES CLASSES */
+
+.blue {
+  background: #4a69bd;
+}
+
+.red {
+  background: #e55039;
+}
+
+.yellow {
+  background: #f6b93b;
+}
+
+/* SLIDER STYLES */
+body {
+  overflow: hidden;
+  margin: 0;
+  font-size: 50px;
+  font-family: "Crimson Text", sans-serif;
+  color: #fff;
+}
+
+#slider {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.slide {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  z-index: 10;
+  cursor: pointer;
+  border: 3px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: calc(50% - 35px);
+  left: 1%;
+  transition: transform 0.3s ease-in-out;
+  user-select: none;
+}
+
+.btn-next {
+  left: auto;
+  right: 1%;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
 </style>
