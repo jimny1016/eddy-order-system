@@ -1,5 +1,4 @@
-<template>
-  
+<template>  
     <a href="#" class="return-menu">
         <span class="return">
             <font-awesome-icon icon="circle-arrow-left" style="color: #1e90ff;" size="xl" />
@@ -23,29 +22,28 @@
 
 <script>
     export default {
-    el: '#app',
-    data() {
-        return {
-        };
-    },
-    methods: {
-        handlePlus(item) {
-        item.count++;
+        data() {
+            return {
+            };
         },
-        handleSub(item) {
-        if (item.count > 1) {
-            item.count--;
-        }
+        methods: {
+            handlePlus(item) {
+                item.count++;
+            },
+            handleSub(item) {
+                if (item.count > 1) {
+                    item.count--;
+                }
+            },
+            handleDelete(item) {
+                if(item.count == 0){
+                    this.itemList.splice(item.count, 1);
+                }
+            },
         },
-        handleDelete(item) {
-            if(item.count=0){
-                this.itemList.splice(index, 1);
-            }
-        },
-    },
-    computed: {
+        computed: {
 
-    },
+        },
     };
 </script>
 
