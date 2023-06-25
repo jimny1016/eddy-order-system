@@ -1,21 +1,21 @@
 <template>
 <div>
-    <div v-for="tab in tabs">
-    <DishItem v-for="dishesitems in item"/>
+    <div v-for="(tab,tabIndex) in tabs"  :key="`tab-${tabIndex}`">
+    <DishItem v-for="(dishesitems,dishIndex) in items" :key="`dish-${dishIndex}`" />
     </div>
 </div>
 </template>
 
 <script>
-import DishItem from './components/DishItem.vue';
+   import DishItem from './DishItem.vue';
     export default{
-    components: {DishItem
+    components: {
+        DishItem
     },
-    el: '#order-list',
     data() {
         return {
         tabs: ['Recommend','Classic','Rice','Noodles'],
-        item: ['炒飯','燴飯','麵'],
+        items: ['炒飯','燴飯','麵'],
         ingredients:[
             {title:'招牌蛋炒飯',units:'一份',price:80},
             {title:'綜合天婦羅',units:'大蝦天婦羅*3、地瓜天婦羅*3、蔬菜天婦羅*3 一份9個',price:200},

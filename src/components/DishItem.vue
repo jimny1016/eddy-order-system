@@ -7,11 +7,13 @@
 </template>
 
 <script>
-date:()=>{
-    return{
-        key="1"
-    }
-}
+    export default{
+        data() {
+            return {
+                key:"1"
+            };
+        },
+    };
 </script>
 
 <style scoped>

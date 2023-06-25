@@ -23,29 +23,28 @@
 
 <script>
     export default {
-    el: '#app',
-    data() {
-        return {
-        };
-    },
-    methods: {
-        handlePlus(item) {
-        item.count++;
+        data() {
+            return {
+            };
         },
-        handleSub(item) {
-        if (item.count > 1) {
-            item.count--;
-        }
-        },
-        handleDelete(item) {
-            if(item.count=0){
-                this.itemList.splice(index, 1);
+        methods: {
+            handlePlus(item) {
+            item.count++;
+            },
+            handleSub(item) {
+            if (item.count > 1) {
+                item.count--;
             }
+            },
+            handleDelete(item) {
+                if(item.count==0){
+                    this.itemList.splice(item.count, 1);
+                }
+            },
         },
-    },
-    computed: {
+        computed: {
 
-    },
+        },
     };
 </script>
 
