@@ -15,9 +15,7 @@
       </div>
       
   </div>
-  
-  <div v-show="isShow"><button @click="strOrder">Start Ordering</button></div>
-      
+        
 </template>
   
 <script>
@@ -45,10 +43,6 @@
         var len = this.slides.length;
         this.current = ((this.current + dir) % len + len) % len;
       },
-      strOrder(){
-        var len = this.slides.length;
-        this.current===len?this.isShow=true :this.isShow=false;
-      }
     },
     mounted() {
       this.show = true;
@@ -124,7 +118,7 @@ body {
 .slide {
   width: 100%;
   height: 100vh;
-  position: absolute;
+  /*position: absolute;*/
   top: 0;
   left: 0;
   display: flex;

@@ -1,5 +1,4 @@
 <template>
-  
     <a href="#" class="return-menu">
         <span class="return">
             <font-awesome-icon icon="circle-arrow-left" style="color: #1e90ff;" size="xl" />
