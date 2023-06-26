@@ -1,7 +1,7 @@
 <template>
   <!-- <div><button @click="switchDisplay(true)">Show slider</button></div>
   <div><button @click="switchDisplay(false)">Show MyMenu</button></div> -->
-  <Slider v-if="showSlider" />
+  <Slider v-if="showSlider" restraunt="myUser.restrauntbgs" />
   <MyMenu v-if="!showSlider" />
 
 </template>
@@ -15,12 +15,20 @@
     data() {
       return {
         showSlider: true,
+        //myUser: ''
       }
     },
     components: {
       Slider,
       MyMenu
     },
+    //created: {
+      //string ddd=
+      // {
+      //   /"Name/": /"Jimmy/"
+      // };
+      //this.myUser = JSON.parse(ddd);
+    //},
     // computed: {
     //   showA() {
     //     return this.display === DisplayEnum.AEnum;

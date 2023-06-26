@@ -19,7 +19,7 @@
       
   </div>
   
-  <div v-show="isShow"><button @click="strOrder">Start Ordering</button></div>
+  <div v-show="showStarOrder"><button @click="strOrder">Start Ordering</button></div>
       
 </template>
   
@@ -38,6 +38,11 @@
           { restaurantbg: "/image/slick/restaurant-bg-3.jpg" },
         ],
       };
+    },   
+    computed: {
+      showStarOrder() {
+        return this.current % 2 == 0;
+      },
     },
     methods: {
       slide(dir) {
