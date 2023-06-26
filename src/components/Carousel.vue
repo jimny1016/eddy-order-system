@@ -2,10 +2,16 @@
   <!--Reference: https://vuejsexamples.com/10-vue-carousel-code-examples/-->
   <div id="my-slider">
       <transition-group tag="div" :name="transitionName" class="slides-group">
-        <div v-if="show" :key="current" class="slide" :class="slides[current].className">
-          <p>I'm {{slides[current].className}}!</p>
+        <div :key="current" class="slide w-full h-full lg:h-screen bg-center bg-clip-border bg-cover bg-no-repeat relative">
+          <div class="relative w-full h-full">
+                <img :src="getImagePath(slides[current].restaurantbg)" class="object-cover w-full h-full" alt="" />
+        <!--
+                <div v-if="show" :key="current" class="slide" :class="slides[current].className">
+          <p>I'm {{slides[current].restaurantbg}}!</p>
         </div>
-        
+        -->
+          </div>
+        </div>
       </transition-group>
       <div class="btn btn-prev" aria-label="Previous slide" @click="slide(-1)">
         &#10094;
@@ -28,9 +34,9 @@
         transitionName: "fade",
         show: false,
         slides: [
-          { className: "blue" },
-          { className: "red" },
-          { className: "yellow" },
+          { restaurantbg: "/image/slick/restaurant-bg-1.jpg" },
+          { restaurantbg: "/image/slick/restaurant-bg-2.jpg" },
+          { restaurantbg: "/image/slick/restaurant-bg-3.jpg" },
         ],
       };
     },
@@ -43,11 +49,19 @@
         var len = this.slides.length;
         this.current = ((this.current + dir) % len + len) % len;
       },
+      strOrder(){
+        var len = this.slides.length;
+        this.current===len?this.isShow=true :this.isShow=false;
+      },
+      getImagePath(path) {
+        return "http://localhost:8080/" + path;
+      },
     },
-    mounted() {
-      this.show = true;
-    },
-    template:''
+    computed: {
+      showStarOrder() {
+        return this.current % 2 == 0;
+      },
+    },    
   };
 </script>
 
@@ -88,17 +102,7 @@
 
 /* SLIDES CLASSES */
 
-.blue {
-  background: #4a69bd;
-}
 
-.red {
-  background: #e55039;
-}
-
-.yellow {
-  background: #f6b93b;
-}
 
 /* SLIDER STYLES */
 body {
