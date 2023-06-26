@@ -2,10 +2,13 @@
   <!--Reference: https://vuejsexamples.com/10-vue-carousel-code-examples/-->
   <div id="my-slider">
       <transition-group tag="div" :name="transitionName" class="slides-group">
-        <div v-if="show" :key="current" class="slide" :class="slides[current].className">
-          <p>I'm {{slides[current].className}}!</p>
-        </div>
-        
+        <div :key="current" class="slide w-full h-full lg:h-screen bg-center bg-clip-border bg-cover bg-no-repeat relative">
+          <div class="relative w-full h-full">
+                <img :src="getImagePath(slides[current].restaurantbg)" class="object-cover w-full h-full" alt="" />
+                <!-- <img src="../image/slick/restaurant-bg-1.jpg" class="object-cover w-full h-full" alt="" /> -->
+            </div>
+          <!-- <p>I'm {{slides[current].className}}!</p> -->
+        </div>        
       </transition-group>
       <div class="btn btn-prev" aria-label="Previous slide" @click="slide(-1)">
         &#10094;
@@ -30,9 +33,9 @@
         transitionName: "fade",
         show: false,
         slides: [
-          { className: "blue" },
-          { className: "red" },
-          { className: "yellow" },
+          { restaurantbg: "/image/slick/restaurant-bg-1.jpg" },
+          { restaurantbg: "/image/slick/restaurant-bg-2.jpg" },
+          { restaurantbg: "/image/slick/restaurant-bg-3.jpg" },
         ],
       };
     },
@@ -48,12 +51,11 @@
       strOrder(){
         var len = this.slides.length;
         this.current===len?this.isShow=true :this.isShow=false;
-      }
-    },
-    mounted() {
-      this.show = true;
-    },
-    template:''
+      },
+      getImagePath(path) {
+        return "http://localhost:8080/" + path;
+      },
+    }
   };
 </script>
 

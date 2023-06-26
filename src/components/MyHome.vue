@@ -1,6 +1,6 @@
 <template>
-  <div><button @click="switchDisplay(true)">Show slider</button></div>
-  <div><button @click="switchDisplay(false)">Show MyMenu</button></div>
+  <!-- <div><button @click="switchDisplay(true)">Show slider</button></div>
+  <div><button @click="switchDisplay(false)">Show MyMenu</button></div> -->
   <Slider v-if="showSlider" />
   <MyMenu v-if="!showSlider" />
 
