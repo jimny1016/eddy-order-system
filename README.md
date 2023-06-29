@@ -31,3 +31,24 @@ npm i --save @fortawesome/vue-fontawesome@prerelease
 --------------------instruction-----------------------------
 import icons way: https://fontawesome.com/docs/apis/javascript/import-icons
 ```
+
+### install axios for json
+'''
+npm install axios
+
+'''
+
+### install json server for json
+'''
+npm install -g json-server
+
+'''
+
+### startup json server 
+'''
+json-server --watch db.json
+--------------------instruction-----------------------------
+json server will run at http://localhost:3000
+notice: json server can only use during development environment
+reference: https://www.section.io/engineering-education/building-vuejs-app-with-json-server-and-axios/
+'''
