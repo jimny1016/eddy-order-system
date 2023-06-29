@@ -52,3 +52,9 @@ json server will run at http://localhost:3000
 notice: json server can only use during development environment
 reference: https://www.section.io/engineering-education/building-vuejs-app-with-json-server-and-axios/
 '''
+
+### install Vue Router
+'''
+npm install vue-router
+'''
+

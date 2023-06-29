@@ -5,8 +5,16 @@
             <ul>
                 <li><a href="#" class="navbar-brand">{{tableNum}}</a></li>
                 <li><a href="#" class="navbar-brand">{{title}}</a></li>
-                <li classs="li-cart"><a href="#" class="navbar-cart"><span class="cart"><font-awesome-icon icon="cart-shopping" style="color: #1e90ff;" size="xl" /></span></a></li>
-                <li class="li-lng"><a href="#" class="navbar-lng"><span class="lng"><font-awesome-icon icon="globe" style="color: #1e90ff;" size="xl" /></span></a></li>
+                <li classs="li-cart"><a href="#" class="navbar-cart">
+                    <span class="cart">
+                        <font-awesome-icon icon="cart-shopping" style="color: #1e90ff;" size="xl"  @click="shopping_cart()"/>
+                    </span></a>
+                </li>
+                <li class="li-lng"><a href="#" class="navbar-lng">
+                    <span class="lng">
+                        <font-awesome-icon icon="globe" style="color: #1e90ff;" size="xl" />
+                    </span></a>
+                </li>
             </ul>
         </div>
     </div>
@@ -37,12 +45,15 @@
                 </a><slot v-on:click="toggleActive(false)"></slot></div>`,
         computed: {
             triggerText() {
-            return this.collapsed && 'Menu' || 'Close';
+                return this.collapsed && 'Menu' || 'Close';
             },
         },
         methods: {
             toggleActive(flag) {
-            this.collapsed = flag;
+                this.collapsed = flag;
+            },
+            shopping_cart(){
+
             },
         },
     };
