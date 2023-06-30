@@ -22,6 +22,8 @@
     </template>
     
 <script>
+import { router } from '../../router/index.js';
+
     export default {
         name: 'NavigationHeaderBar',
         props: {
@@ -53,7 +55,7 @@
                 this.collapsed = flag;
             },
             shopping_cart(){
-
+                router.push('/shoppingcart');
             },
         },
     };
