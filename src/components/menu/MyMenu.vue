@@ -6,10 +6,10 @@
 
     <CategoryTabs class="w-full lg:w-10/12 mx-auto mb-16" :tabList="tabList">
         <div v-for="(tab, index) in tabList" :key="index" >
-            <slot  tabindex=${index}>{{ tab }}</slot>
+            <slot tabindex=${index}>{{ tab }}</slot>
         </div>
     </CategoryTabs>
-    <Menupage/>
+    <Menupage :manuData="manuData"/>
 
 </div>
 </template>
@@ -21,6 +21,7 @@ import Menupage from './MenuPage.vue';
 
 export default {
     name: 'my-menu',
+    props: ['manuData'],
     components: {
     Navbar,CategoryTabs,Menupage,
     },
