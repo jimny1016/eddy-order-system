@@ -21,7 +21,20 @@
                         title: "招牌蛋炒飯",
                         unit: "一份",
                         imgPath: "../src/image",
-                        price: 90
+                        price: 90,
+                        Options: [
+                          {
+                            OptionType:1,//retail or check box
+                            OptionKey:1,
+                            OptionVaule:[{
+                              OptionValueName:"不辣",
+                              OptionValueKey:"1"
+                            },{
+                              OptionValueName:"小辣",
+                              OptionValueKey:"2"
+                            }]
+                          }
+                        ]
                     },
                     {
                         title: "主廚特調乾拉麵",
