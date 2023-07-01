@@ -3,9 +3,9 @@
     <div>
         <div class="container mx-auto">
             <ul>
-                <li><a href="#" class="navbar-brand">{{tableNum}}</a></li>
+                <li v-show="shoppingcartshow"><a href="#" class="navbar-brand">{{tableNum}}</a></li>
                 <li><a href="#" class="navbar-brand">{{title}}</a></li>
-                <li classs="li-cart"><a href="#" class="navbar-cart">
+                <li classs="li-cart"><a href="#" class="navbar-cart" v-show="shoppingcartshow">
                     <span class="cart">
                         <font-awesome-icon icon="cart-shopping" style="color: #1e90ff;" size="xl"  @click="shopping_cart()"/>
                     </span></a>
@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    </template>
+</template>
     
 <script>
 import { router } from '../../router/index.js';
@@ -33,6 +33,10 @@ import { router } from '../../router/index.js';
             },
             title:{
                 type: String,
+                required: true,
+            },
+            shoppingcartshow:{
+                type: Boolean,
                 required: true,
             }
         },

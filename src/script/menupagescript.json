@@ -1,77 +1,295 @@
-{
-    "Recommendation":[
+
+{  
+    "SessionID":"",
+    "TableNum":3,
+    "PageTitle":"Welcom to xxx restaurant",
+    "Display":[
         {
-            "Title":"招牌蛋炒飯",
-            "unit":"一份",
-            "imgPath":"../src/image",
-            "price":90
+            "TabName": "Recommendation",
+            "Dishes" : [
+                {
+                    "title": "招牌蛋炒飯",
+                    "DishKey":"recommend_1",
+                    "unit": "一份",
+                    "imgPath": "../src/image",
+                    "price": 90,
+                    "Options": [
+                        {
+                            "OptionButtonType":2,
+                            "OptionRequirement":1,
+                            "OptionKey":1,
+                            "OptionMemo":"Please Select 1 option",
+                            "OptionVaule":[{
+                                "OptionValueName":"不辣",
+                                "OptionValueKey":"1",
+                                "OptionExtend":0,
+                                "Option price":""
+                            },{
+                                "OptionValueName":"小辣",
+                                "OptionValueKey":"2",
+                                "OptionExtend":0,
+                                "Option price":""
+                            },{
+                                "OptionValueName":"中辣",
+                                "OptionValueKey":"3",
+                                "OptionExtend":0,
+                                "Option price":""
+                            },{
+                                "OptionValueName":"大辣",
+                                "OptionValueKey":"4",
+                                "OptionExtend":0,
+                                "Option price":""
+                            }]
+                        },
+                        {
+                            "OptionButtonType":1,
+                            "OptionRequirement":0,
+                            "OptionKey":2,
+                            "OptionMemo":"Recommendation",
+                            "OptionVaule":[{
+                                "OptionValueName":"Coca Cola",
+                                "OptionValueKey":"1",
+                                "OptionExtend":0,
+                                "Option price":30
+                            },{
+                                "OptionValueName":"Apple Sidra",
+                                "OptionValueKey":"2",
+                                "OptionExtend":0,
+                                "Option price":40
+                            },{
+                                "OptionValueName":"Pepsi",
+                                "OptionValueKey":"3",
+                                "OptionExtend":0,
+                                "Option price":50
+                            },{
+                                "OptionValueName":"Sprite",
+                                "OptionValueKey":"4",
+                                "OptionExtend":0,
+                                "Option price":60
+                            }]
+                        },
+                        {
+                            "OptionButtonType":1,
+                            "OptionRequirement":0,
+                            "OptionKey":2,
+                            "OptionMemo":"若超過10人享用,請加選用餐人數",
+                            "OptionVaule":[{
+                                "OptionValueName":"增加人數",
+                                "OptionValueKey":"1",
+                                "OptionExtend":1,
+                                "Option price":200
+                            }]
+                        }
+                    ]
+                },
+                {
+                    "title": "主廚特調乾拉麵",
+                    "DishKey":"recommend_2",
+                    "unit": "一份",
+                    "imgPath": "../src/image",
+                    "price": 100,
+                    "Options": [
+                        {
+                            "OptionButtonType":2,
+                            "OptionRequirement":1,
+                            "OptionKey":1,
+                            "OptionMemo":"Please Select 1 option",
+                            "OptionVaule":[{
+                                "OptionValueName":"不辣",
+                                "OptionValueKey":"1",
+                                "OptionExtend":0,
+                                "Option price":""
+                            },{
+                                "OptionValueName":"小辣",
+                                "OptionValueKey":"2",
+                                "OptionExtend":0,
+                                "Option price":""
+                            },{
+                                "OptionValueName":"中辣",
+                                "OptionValueKey":"3",
+                                "OptionExtend":0,
+                                "Option price":""
+                            },{
+                                "OptionValueName":"大辣",
+                                "OptionValueKey":"4",
+                                "OptionExtend":0,
+                                "Option price":""
+                            }]
+                        },
+                        {
+                            "OptionButtonType":1,
+                            "OptionRequirement":0,
+                            "OptionKey":2,
+                            "OptionMemo":"Recommendation",
+                            "OptionVaule":[{
+                                "OptionValueName":"Coca Cola",
+                                "OptionValueKey":"1",
+                                "OptionExtend":0,
+                                "Option price":30
+                            },{
+                                "OptionValueName":"Apple Sidra",
+                                "OptionValueKey":"2",
+                                "OptionExtend":0,
+                                "Option price":40
+                            },{
+                                "OptionValueName":"Green Tea",
+                                "OptionValueKey":"3",
+                                "OptionExtend":0,
+                                "Option price":50
+                            }]
+                        },
+                        {
+                            "OptionButtonType":1,
+                            "OptionRequirement":0,
+                            "OptionKey":2,
+                            "OptionMemo":"若超過10人享用,請加選用餐人數",
+                            "OptionVaule":[{
+                                "OptionValueName":"增加人數",
+                                "OptionValueKey":"1",
+                                "OptionExtend":1,
+                                "Option price":200
+                            }]
+                        },
+                        {
+                            "OptionButtonType":0,
+                            "OptionRequirement":0,
+                            "OptionKey":3,
+                            "OptionMemo":"如有任何需求或打包服務請備註",
+                            "OptionVaule":[{
+                                "OptionValueName":"",
+                                "OptionValueKey":"1",
+                                "OptionExtend":2,
+                                "Option price":""
+                            }]
+                        }
+                    ]
+                },
+                {
+                    "title": "綜合天婦羅",
+                    "DishKey":"recommend_3",
+                    "unit": "大蝦天婦羅*3、地瓜天婦羅*3、蔬菜天婦羅*3 一份9個",
+                    "imgPath": "../src/image",
+                    "price": 200
+                },{
+                    "title": "當日特選餐",
+                    "DishKey":"recommend_4",
+                    "unit": "每日特選餐點不同，請至櫃檯詢問謝謝",
+                    "imgPath": "../src/image",
+                    "price": 0
+                }
+            ]
         },
         {
-            "Title":"主廚特調乾拉麵",
-            "unit":"一份",
-            "imgPath":"../src/image",
-            "price":100
+            "TabName": "Classic Combo",
+            "Dishes" : [
+                {
+                    "title": "單人套餐",
+                    "DishKey":"classic_1",
+                    "unit": "一份主餐+經典炸物+湯品/飲品 二選一",
+                    "imgPath": "../src/image",
+                    "price": 230
+                },
+                {
+                    "title": "雙人套餐",
+                    "DishKey":"classic_2",
+                    "unit": "主餐*2+經典炸物*2+湯品*2+飲品*2",
+                    "imgPath": "../src/image",
+                    "price": 420
+                },
+                {
+                    "title": "四人套餐",
+                    "DishKey":"classic_3",
+                    "unit": "主餐*4+經典炸物*4+湯品*4+飲品*4",
+                    "imgPath": "../src/image",
+                    "price": 800
+                },{
+                    "title": "六人套餐",
+                    "DishKey":"classic_4",
+                    "unit": "主餐*6+經典炸物*6+湯品*6+飲品*6",
+                    "imgPath": "../src/image",
+                    "price": 1180
+                }
+            ]
         },
         {
-            "Title":"綜合天婦羅",
-            "unit":"大蝦天婦羅*3、地瓜天婦羅*3、蔬菜天婦羅*3 一份9個",
-            "imgPath":"../src/image",
-            "price":200
-        },{
-            "Title":"當日特選餐",
-            "unit":"每日特選餐點不同，請至櫃檯詢問謝謝",
-            "imgPath":"../src/image",
-            "price":0
-        }
-    ],
-    "Classic Combo":[
-        {
-            "Title":"單人套餐",
-            "unit":"一份主餐+經典炸物+湯品/飲品 二選一",
-            "imgPath":"../src/image",
-            "price":230
+            "TabName": "a la carte - Side Dish",
+            "Dishes" : [
+                {
+                    "title": "經典炸物",
+                    "DishKey":"side_1",
+                    "unit": "一份5個",
+                    "imgPath": "../src/image",
+                    "price": 80
+                },
+                {
+                    "title": "經典炸物",
+                    "DishKey":"side_2",
+                    "unit": "一份5個",
+                    "imgPath": "../src/image",
+                    "price": 80
+                },
+                {
+                    "title": "經典炸物",
+                    "DishKey":"side_3",
+                    "unit": "一份5個",
+                    "imgPath": "../src/image",
+                    "price": 80
+                },{
+                    "title": "經典炸物",
+                    "DishKey":"side_4",
+                    "unit": "一份5個",
+                    "imgPath": "../src/image",
+                    "price": 80
+                }
+            ]
         },
         {
-            "Title":"雙人套餐",
-            "unit":"主餐*2+經典炸物*2+湯品*2+飲品*2",
-            "imgPath":"../src/image",
-            "price":420
+            "TabName": "a la carte - Rice",
+            "Dishes" : [
+                {
+                    "title": "經典炸物",
+                    "DishKey":"side_1",
+                    "unit": "一份5個",
+                    "imgPath": "../src/image",
+                    "price": 80
+                }
+            ]
         },
         {
-            "Title":"四人套餐",
-            "unit":"主餐*4+經典炸物*4+湯品*4+飲品*4",
-            "imgPath":"../src/image",
-            "price":800
-        },{
-            "Title":"六人套餐",
-            "unit":"主餐*6+經典炸物*6+湯品*6+飲品*6",
-            "imgPath":"../src/image",
-            "price":1180
-        }
-    ],
-    "a la carte - Side Dish":[
-        {
-            "Title":"經典炸物",
-            "unit":"一份5個",
-            "imgPath":"../src/image",
-            "price":80
+            "TabName": "a la carte - Noodle",
+            "Dishes" : [
+                {
+                    "title": "經典炸物",
+                    "DishKey":"side_1",
+                    "unit": "一份5個",
+                    "imgPath": "../src/image",
+                    "price": 80
+                }
+            ]
         },
         {
-            "Title":"經典炸物",
-            "unit":"一份5個",
-            "imgPath":"../src/image",
-            "price":80
+            "TabName": "a la carte - Soup",
+            "Dishes" : [
+                {
+                    "title": "經典炸物",
+                    "DishKey":"side_1",
+                    "unit": "一份5個",
+                    "imgPath": "../src/image",
+                    "price": 80
+                }
+            ]
         },
         {
-            "Title":"經典炸物",
-            "unit":"一份5個",
-            "imgPath":"../src/image",
-            "price":80
-        },{
-            "Title":"經典炸物",
-            "unit":"一份5個",
-            "imgPath":"../src/image",
-            "price":80
+            "TabName": "a la carte - Beverage",
+            "Dishes" : [
+                {
+                    "title": "經典炸物",
+                    "DishKey":"side_1",
+                    "unit": "一份5個",
+                    "imgPath": "../src/image",
+                    "price": 80
+                }
+            ]
         }
     ]
 }

@@ -25,11 +25,11 @@ import MyHome from './components/MyHome.vue';
       MyHome
     },
   };
-  // export default {
-  //   components: {
-  //  //  RouterLink,
-  //     RouterView
-  //   }
-  // }
+//  export default {
+ //   components: {
+    //  RouterLink,
+ //     RouterView
+ //   }
+ // }
 
 </script>
