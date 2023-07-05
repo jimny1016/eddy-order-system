@@ -1,5 +1,4 @@
 <template>
-
     <div v-if="dish">
         <div id="image">
             <!-- <img :src="dish.imgPath"/> -->
@@ -7,6 +6,7 @@
         </div>
         <div id="tilte">
             {{ dish.title }}
+            123
         </div>
         <div id="price">
             NT${{ dish.price }}
@@ -14,7 +14,10 @@
         <div id="units">
             {{ dish.unit }}
         </div>
-        <RadioOpt :options="options" /> <!-- 传递选项数组给 RadioOpt 组件 -->
+        <div v-if="dish.Options">
+            <RadioOpt :options="dish.Options" />
+        </div>
+         <!-- 传递选项数组给 RadioOpt 组件 -->
     </div>
     <div v-else>
         <!-- 处理dish为null时的情况 -->
@@ -26,20 +29,30 @@
 </template>
 
 <script>
-//import RadioOpt from './options/RadioOptions.vue';
-import { ref } from 'vue'; // 导入 ref 函数
+import RadioOpt from './options/RadioOptions.vue';
+//import { ref } from 'vue'; // 导入 ref 函数
     export default {
         name: 'dish-detail',
         props: ['dish'],
-        setup(props) {
-            const options = ref(props.dish.Options); // 创建响应式的选项数组
-            return {
-                options,
-            };
-        },
+        // setup(props) {
+        //     if(props.dish.Options)
+        //     {
+        //         const options = ref(props.dish.Options); // 创建响应式的选项数组
+        //         return {
+        //             options,
+        //         };
+        //     }
+        //     // var options = ref(props.dish.Options); // 创建响应式的选项数组
+        //     // return {
+        //     //     options,
+        //     // };
+        // },
         components: {
-            RadioOpt: () => import('./options/RadioOptions.vue'), // 异步加载 RadioOptions.vue 组件
+            RadioOpt
         },
+        // components: {
+        //     RadioOpt: () => import('./options/RadioOptions.vue'), // 异步加载 RadioOptions.vue 组件
+        // },
         data() {
             return {
                 itemList: [

@@ -61,11 +61,20 @@ export default {
             this.value = value; // 保存value到this.value
             console.log("HI! "+value);
 
-            this.dish = this.manuData[0].Display
-            .find(tab => tab.TabName === 'Recommendation')
-            .Dishes.find(dish => dish.DishKey === value); // 设置this.dish的值
+            // this.dish = this.manuData[0].Display
+            // .find(tab => tab.TabName === 'Recommendation')
+            // .Dishes.find(dish => dish.DishKey === value); // 设置this.dish的值
 
-
+            var target;
+            this.manuData[0].Display.forEach(tab => {
+                var temp = tab.Dishes.find(dish => dish.DishKey === value);
+                if(temp)
+                {
+                    target = temp;
+                }                    
+            });
+            if(target)
+                this.dish = target;
             console.log("HI!dish "+this.dish);
 
             if(value!=null && this.dish!=null){
