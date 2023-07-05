@@ -1,8 +1,8 @@
 <template>
-  <Navbar :tableNum="tableNum" :title="pageTitle" shoppingcartshow="false" v-show="showSlider"/>
+  <Navbar :tableNum="tableNum" :title="pageTitle" shoppingcartshow="false" v-show="showSlider" id="navbar"/>
   <Slider v-if="showSlider" />
   <MyMenu :manuData="manuData" v-if="!showSlider" /> 
-  <button class="center" @click="switchDisplay(false)" v-show="showSlider">Start Ordering</button> 
+  <button class="center start-ordering" @click="switchDisplay(false)" v-show="showSlider">Start Ordering</button> 
 </template>
 
 <script>
@@ -264,7 +264,7 @@
                     Dishes : [
                         {
                             title: "經典炸物",
-                            DishKey:"side_1",
+                            DishKey:"rice_1",
                             unit: "一份5個",
                             imgPath: "../src/image",
                             price: 80
@@ -276,7 +276,7 @@
                     Dishes : [
                         {
                             title: "經典炸物",
-                            DishKey:"side_1",
+                            DishKey:"noodle_1",
                             unit: "一份5個",
                             imgPath: "../src/image",
                             price: 80
@@ -288,7 +288,7 @@
                     Dishes : [
                         {
                             title: "經典炸物",
-                            DishKey:"side_1",
+                            DishKey:"soup_1",
                             unit: "一份5個",
                             imgPath: "../src/image",
                             price: 80
@@ -300,7 +300,7 @@
                     Dishes : [
                         {
                             title: "經典炸物",
-                            DishKey:"side_1",
+                            DishKey:"beverage_1",
                             unit: "一份5個",
                             imgPath: "../src/image",
                             price: 80
@@ -347,11 +347,32 @@
 <style scoped>
 .center {
   margin: 0;
-  position: absolute;
+  /* position: absolute; */
+  position: fixed;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   width:150px;
   height:50px;
+  bottom: 20px; /* 距離頁面底部的距離 */
+}
+#navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  /* 其他樣式屬性... */
+}
+
+.start-ordering {
+  background-color: #1e90ff;
+  color: white;
+  border: 2px solid #1e90ff;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+Slider {
+  margin-top: 60px; /* 根據NavigationHeaderBar的高度調整 */
 }
 </style>

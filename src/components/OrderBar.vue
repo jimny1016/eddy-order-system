@@ -1,35 +1,42 @@
 <template>
     <div class="count">
-        <button @click="handleSub(item)">-</button>
-            {{item.count}}
-        <button @click="handlePlus(item)">+</button>
+        <button @click="handleSub">-</button>
+            {{localItem.count}}
+        <button @click="handlePlus">+</button>
+        <button @click="handleDelete">Delete</button>
     </div> 
 </template>
 
 <script>
-    export default new Vue({
-    el: '#app',
-    data() {
-        return {
-        };
-    },
-    methods: {
-        handlePlus(item) {
-        item.count++;
+    export default{
+        name: 'order-bar',
+        props: {
+            item: {
+                type: Object,
+                required: true
+            },
+            itemList: {
+                type: Array,
+                required: true
+            }
         },
-        handleSub(item) {
-        if (item.count > 1) {
-            item.count--;
-        }
+        methods: {
+            handlePlus() {
+                this.localItem.count++;
+            },
+            handleSub() {
+                if (this.localItem.count > 1) {
+                    this.localItem.count--;
+                }
+            },
+            handleDelete(index) {
+                this.localitemList.splice(index, 1);
+            },
         },
-        handleDelete(index) {
-        this.itemList.splice(index, 1);
-        },
-    },
-    computed: {
+        computed: {
 
-    },
-    });
+        },
+    };
 </script>
 
 <style scoped>

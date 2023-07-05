@@ -1,22 +1,26 @@
 <template>
 
-    <div>
-        <div class="container mx-auto">
+    <div id="navbar">
+        <!-- <div class="container mx-auto"> -->
             <ul>
                 <li v-show="shoppingcartshow"><a href="#" class="navbar-brand">{{tableNum}}</a></li>
                 <li><a href="#" class="navbar-brand">{{title}}</a></li>
-                <li classs="li-cart"><a href="#" class="navbar-cart" v-show="shoppingcartshow">
-                    <span class="cart">
-                        <font-awesome-icon icon="cart-shopping" style="color: #1e90ff;" size="xl"  @click="shopping_cart()"/>
-                    </span></a>
+                <li classs="li-cart">
+                    <a href="#" class="navbar-cart" v-show="shoppingcartshow">
+                        <span class="cart">
+                            <font-awesome-icon icon="cart-shopping" style="color: #1e90ff;" size="xl"  @click="shopping_cart()"/>
+                        </span>
+                    </a>
                 </li>
-                <li class="li-lng"><a href="#" class="navbar-lng">
-                    <span class="lng">
-                        <font-awesome-icon icon="globe" style="color: #1e90ff;" size="xl" />
-                    </span></a>
+                <li class="li-lng">
+                    <a href="#" class="navbar-lng">
+                        <span class="lng">
+                            <font-awesome-icon icon="globe" style="color: #1e90ff;" size="xl" />
+                        </span>
+                    </a>
                 </li>
             </ul>
-        </div>
+        <!-- </div> -->
     </div>
 
 </template>
@@ -44,15 +48,6 @@ import { router } from '../../router/index.js';
             return {
             collapsed: true,
             };
-        },
-        template: `<div class="responsive-nav visible-xs visible-sm" v-bind:class="{collapsed: collapsed}">
-                <a class="navbar-brand" v-on:click="toggleActive(!collapsed)">
-                    {{triggerText}}
-                </a><slot v-on:click="toggleActive(false)"></slot></div>`,
-        computed: {
-            triggerText() {
-                return this.collapsed && 'Menu' || 'Close';
-            },
         },
         methods: {
             toggleActive(flag) {
@@ -92,5 +87,18 @@ import { router } from '../../router/index.js';
         }
     span.cart{
         text-align: right;    
+    }
+    
+    /* Add additional styles to make the component full-width */
+    .container {
+    width: 100%;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+    }
+
+    #navbar {
+        width: 100%;
+        /* 其他樣式屬性... */
     }
 </style>

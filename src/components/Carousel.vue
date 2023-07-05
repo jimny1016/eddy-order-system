@@ -146,12 +146,18 @@ body {
   user-select: none;
 }
 
+/* .btn-prev {
+  background-image: url('/image/slick/arrow-circle-left-solid.svg');
+} */
+
 .btn-next {
   left: auto;
   right: 1%;
+  /* background-image: url('/image/slick/arrow-circle-right-solid.svg'); */
 }
 
 .btn:hover {
   transform: scale(1.1);
 }
+
 </style>

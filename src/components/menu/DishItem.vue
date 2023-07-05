@@ -1,5 +1,5 @@
 <template>
-    <div  class="col-lg-4 col-md-6 mb-4" @click="sendValue(item.Title)">
+    <div  class="col-lg-4 col-md-6 mb-4">
         <div id="tilte">
             {{ dish.title }}
         </div>
@@ -9,6 +9,9 @@
         <div id="image">
             <!-- <img :src="dish.imgPath"/> -->
             {{ dish.imgPath }}
+        </div>
+        <div id="more_detail">
+            <font-awesome-icon :icon="['fas', 'plus-circle']" style="color: #1e90ff;"  size="lg"  @click="sendBakValue(dish.DishKey)"/>
         </div>
         <div id="price">
             NT${{ dish.price }}
@@ -39,6 +42,11 @@
 
         data() {
             return {
+            }
+        },
+        methods:{
+            sendBakValue(dishKey){
+                this.$emit('dishKey', dishKey);
             }
         },
         // setup() {

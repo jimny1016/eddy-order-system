@@ -248,7 +248,7 @@
             "Dishes" : [
                 {
                     "title": "經典炸物",
-                    "DishKey":"side_1",
+                    "DishKey":"rice_1",
                     "unit": "一份5個",
                     "imgPath": "../src/image",
                     "price": 80
@@ -260,7 +260,7 @@
             "Dishes" : [
                 {
                     "title": "經典炸物",
-                    "DishKey":"side_1",
+                    "DishKey":"noodle_1",
                     "unit": "一份5個",
                     "imgPath": "../src/image",
                     "price": 80
@@ -272,7 +272,7 @@
             "Dishes" : [
                 {
                     "title": "經典炸物",
-                    "DishKey":"side_1",
+                    "DishKey":"soup_1",
                     "unit": "一份5個",
                     "imgPath": "../src/image",
                     "price": 80
@@ -284,7 +284,7 @@
             "Dishes" : [
                 {
                     "title": "經典炸物",
-                    "DishKey":"side_1",
+                    "DishKey":"beverage_1",
                     "unit": "一份5個",
                     "imgPath": "../src/image",
                     "price": 80

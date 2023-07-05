@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 //**FortAwesome
 
 /*Vue Router*/
@@ -21,6 +22,7 @@ import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons'
 library.add(faGlobe)
 library.add(faCartShopping)
 library.add(faCircleArrowLeft)
+library.add(faPlusCircle)
 //**FortAwesome
 
 

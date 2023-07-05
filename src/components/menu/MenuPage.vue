@@ -2,15 +2,15 @@
     <div>
         <div v-for="(tab, tabIndex) in manuData" :key="`tab-${tabIndex}`">
             <h2>{{ tab.TabName }}</h2>
-            <DishItem v-for="(dish, dishIndex) in tab.Dishes" :key="`dish-${dishIndex}`" :dish="dish" @click="detail()" @update:value="getValue"/>
+            <DishItem v-for="(dish, dishIndex) in tab.Dishes" :key="`dish-${dishIndex}`" :dish="dish"  @dishKey="getValue"/>
         </div>
     </div>
 </template>
 
 <script>
-    import DishItem from '../DishItem.vue';
+    import DishItem from '../menu/DishItem.vue';
     export default{
-        props: ['manuData'],
+        props: ['manuData',],
         components: {
             DishItem
         },
@@ -27,12 +27,16 @@
             // };
         },
         methods: {
-            detail(){
-
-            },
+        //    switchDisplayTodetail(){
+        //        this.showSlider = value;
+        //    },
             getValue(value) {
                 this.receivedValue = value;
-            }
+                console.log(value);
+                if(value!==""){
+                    this.$emit('dishKey', value);
+                }
+            },
         },
     };
 
