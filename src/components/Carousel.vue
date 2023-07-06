@@ -1,27 +1,19 @@
 <template>
-  <!--Reference: https://vuejsexamples.com/10-vue-carousel-code-examples/-->
   <div id="my-slider">
       <transition-group tag="div" :name="transitionName" class="slides-group">
         <div :key="current" class="slide w-full h-full lg:h-screen bg-center bg-clip-border bg-cover bg-no-repeat relative">
           <div class="relative w-full h-full">
-                <img :src="getImagePath(slides[current].restaurantbg)" class="object-cover w-full h-full" alt="" />
-        <!--
-                <div v-if="show" :key="current" class="slide" :class="slides[current].className">
-          <p>I'm {{slides[current].restaurantbg}}!</p>
-        </div>
-        -->
+            <img :src="getImagePath(slides[current].restaurantbg)" class="object-cover w-full h-full" alt="" />
           </div>
         </div>
       </transition-group>
       <div class="btn btn-prev" aria-label="Previous slide" @click="slide(-1)">
-        &#10094;
+        <img :src="getImagePath('image/slick/arrow-circle-left-solid.svg')">
       </div>
       <div class="btn btn-next" aria-label="Next slide" @click="slide(1)">
-        &#10095;
-      </div>
-      
-  </div>
-        
+        <img :src="getImagePath('image/slick/arrow-circle-right-solid.svg')">
+      </div>      
+  </div>        
 </template>
   
 <script>
@@ -66,98 +58,62 @@
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Crimson+Text");
+  @import url("https://fonts.googleapis.com/css?family=Crimson+Text");
 
-/* FADE IN */
-.fade-enter-active {
-  transition: opacity 1s;
-}
-.fade-enter {
-  opacity: 0;
-}
+  /* FADE IN */
+  .fade-enter-active {
+    transition: opacity 1s;
+  }
+  .fade-enter {
+    opacity: 0;
+  }
 
-/* GO TO NEXT SLIDE */
-.slide-next-enter-active,
-.slide-next-leave-active {
-  transition: transform 0.5s ease-in-out;
-}
-.slide-next-enter {
-  transform: translate(100%);
-}
-.slide-next-leave-to {
-  transform: translate(-100%);
-}
+  .slide-next-enter-active,
+  .slide-next-leave-active {
+    transition: transform 0.5s ease-in-out;
+  }
+  .slide-next-enter {
+    transform: translate(100%);
+  }
+  .slide-next-leave-to {
+    transform: translate(-100%);
+  }
 
-/* GO TO PREVIOUS SLIDE */
-.slide-prev-enter-active,
-.slide-prev-leave-active {
-  transition: transform 0.5s ease-in-out;
-}
-.slide-prev-enter {
-  transform: translate(-100%);
-}
-.slide-prev-leave-to {
-  transform: translate(100%);
-}
+  .slide-prev-enter-active,
+  .slide-prev-leave-active {
+    transition: transform 0.5s ease-in-out;
+  }
 
-/* SLIDES CLASSES */
+  .slide-prev-enter {
+    transform: translate(-100%);
+  }
 
+  .slide-prev-leave-to {
+    transform: translate(100%);
+  }
 
+  .btn {
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top: calc(50% - 35px);
+    left: 1%;
+    transition: transform 0.3s ease-in-out;
+    user-select: none;
+  }
 
-/* SLIDER STYLES */
-body {
-  overflow: hidden;
-  margin: 0;
-  font-size: 50px;
-  font-family: "Crimson Text", sans-serif;
-  color: #fff;
-}
+  .btn-next {
+    left: auto;
+    right: 1%;
+  } 
 
-#slider {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-}
-
-.slide {
-  width: 100%;
-  height: 100vh;
-  /*position: absolute;*/
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn {
-  z-index: 10;
-  cursor: pointer;
-  border: 3px solid #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 70px;
-  height: 70px;
-  position: absolute;
-  top: calc(50% - 35px);
-  left: 1%;
-  transition: transform 0.3s ease-in-out;
-  user-select: none;
-}
-
-/* .btn-prev {
-  background-image: url('./image/slick/arrow-circle-left-solid.svg');
-}*/
-
-.btn-next {
-  left: auto;
-  right: 1%;
-  /* background-image: url('./image/slick/arrow-circle-right-solid.svg'); */
-} 
-
-.btn:hover {
-  transform: scale(1.1);
-}
+  .btn:hover {
+    transform: scale(1.1);
+  }
 
 </style>

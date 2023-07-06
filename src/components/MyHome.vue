@@ -1,5 +1,5 @@
 <template>
-  <Navbar :tableNum="tableNum" :title="pageTitle" shoppingcartshow="false" v-show="showSlider" id="navbar"/>
+  <Navbar :tableNum="tableNum" :title="pageTitle" isHomePage="false" v-show="showSlider" id="navbar"/>
   <Slider v-if="showSlider" />
   <MyMenu :manuData="manuData" v-if="!showSlider" /> 
   <button class="center start-ordering" @click="switchDisplay(false)" v-show="showSlider">Start Ordering</button> 
@@ -339,6 +339,7 @@
       methods: {
         switchDisplay(value) {
           this.showSlider = value;
+          this.isHomePage = false;
         }
       }
   };

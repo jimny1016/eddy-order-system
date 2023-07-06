@@ -1,28 +1,22 @@
 <template>
-
-    <div id="navbar">
-        <!-- <div class="container mx-auto"> -->
-            <ul>
-                <li v-show="shoppingcartshow"><a href="#" class="navbar-brand">{{tableNum}}</a></li>
-                <li><a href="#" class="navbar-brand">{{title}}</a></li>
-                <li classs="li-cart">
-                    <a href="#" class="navbar-cart" v-show="shoppingcartshow">
-                        <span class="cart">
-                            <font-awesome-icon icon="cart-shopping" style="color: #1e90ff;" size="xl"  @click="shopping_cart()"/>
-                        </span>
-                    </a>
-                </li>
-                <li class="li-lng">
-                    <a href="#" class="navbar-lng">
-                        <span class="lng">
-                            <font-awesome-icon icon="globe" style="color: #1e90ff;" size="xl" />
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        <!-- </div> -->
+    <div class="relative bg-gray-400 text-center py-2">
+        <div v-show="!isHomePage" class="text-center absolute ml-2">
+            <a href="#" >{{tableNum}}</a>
+        </div>
+            <a href="#" >{{title}}</a>
+        <div class="absolute top-[8px] right-0">
+            <a href="#" class="mr-2">
+                <span class="cart">
+                    <font-awesome-icon icon="cart-shopping" style="color: #1e90ff;" size="xl"  @click="shopping_cart()"/>
+                </span>
+            </a>
+            <a href="#" v-show="!isHomePage" class="mr-2">
+                <span class="lng">
+                    <font-awesome-icon icon="globe" style="color: #1e90ff;" size="xl" />
+                </span>
+            </a>
+        </div>
     </div>
-
 </template>
     
 <script>
@@ -39,7 +33,7 @@ import { router } from '../../router/index.js';
                 type: String,
                 required: true,
             },
-            shoppingcartshow:{
+            isHomePage:{
                 type: Boolean,
                 required: true,
             }
@@ -63,42 +57,4 @@ import { router } from '../../router/index.js';
 </script>
     
 <style scoped>
-
-    ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: visible;
-    }
-
-    li {
-        float: left;   
-    }
-
-    li a {
-    display: block;
-    margin: 0;
-    padding: 10px;
-    background-color: #dddddd;
-    }
-    
-    span.lng{
-        text-align: right;
-        }
-    span.cart{
-        text-align: right;    
-    }
-    
-    /* Add additional styles to make the component full-width */
-    .container {
-    width: 100%;
-    max-width: none;
-    padding-left: 0;
-    padding-right: 0;
-    }
-
-    #navbar {
-        width: 100%;
-        /* 其他樣式屬性... */
-    }
 </style>
