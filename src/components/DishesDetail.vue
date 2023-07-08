@@ -1,5 +1,8 @@
 <template>
-    <div @click="backToMenu()">back</div>
+    <div @click="backToMenu()">
+        <MyImage imagePath="/image/icon/previous-blue.png" firstLayerClass="!fixed w-10 h-10 top-10" />
+    </div>
+    
     <div v-if="dish">
         <div id="image">
             <!-- <img :src="dish.imgPath"/> -->
@@ -30,8 +33,9 @@
 </template>
 
 <script>
-import RadioOpt from './options/RadioOptions.vue';
-//import { ref } from 'vue'; // 导入 ref 函数
+    import RadioOpt from './options/RadioOptions.vue';
+    import MyImage from './tools/MyImage.vue';
+    //import { ref } from 'vue'; // 导入 ref 函数
     export default {
         name: 'dish-detail',
         props: ['dish'],
@@ -49,7 +53,8 @@ import RadioOpt from './options/RadioOptions.vue';
         //     // };
         // },
         components: {
-            RadioOpt
+            RadioOpt,
+            MyImage
         },
         // components: {
         //     RadioOpt: () => import('./options/RadioOptions.vue'), // 异步加载 RadioOptions.vue 组件

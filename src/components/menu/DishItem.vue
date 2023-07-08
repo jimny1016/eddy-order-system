@@ -22,7 +22,7 @@
 </template>
 
 <script>
-    import MyImage from '../tools/MyImage';
+    import MyImage from '../tools/MyImage.vue';
     export default {
         props: ['dish'],
         data() {
