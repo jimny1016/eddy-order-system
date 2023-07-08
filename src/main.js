@@ -12,6 +12,7 @@ import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import '../public/css/global.css'
 //**FortAwesome
 
 /*Vue Router*/
