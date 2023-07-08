@@ -11,11 +11,9 @@
                 NT${{ dish.price }}
             </div>
         </div>
-        <div>
-            <div>
-                <!-- <img :src="dish.imgPath"/> -->
-                {{ dish.imgPath }}
-            </div>
+        <div class="w-[120px] h-[120px]">
+            <MyImage imagePath="/image/slick/restaurant-bg-1.jpg" firstLayerClass="w-full h-full" imageClass="rounded-2xl" />
+            <!-- {{ dish.imgPath }} -->
             <div>
                 <font-awesome-icon :icon="['fas', 'plus-circle']" style="color: #1e90ff;"  size="lg"  @click="sendBakValue(dish.DishKey)"/>
             </div>            
@@ -24,11 +22,15 @@
 </template>
 
 <script>
+    import MyImage from '../tools/MyImage';
     export default {
         props: ['dish'],
         data() {
             return {
             }
+        },
+        components:{ 
+            MyImage 
         },
         methods:{
             sendBakValue(dishKey){
