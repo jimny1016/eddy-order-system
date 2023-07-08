@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="px-2">
         <div v-for="(tab, tabIndex) in manuData" :key="`tab-${tabIndex}`">
-            <h2>{{ tab.TabName }}</h2>
+            <div class="text-2xl py-1 font-bold">{{ tab.TabName }}</div>
             <DishItem v-for="(dish, dishIndex) in tab.Dishes" :key="`dish-${dishIndex}`" :dish="dish"  @dishKey="getValue"/>
         </div>
     </div>
