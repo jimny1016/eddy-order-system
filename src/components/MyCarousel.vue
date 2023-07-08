@@ -1,6 +1,6 @@
 <template>
-  <div id="my-slider">
-      <transition-group tag="div" :name="transitionName" class="slides-group">
+  <div>
+      <transition-group tag="div" :name="transitionName" class="slides-group h-[100vh]">
         <div :key="current" class="slide w-full h-full lg:h-screen bg-center bg-clip-border bg-cover bg-no-repeat relative">
           <div class="relative w-full h-full">
             <img :src="getImagePath(slides[current].restaurantbg)" class="object-cover w-full h-full" alt="" />
@@ -18,7 +18,7 @@
   
 <script>
   export default {
-    name: "my-slider",
+    name: "my-carousel",
     data() {
       return {
         current: 0,

@@ -9,7 +9,7 @@
         <ul
         class="list-none bg-blue-900 bg-opacity-30 p-1.5 rounded-lg text-center overflow-auto whitespace-nowrap"
         :class="{
-            'flex items-center mb-6': variant === 'vertical',
+            'flex items-center': variant === 'vertical',
         }"
         >
         <li
@@ -37,7 +37,7 @@
             />
         </li>
         </ul>
-        <template v-for="(tab, index) in tabList">
+        <!-- <template v-for="(tab, index) in tabList">
         <div
             :key="index"
             v-if="index + 1 === activeTab"
@@ -45,7 +45,7 @@
         >
             <slot :name="`tabPanel-${index + 1}`"></slot>
         </div>
-        </template>
+        </template> -->
     </div>
 </template>
 

@@ -2,9 +2,7 @@
 <!--with navigation bar-->
 <div v-show="!showDishDetailPage">
     <Navbar :tableNum="tableNum" :title="pageTitle" shoppingcartshow="true"/>
-<br>
-<br>
-    <CategoryTabs class="w-full lg:w-10/12 mx-auto mb-16" :tabList="tabList">
+    <CategoryTabs class="w-full lg:w-10/12 mx-auto" :tabList="tabList">
         <div v-for="(tab, index) in tabList" :key="index" >
             <slot tabindex="${index}">{{ tab.tabLabel }}</slot>
             <slot :tabindex="index">{{ tabNames[index] }}</slot>

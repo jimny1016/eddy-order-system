@@ -1,12 +1,12 @@
 <template>
   <Navbar :tableNum="tableNum" :title="pageTitle" isHomePage="false" v-show="showSlider" id="navbar"/>
-  <Slider v-if="showSlider" />
+  <MyCarousel v-if="showSlider" />
   <MyMenu :manuData="manuData" v-if="!showSlider" /> 
   <button class="center start-ordering" @click="switchDisplay(false)" v-show="showSlider">Start Ordering</button> 
 </template>
 
 <script>
-  import Slider from './Carousel.vue';
+  import MyCarousel from './MyCarousel.vue';
   import MyMenu from './menu/MyMenu.vue';
   import Navbar from './navigationHeaderBar/NavigationHeaderBar.vue';
   export default {
@@ -313,7 +313,7 @@
         }
       },
       components: {
-        Slider,
+        MyCarousel,
         MyMenu,
         Navbar
       },
