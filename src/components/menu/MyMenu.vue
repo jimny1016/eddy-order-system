@@ -11,12 +11,10 @@
             </CategoryTabs>
             <Menupage :manuData="manuData[0].Display" @dishKey="getValue"/>
         </div>
-
         <!--without navigation bar showDishDetailPage-->
         <div v-show="showDishDetailPage">
-            <DishDetail :dish="dish"/>
+            <DishDetail :dish="dish" @backToMenu="backToMenu" />
         </div>
-
     </div>
 </template>
 
@@ -83,9 +81,10 @@ export default {
             }else{
                 this.showDishDetailPage=false;
             }
-
-        }
-        
+        },
+        backToMenu() {
+            this.showDishDetailPage = false;
+        }        
     },
 };
 </script>

@@ -1,4 +1,5 @@
 <template>
+    <div @click="backToMenu()">back</div>
     <div v-if="dish">
         <div id="image">
             <!-- <img :src="dish.imgPath"/> -->
@@ -66,6 +67,9 @@ import RadioOpt from './options/RadioOptions.vue';
         methods:{
             sendValue(){
                 // 可以在这里执行发送值的逻辑
+            },
+            backToMenu(){
+                this.$emit('backToMenu');
             }
         },
     };
