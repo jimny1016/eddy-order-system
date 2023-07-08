@@ -1,16 +1,14 @@
 <template>
     <div @click="backToMenu()">
-        <MyImage imagePath="/image/icon/previous-blue.png" firstLayerClass="!fixed w-10 h-10 top-10" />
-    </div>
-    
+        <MyImage imagePath="/image/icon/previous-blue.png" firstLayerClass="!fixed w-10 h-10 top-10 ml-2 z-10" />
+    </div>    
     <div v-if="dish">
-        <div id="image">
-            <!-- <img :src="dish.imgPath"/> -->
-            {{ dish.imgPath }}
+        <div id="image">            
+            <!-- {{ dish.imgPath }} -->
+            <MyImage imagePath="/image/slick/restaurant-bg-1.jpg" firstLayerClass="w-full h-1/2" />
         </div>
         <div id="tilte">
             {{ dish.title }}
-            123
         </div>
         <div id="price">
             NT${{ dish.price }}
