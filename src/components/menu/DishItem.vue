@@ -1,5 +1,5 @@
 <template>
-    <div class="px-2 mb-4 flex justify-between">
+    <div class="px-2 md:pr-0 mb-4 flex justify-between">
         <div>
             <div class="text-xl font-semibold">
                 {{ dish.title }}

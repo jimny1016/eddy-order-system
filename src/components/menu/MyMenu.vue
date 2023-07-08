@@ -1,21 +1,23 @@
 <template>
-<!--with navigation bar-->
-<div v-show="!showDishDetailPage">
-    <Navbar :tableNum="tableNum" :title="pageTitle" shoppingcartshow="true"/>
-    <CategoryTabs class="w-full lg:w-10/12 mx-auto" :tabList="tabList">
-        <div v-for="(tab, index) in tabList" :key="index" >
-            <slot tabindex="${index}">{{ tab.tabLabel }}</slot>
-            <slot :tabindex="index">{{ tabNames[index] }}</slot>
+    <div class="max-w-3xl m-auto">
+        <!--with navigation bar-->
+        <div v-show="!showDishDetailPage">
+            <Navbar :tableNum="tableNum" :title="pageTitle" shoppingcartshow="true"/>
+            <CategoryTabs class="w-full lg:w-10/12 mx-auto" :tabList="tabList">
+                <div v-for="(tab, index) in tabList" :key="index" >
+                    <slot tabindex="${index}">{{ tab.tabLabel }}</slot>
+                    <slot :tabindex="index">{{ tabNames[index] }}</slot>
+                </div>
+            </CategoryTabs>
+            <Menupage :manuData="manuData[0].Display" @dishKey="getValue"/>
         </div>
-    </CategoryTabs>
-    <Menupage :manuData="manuData[0].Display" @dishKey="getValue"/>
-</div>
 
-<!--without navigation bar showDishDetailPage-->
-<div v-show="showDishDetailPage">
-    <DishDetail :dish="dish"/>
-</div>
+        <!--without navigation bar showDishDetailPage-->
+        <div v-show="showDishDetailPage">
+            <DishDetail :dish="dish"/>
+        </div>
 
+    </div>
 </template>
 
 <script>
