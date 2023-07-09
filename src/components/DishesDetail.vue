@@ -1,6 +1,6 @@
 <template>
     <div @click="backToMenu()">
-        <MyImage imagePath="/image/icon/previous-blue.png" firstLayerClass="!fixed w-10 h-10 top-10 ml-2 z-10" />
+        <MyImage imagePath="/image/icon/previous-blue.png" firstLayerClass="!fixed top-10 ml-2 z-10" imageClass="!w-10 !h-10" />
     </div>    
     <div v-if="dish">
         <div id="image">            
