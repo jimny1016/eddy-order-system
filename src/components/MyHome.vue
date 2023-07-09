@@ -34,6 +34,7 @@
                                 Type:2,//1=check box, 2=radio button, 3=textBox, 4=count
                                 Requirement:1,//0=option, 1=required
                                 Key:1,//1=辣度選擇,2=加購,3=備註
+                                Name:"辣度選擇",
                                 Memo:"Please Select 1 option",
                                 OptionVaules:[{
                                   ValueName:"不辣",
@@ -65,6 +66,7 @@
                                 Type:1,
                                 Requirement:0,
                                 Key:2,
+                                Name:"加購",
                                 Memo:"Recommendation",
                                 OptionVaules:[{
                                   ValueName:"Coca Cola",
@@ -96,11 +98,26 @@
                                 Type:4,//1=check box, 2=radio button, 3=textBox, 4=count
                                 Requirement:0,//0=option, 1=required
                                 Key:3,//1=辣度選擇,2=加購,3=備註
+                                Name:"加購",
                                 Memo:"若超過10人享用,請加選用餐人數",
                                 OptionVaules:[{
                                   ValueName:"增加人數",
                                   ValueKey:"1",
                                   Price:200,
+                                  BeChoise:false,
+                                  Content:""
+                                }]
+                              },
+                              {
+                                Type:3,//1=check box, 2=radio button, 3=textBox, 4=count
+                                Requirement:0,//0=option, 1=required
+                                Key:4,//1=辣度選擇,2=加購,3=備註
+                                Name:"備註",
+                                Memo:"如有任何需求或打包服務請備註",
+                                OptionVaules:[{
+                                  ValueName:"備註",
+                                  ValueKey:"1",
+                                  Price:0,
                                   BeChoise:false,
                                   Content:""
                                 }]
