@@ -32,7 +32,7 @@
                             Options: [
                               {
                                 Type:2,//1=check box, 2=radio button, 3=textBox, 4=count
-                                Requirement:1,//0=option, 1=required
+                                Requirement:true,//0=option, 1=required
                                 Key:1,//1=辣度選擇,2=加購,3=備註
                                 Name:"辣度選擇",
                                 Memo:"Please Select 1 option",
@@ -64,7 +64,7 @@
                               },
                               {
                                 Type:1,
-                                Requirement:0,
+                                Requirement:false,
                                 Key:2,
                                 Name:"加購",
                                 Memo:"Recommendation",
@@ -96,7 +96,7 @@
                               },
                               {
                                 Type:4,//1=check box, 2=radio button, 3=textBox, 4=count
-                                Requirement:0,//0=option, 1=required
+                                Requirement:false,//0=option, 1=required
                                 Key:3,//1=辣度選擇,2=加購,3=備註
                                 Name:"加購",
                                 Memo:"若超過10人享用,請加選用餐人數",
@@ -110,7 +110,7 @@
                               },
                               {
                                 Type:3,//1=check box, 2=radio button, 3=textBox, 4=count
-                                Requirement:0,//0=option, 1=required
+                                Requirement:false,//0=option, 1=required
                                 Key:4,//1=辣度選擇,2=加購,3=備註
                                 Name:"備註",
                                 Memo:"如有任何需求或打包服務請備註",

@@ -21,7 +21,7 @@
             </div>
         </div>
         <div v-if="this.disheOptions" class="px-4">
-            <div v-for="(option, optionIndex) in this.disheOptions" :key="'option-' + optionIndex">
+            <div v-for="(option, optionIndex) in this.disheOptions" :key="'option-' + optionIndex" class="mb-4">
                 <div v-if="option.Type=='1'">
                     <div class="flex justify-between">
                         <div>
@@ -33,7 +33,7 @@
                             </div>
                         </div>
                         <div>
-                            <div class="bg-blue-500 rounded-full text-white py-0.5 px-2">
+                            <div class="bg-blue-500 rounded-full text-white py-0.5 px-2" v-if="option.Requirement">
                                 必填                        
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                             </div>
                         </div>
                         <div>
-                            <div class="bg-blue-500 rounded-full text-white py-0.5 px-2">
+                            <div class="bg-blue-500 rounded-full text-white py-0.5 px-2" v-if="option.Requirement">
                                 必填                        
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                         <label class="text-lg">{{ optionVaule.ValueName }}</label>
                     </div>
                 </div>
-            </div>
+            </div>            
             {{ this.disheOptions }}
         </div>
     </div>
