@@ -13,6 +13,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 import '../public/css/global.css'
+import store from './store'
 //**FortAwesome
 
 /*Vue Router*/
@@ -27,7 +28,8 @@ library.add(faPlusCircle)
 //**FortAwesome
 
 
-const app = createApp(App)
+const app = createApp(App);
+app.use(store);
 app.component('font-awesome-icon', FontAwesomeIcon)
 //app.component(router)
 app.mount('#app')
