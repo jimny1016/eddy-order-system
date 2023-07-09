@@ -78,6 +78,26 @@
                         </div>
                     </div>
                 </div>
+                <div v-if="option.Type=='3'">
+                    <div class="flex justify-between">
+                        <div>
+                            <div class="text-xl font-bold">
+                                {{ option.Name }}
+                            </div>
+                            <div class=" text-gray-500">
+                                {{ option.Memo }}
+                            </div>
+                        </div>
+                        <div>
+                            <div class="bg-blue-500 rounded-full text-white py-0.5 px-2" v-if="option.Requirement">
+                                必填                        
+                            </div>
+                        </div>
+                    </div>
+                    <div v-for="(optionVaule, optionVauleIndex) in option.OptionVaules" :key="'optionVauleRadio-' + optionVauleIndex" class="flex items-center space-x-2 my-2">
+                        <textarea v-model="optionVaule.Content" class="w-full p-2 border border-black rounded shadow"></textarea>
+                    </div>
+                </div>
                 <div v-if="option.Type=='4'">
                     <div class="flex justify-between">
                         <div>
