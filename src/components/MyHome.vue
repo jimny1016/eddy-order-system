@@ -31,71 +31,80 @@
                             price: 90,
                             Options: [
                               {
-                                OptionButtonType:2,//0=empty, 1=check box, 2=radio button
-                                OptionRequirement:1,//0=option, 1=required
-                                OptionKey:1,//1=辣度選擇,2=加購,3=備註
-                                OptionMemo:"Please Select 1 option",
-                                OptionVaule:[{
-                                  OptionValueName:"不辣",
-                                  OptionValueKey:"1",
-                                  OptionExtend:0,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:""
+                                Type:2,//1=check box, 2=radio button, 3=textBox, 4=count
+                                Requirement:1,//0=option, 1=required
+                                Key:1,//1=辣度選擇,2=加購,3=備註
+                                Memo:"Please Select 1 option",
+                                OptionVaules:[{
+                                  ValueName:"不辣",
+                                  ValueKey:"1",
+                                  Price:0,
+                                  BeChoise:false,
+                                  Content:""
                                 },{
-                                  OptionValueName:"小辣",
-                                  OptionValueKey:"2",
-                                  OptionExtend:0,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:""
+                                  ValueName:"小辣",
+                                  ValueKey:"2",
+                                  Price:0,
+                                  BeChoise: false,
+                                  Content:""
                                 },{
-                                  OptionValueName:"中辣",
-                                  OptionValueKey:"3",
-                                  OptionExtend:0,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:""
+                                  ValueName:"中辣",
+                                  ValueKey:"3",
+                                  Price:0,
+                                  BeChoise: false,
+                                  Content:""
                                 },{
-                                  OptionValueName:"大辣",
-                                  OptionValueKey:"4",
-                                  OptionExtend:0,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:""
+                                  ValueName:"大辣",
+                                  ValueKey:"4",
+                                  Price:0,
+                                  BeChoise: false,
+                                  Content:""
                                 }]
                               },
                               {
-                                OptionButtonType:1,//0=empty, 1=check box, 2=radio button
-                                OptionRequirement:0,//0=option, 1=required
-                                OptionKey:2,//1=辣度選擇,2=加購,3=備註
-                                OptionMemo:"Recommendation",
-                                OptionVaule:[{
-                                  OptionValueName:"Coca Cola",
-                                  OptionValueKey:"1",
-                                  OptionExtend:0,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:30
+                                Type:1,
+                                Requirement:0,
+                                Key:2,
+                                Memo:"Recommendation",
+                                OptionVaules:[{
+                                  ValueName:"Coca Cola",
+                                  ValueKey:"1",
+                                  Price:30,
+                                  BeChoise:false,
+                                  Content:""
                                 },{
-                                  OptionValueName:"Apple Sidra",
-                                  OptionValueKey:"2",
-                                  OptionExtend:0,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:40
+                                  ValueName:"Apple Sidra",
+                                  ValueKey:"2",
+                                  Price:40,
+                                  BeChoise: false,
+                                  Content:""
                                 },{
-                                  OptionValueName:"Pepsi",
-                                  OptionValueKey:"3",
-                                  OptionExtend:0,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:50
+                                  ValueName:"Pepsi",
+                                  ValueKey:"3",
+                                  Price:50,
+                                  BeChoise: false,
+                                  Content:""
                                 },{
-                                  OptionValueName:"Sprite",
-                                  OptionValueKey:"4",
-                                  OptionExtend:0,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:60
+                                  ValueName:"Sprite",
+                                  ValueKey:"4",
+                                  Price:60,
+                                  BeChoise: false,
+                                  Content:""
                                 }]
                               },
                               {
-                                OptionButtonType:1,//0=empty, 1=check box, 2=radio button
-                                OptionRequirement:0,//0=option, 1=required
-                                OptionKey:2,//1=辣度選擇,2=加購,3=備註
-                                OptionMemo:"若超過10人享用,請加選用餐人數",
-                                OptionVaule:[{
-                                  OptionValueName:"增加人數",
-                                  OptionValueKey:"1",
-                                  OptionExtend:1,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:200
+                                Type:4,//1=check box, 2=radio button, 3=textBox, 4=count
+                                Requirement:0,//0=option, 1=required
+                                Key:3,//1=辣度選擇,2=加購,3=備註
+                                Memo:"若超過10人享用,請加選用餐人數",
+                                OptionVaules:[{
+                                  ValueName:"增加人數",
+                                  ValueKey:"1",
+                                  Price:200,
+                                  BeChoise:false,
+                                  Content:""
                                 }]
-                              }
+                              },
                             ]
                         },
                         {
@@ -104,81 +113,6 @@
                             unit: "一份",
                             imgPath: "../src/image",
                             price: 100,
-                            Options: [
-                              {
-                                OptionButtonType:2,//0=empty, 1=check box, 2=radio button
-                                OptionRequirement:1,//0=option, 1=required
-                                OptionKey:1,//1=辣度選擇,2=加購,3=備註
-                                OptionMemo:"Please Select 1 option",
-                                OptionVaule:[{
-                                  OptionValueName:"不辣",
-                                  OptionValueKey:"1",
-                                  OptionExtend:0,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:""
-                                },{
-                                  OptionValueName:"小辣",
-                                  OptionValueKey:"2",
-                                  OptionExtend:0,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:""
-                                },{
-                                  OptionValueName:"中辣",
-                                  OptionValueKey:"3",
-                                  OptionExtend:0,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:""
-                                },{
-                                  OptionValueName:"大辣",
-                                  OptionValueKey:"4",
-                                  OptionExtend:0,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:""
-                                }]
-                              },
-                              {
-                                OptionButtonType:1,//0=empty, 1=check box, 2=radio button
-                                OptionRequirement:0,//0=option, 1=required
-                                OptionKey:2,//1=辣度選擇,2=加購,3=備註
-                                OptionMemo:"Recommendation",
-                                OptionVaule:[{
-                                  OptionValueName:"Coca Cola",
-                                  OptionValueKey:"1",
-                                  OptionExtend:0,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:30
-                                },{
-                                  OptionValueName:"Apple Sidra",
-                                  OptionValueKey:"2",
-                                  OptionExtend:0,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:40
-                                },{
-                                  OptionValueName:"Green Tea",
-                                  OptionValueKey:"3",
-                                  OptionExtend:0,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:50
-                                }]
-                              },
-                              {
-                                OptionButtonType:1,//0=empty, 1=check box, 2=radio button
-                                OptionRequirement:0,//0=option, 1=required
-                                OptionKey:2,//1=辣度選擇,2=加購,3=備註
-                                OptionMemo:"若超過10人享用,請加選用餐人數",
-                                OptionVaule:[{
-                                  OptionValueName:"增加人數",
-                                  OptionValueKey:"1",
-                                  OptionExtend:1,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:200
-                                }]
-                              },
-                              {
-                                OptionButtonType:0,//0=empty, 1=check box, 2=radio button
-                                OptionRequirement:0,//0=option, 1=required
-                                OptionKey:3,//1=辣度選擇,2=加購,3=備註
-                                OptionMemo:"如有任何需求或打包服務請備註",
-                                OptionVaule:[{
-                                  OptionValueName:"",
-                                  OptionValueKey:"1",
-                                  OptionExtend:2,//0=empty, 1=count, 2=textbox
-                                  OptionPrice:""
-                                }]
-                              }
-                            ]
                         },
                         {
                             title: "綜合天婦羅",

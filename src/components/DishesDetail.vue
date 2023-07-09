@@ -21,6 +21,7 @@
             </div>
         </div>
         <div v-if="dish.Options">
+            {{ dish.Options }}
             <RadioOpt :options="dish.Options" />
         </div>
          <!-- 传递选项数组给 RadioOpt 组件 -->
