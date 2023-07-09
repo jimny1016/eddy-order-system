@@ -2,7 +2,7 @@
     <div class="px-2 md:pr-0">
         <div v-for="(tab, tabIndex) in manuData" :key="`tab-${tabIndex}`">
             <div class="text-2xl py-1 font-bold">{{ tab.TabName }}</div>
-            <DishItem v-for="(dish, dishIndex) in tab.Dishes" :key="`dish-${dishIndex}`" :dish="dish"  @dishKey="getValue"/>
+            <DishItem v-for="(dish, dishIndex) in tab.Dishes" :key="`dish-${dishIndex}`" :dish="dish" @dishKey="getValue"/>
         </div>
     </div>
 </template>

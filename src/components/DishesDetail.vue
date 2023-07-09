@@ -3,18 +3,22 @@
         <MyImage imagePath="/image/icon/previous-blue.png" firstLayerClass="!fixed top-10 ml-2 z-10 !w-auto !h-auto" secondLayerClass="!w-auto !h-auto" imageClass="!w-10 !h-10" />
     </div>    
     <div v-if="dish">
-        <div id="image">            
+        <div>            
             <!-- {{ dish.imgPath }} -->
-            <MyImage imagePath="/image/slick/restaurant-bg-1.jpg" firstLayerClass="w-full h-1/2" />
+            <MyImage imagePath="/image/slick/restaurant-bg-1.jpg" firstLayerClass="!h-[30vh]"/>
         </div>
-        <div id="tilte">
-            {{ dish.title }}
-        </div>
-        <div id="price">
-            NT${{ dish.price }}
-        </div>
-        <div id="units">
-            {{ dish.unit }}
+        <div class="flex justify-between mt-4 mb-8">
+            <div>
+                <div class="text-3xl font-bold">
+                    {{ dish.title }}
+                </div>
+                <div class="text-xl text-gray-600">
+                    {{ dish.unit }}
+                </div>
+            </div>
+            <div class="text-3xl text-blue-400">
+                NT${{ dish.price }}
+            </div>
         </div>
         <div v-if="dish.Options">
             <RadioOpt :options="dish.Options" />
