@@ -105,7 +105,7 @@
                                   ValueKey:"1",
                                   Price:200,
                                   BeChoise:false,
-                                  Content:""
+                                  Content:"0"
                                 }]
                               },
                               {

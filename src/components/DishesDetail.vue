@@ -21,7 +21,7 @@
             </div>
         </div>
         <div v-if="this.disheOptions" class="px-4">
-            <div v-for="(option, optionIndex) in this.disheOptions" :key="'option-' + optionIndex" class="mb-4">
+            <div v-for="(option, optionIndex) in this.disheOptions" :key="'option-' + optionIndex" class="mb-8">
                 <div v-if="option.Type=='1'">
                     <div class="flex justify-between">
                         <div>
@@ -94,9 +94,18 @@
                             </div>
                         </div>
                     </div>
-                    <div v-for="(optionVaule, optionVauleIndex) in option.OptionVaules" :key="'optionVauleRadio-' + optionVauleIndex" @click="handleRadioChange(optionIndex, optionVauleIndex)" class="flex items-center space-x-2 my-2 cursor-pointer">
-                        <input type="radio" :name="'radio-' + option.Key" @click.stop :checked="optionVaule.BeChoise" class="w-5 h-5 text-blue-500 rounded" /> 
-                        <label class="text-lg">{{ optionVaule.ValueName }}</label>
+                    <div v-for="(optionVaule, optionVauleIndex) in option.OptionVaules" :key="'optionVauleRadio-' + optionVauleIndex" class="flex items-center space-x-2 my-2 cursor-pointer">
+                        <div class="flex justify-between w-full">
+                            <div class="flex">
+                                <MyImage imagePath="/image/icon/minus.png" @click="()=>{ optionVaule.Content = parseInt(optionVaule.Content) - 1 < 0 ? 0 : parseInt(optionVaule.Content) - 1 }"  firstLayerClass="!w-auto !h-auto top-[0.3rem]" secondLayerClass="!w-auto !h-auto" imageClass="!w-4 !h-4" />
+                                <div class="mx-2 text-center">{{ optionVaule.Content }}</div>
+                                <MyImage imagePath="/image/icon/plus.png" @click="()=>{ optionVaule.Content = parseInt(optionVaule.Content) + 1 }"  firstLayerClass="!w-auto !h-auto top-[0.3rem]" secondLayerClass="!w-auto !h-auto" imageClass="!w-4 !h-4" />
+                                <label class="text-lg ml-2">{{ optionVaule.ValueName }}</label>
+                            </div>
+                            <div v-if="optionVaule.Price > 0">
+                                NT${{ optionVaule.Price }}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>            
