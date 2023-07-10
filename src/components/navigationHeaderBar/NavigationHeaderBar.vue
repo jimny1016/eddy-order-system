@@ -5,12 +5,15 @@
         </div>
             <a href="#" >{{title}}</a>
         <div class="absolute top-[8px] right-0">
-            <a href="#" class="mr-2">
+            <a href="#" class="mr-2 relative" v-show="!isHomePage">
                 <span class="cart">
                     <font-awesome-icon icon="cart-shopping" style="color: #1e90ff;" size="xl"  @click="shopping_cart()"/>
                 </span>
+                <span class="absolute bottom-[-8px] right-0 bg-red-500 px-[2px] leading-[1.2] text-white text-sm rounded-sm">
+                    {{ cartLength }}
+                </span>
             </a>
-            <a href="#" v-show="!isHomePage" class="mr-2">
+            <a href="#" class="mr-2">
                 <span class="lng">
                     <font-awesome-icon icon="globe" style="color: #1e90ff;" size="xl" />
                 </span>
@@ -42,6 +45,11 @@ import { router } from '../../router/index.js';
             return {
             collapsed: true,
             };
+        },
+        computed:{
+            cartLength() {
+                return this.$store.getters.cart.length;
+            }
         },
         methods: {
             toggleActive(flag) {

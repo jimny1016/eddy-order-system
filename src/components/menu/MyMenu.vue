@@ -44,11 +44,13 @@ export default {
             } else {
                 return [];
             }
+        },
+        cartLength() {
+            return this.$store.getters.cart.length;
         }
     },
     data() {
-        return {
-       // tabList: ["Recommendation", "Classic Combo", "a la carte - Rice", "a la carte - Noodle","a la carte - Side Dish","a la carte - Soup","a la carte - Beverage"],
+        return {       
             dish: null, //save variable 
             showDishDetailPage: false // 控制是否显示DishDetail组件
         };
@@ -57,12 +59,6 @@ export default {
         getValue(value) {
             this.receivedValue = value;
             this.value = value; // 保存value到this.value
-            console.log("HI! "+value);
-
-            // this.dish = this.manuData[0].Display
-            // .find(tab => tab.TabName === 'Recommendation')
-            // .Dishes.find(dish => dish.DishKey === value); // 设置this.dish的值
-
             var target;
             this.manuData[0].Display.forEach(tab => {
                 var temp = tab.Dishes.find(dish => dish.DishKey === value);
@@ -73,11 +69,9 @@ export default {
             });
             if(target)
                 this.dish = target;
-            console.log("HI!dish "+this.dish);
 
             if(value!=null && this.dish!=null){
                 this.showDishDetailPage=true;
-                console.log("showDishDetailPage "+this.showDishDetailPage);
             }else{
                 this.showDishDetailPage=false;
             }
