@@ -23,8 +23,6 @@
 </template>
     
 <script>
-import { router } from '../../router/index.js';
-
     export default {
         name: 'NavigationHeaderBar',
         props: {
@@ -56,7 +54,7 @@ import { router } from '../../router/index.js';
                 this.collapsed = flag;
             },
             shopping_cart(){
-                router.push('/shoppingcart');
+                this.$store.dispatch('updatePageState', {pageState: 2 });
             },
         },
     };

@@ -15,6 +15,9 @@
         <div v-show="pageState == 1">
             <DishDetail :dish="dish" @backToMenu="backToMenu" />
         </div>
+        <div v-show="pageState == 2">
+            <ShoppingCart />
+        </div>
     </div>
 </template>
 
@@ -23,12 +26,13 @@ import Navbar from './../navigationHeaderBar/NavigationHeaderBar.vue';
 import CategoryTabs from '../tabs/CategoryTabs.vue';
 import Menupage from './MenuPage.vue';
 import DishDetail from '../DishesDetail.vue';
+import ShoppingCart from '../ShoppingCart.vue';
 
 export default {
     name: 'my-menu',
     props: ['manuData'],
     components: {
-        Navbar,CategoryTabs,Menupage,DishDetail
+        Navbar,CategoryTabs,Menupage,DishDetail,ShoppingCart
     },
     computed:{
         tableNum(){
