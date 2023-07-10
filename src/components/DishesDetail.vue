@@ -69,7 +69,7 @@
                     <div v-for="(optionVaule, optionVauleIndex) in option.OptionVaules" :key="'optionVauleRadio-' + optionVauleIndex" @click="handleRadioChange(optionIndex, optionVauleIndex)" class="flex items-center space-x-2 my-2 cursor-pointer">
                         <div class="flex justify-between w-full">
                             <div>
-                                <input type="radio" :name="'radio-' + option.Key" @click.stop :checked="optionVaule.BeChoise" class="w-5 h-5 text-blue-500 rounded mr-1 relative top-0.5" /> 
+                                <input type="radio" :name="'radio-' + option.Key" :checked="optionVaule.BeChoise" class="w-5 h-5 text-blue-500 rounded mr-1 relative top-0.5" /> 
                                 <label class="text-lg">{{ optionVaule.ValueName }}</label>
                             </div>
                             <div v-if="optionVaule.Price > 0">
@@ -130,6 +130,7 @@
                 </div>
             </div>            
             <!-- {{ this.disheOptions }} -->
+            <!-- {{ this.$store.getters.cart }} -->
         </div>
     </div>
     <div class="!fixed left-0 bottom-0 w-[100vw] z-10!h-auto p-4 bg-white">
@@ -139,7 +140,7 @@
                 <div class="mx-2 text-center text-2xl self-center">{{ dishesCount }}</div>
                 <MyImage imagePath="/image/icon/plus.png" @click="()=>{ dishesCount = parseInt(dishesCount) + 1 }"  firstLayerClass="!w-auto !h-auto cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-10 !h-10" />
             </div>
-            <div class="bg-blue-400 px-14 py-2 rounded-md text-white text-center text-2xl self-center">加入購物車</div>
+            <div @click="addToCart" class="bg-blue-400 px-14 py-2 rounded-md text-white text-center text-2xl self-center">加入購物車</div>
         </div>
     </div>
 
@@ -162,13 +163,13 @@
         },
         watch: {
             dish: {
-            immediate: true,
-            deep: true,
-            handler(newVal) {
-                if (newVal && newVal.Options) {
-                this.disheOptions = JSON.parse(JSON.stringify(newVal.Options));
-                }
-            },
+                immediate: true,
+                deep: true,
+                handler(newVal) {
+                    if (newVal && newVal.Options) {
+                        this.disheOptions = JSON.parse(JSON.stringify(newVal.Options));
+                    }
+                },
             },
         },       
         methods:{
@@ -182,6 +183,55 @@
             },
             backToMenu(){
                 this.$emit('backToMenu');
+            },
+            addToCart() {
+                let isOk = this.checkRequirement();
+                if(!isOk) {
+                    return;
+                }
+                let myDish = JSON.parse(JSON.stringify(this.dish));
+                myDish.Options = this.disheOptions;
+                this.$store.dispatch('addToCart', {product: myDish, quantity: this.dishesCount });
+                
+                alert('新增餐點成功!');
+                this.backToMenu();
+            },
+            checkRequirement() {
+                let isOk = true;
+                let message = '';
+                for (let optionIndex = 0; optionIndex < this.disheOptions.length; optionIndex++) {
+                    let option = this.disheOptions[optionIndex];
+
+                    if(!option.Requirement) {
+                        continue;
+                    }
+                    let isChecked = false;
+                    for (let optionVaulesIndex = 0; optionVaulesIndex < option.OptionVaules.length; optionVaulesIndex++) {
+                        let optionValue = option.OptionVaules[optionVaulesIndex];
+                        switch(option.Type) {
+                            case 1:
+                            case 2:
+                                isChecked = optionValue.BeChoise || isChecked;
+                            break;     
+                            case 3:
+                            case 4:
+                                isChecked = !(optionValue.Content == '' || optionValue.Content == '0');
+                            break;    
+                            default:
+                                throw new Error("Option type not included.");
+                        }
+                    }
+                    if(!isChecked) {
+                        message += option.Name + '尚未選擇, ';
+                    }
+                    
+                    isOk = isOk && isChecked;
+                }
+
+                if(message) {
+                    alert(message);
+                }
+                return isOk;
             }
         },
     };
