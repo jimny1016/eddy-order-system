@@ -5,7 +5,6 @@
             <DishItem v-for="(dish, dishIndex) in tab.Dishes" :key="`dish-${dishIndex}`" :dish="dish" @dishKey="getValue"/>
         </div>
     </div>
-            {{ this.$store.getters.cart }}
 </template>
 
 <script>
