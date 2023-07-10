@@ -23,9 +23,9 @@
         },
         setup() {
             const store = useStore();
-            var ddd = { name: "ddd", id: 1 };
-            var one = 1;
-            store.dispatch('addToCart', {product: ddd, quantity: one });
+            // var ddd = { name: "ddd", id: 1 };
+            // var one = 1;
+            // store.dispatch('addToCart', {product: ddd, quantity: one });
 
             const cart = computed(() => store.getters.cart);
             console.log(cart);

@@ -2,27 +2,69 @@ import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-    cart: [{product:{name: "ddd", id: 1}, quantity: 1}],  // 購物車
+    cart: [],  // 購物車
   },
   mutations: {
     // 新增產品到購物車
-    ADD_TO_CART(state, { product, quantity }) {
+    ADD_TO_CART(state, { product: dish, quantity }) {
+      try {
         if(state.cart && state.cart.length > 0)
         {
-            let productInCart = state.cart.find(item => {
-                return item.product.id === product.id;
-            });
-        
-            if (productInCart) {
-                productInCart.quantity += quantity;
+          let dishesInCart = state.cart.find(item => {
+            return item.DishKey === dish.DishKey;
+          });
+      
+          if (dishesInCart) {
+            for (let dishesInCartIndex = 0; dishesInCartIndex < dishesInCart.length; dishesInCartIndex++) {
+              let isLivedInShoppingCart = true;
+              let dishInCart = dishesInCart[dishesInCartIndex];
+              if(dishInCart.Options)
+              {                
+                for (let optionIndex = 0; optionIndex < dishInCart.Options.length; optionIndex++) {
+                  if(!isLivedInShoppingCart) {
+                    break;
+                  }
+                  let option = dishInCart.Options[optionIndex];
+                  let targetOption = dish.Options[optionIndex];
+
+                  for (let optionVaulesIndex = 0; optionVaulesIndex < option.OptionVaules.length; optionVaulesIndex++) {
+                    if(!isLivedInShoppingCart) {
+                      break;
+                    }
+                    let optionValue = option.OptionVaules[optionVaulesIndex];
+                    let targetOptionValue = targetOption.OptionVaules[optionVaulesIndex];
+                    switch(option.Type) {
+                      case 1:
+                      case 2:
+                        isLivedInShoppingCart = optionValue.BeChoise === targetOptionValue.BeChoise;
+                        break;     
+                      case 3:
+                      case 4:
+                        isLivedInShoppingCart = optionValue.Content === targetOptionValue.Content;
+                        break;    
+                      default:
+                        throw new Error("Option type not included.");
+                    }
+                  }
+                }
+              }
+
+              if(isLivedInShoppingCart) {                
+                dishesInCart.quantity += quantity;
                 return;
+              }              
             }
+          }
         }
 
         state.cart.push({
-            product,
+            product: dish,
             quantity
         });
+      } catch (error) {
+        alert('新增餐點發生錯誤。');
+        return;
+      } 
     },
 
     // 從購物車中移除產品
