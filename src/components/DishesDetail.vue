@@ -1,5 +1,5 @@
 <template>
-    <div @click="backToMenu()">
+    <div @click="backToMenu()" class="cursor-pointer">
         <MyImage imagePath="/image/icon/previous-blue.png" firstLayerClass="!fixed top-10 ml-2 z-10 !w-auto !h-auto" secondLayerClass="!w-auto !h-auto" imageClass="!w-10 !h-10" />
     </div>    
     <div v-if="dish" class="mb-20">
@@ -140,7 +140,7 @@
                 <div class="mx-2 text-center text-2xl self-center">{{ dishesCount }}</div>
                 <MyImage imagePath="/image/icon/plus.png" @click="()=>{ dishesCount = parseInt(dishesCount) + 1 }"  firstLayerClass="!w-auto !h-auto cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-10 !h-10" />
             </div>
-            <div @click="addToCart" class="bg-blue-400 px-14 py-2 rounded-md text-white text-center text-2xl self-center">加入購物車</div>
+            <div @click="addToCart" class="bg-blue-400 px-14 py-2 rounded-md text-white text-center text-2xl self-center cursor-pointer">加入購物車</div>
         </div>
     </div>
 
@@ -182,7 +182,7 @@
                 });
             },
             backToMenu(){
-                this.$emit('backToMenu');
+                this.$store.dispatch('updatePageState', {pageState: 0 });
             },
             addToCart() {
                 let isOk = this.checkRequirement();

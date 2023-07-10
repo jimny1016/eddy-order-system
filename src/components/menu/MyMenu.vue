@@ -1,7 +1,7 @@
 <template>
     <div class="max-w-3xl m-auto">
         <!--with navigation bar-->
-        <div v-show="!showDishDetailPage">
+        <div v-show="pageState == 0">
             <Navbar :tableNum="tableNum" :title="pageTitle" shoppingcartshow="true"/>
             <CategoryTabs class="w-full lg:w-10/12 mx-auto" :tabList="tabList">
                 <div v-for="(tab, index) in tabList" :key="index" >
@@ -12,7 +12,7 @@
             <Menupage :manuData="manuData[0].Display" @dishKey="getValue"/>
         </div>
         <!--without navigation bar showDishDetailPage-->
-        <div v-show="showDishDetailPage">
+        <div v-show="pageState == 1">
             <DishDetail :dish="dish" @backToMenu="backToMenu" />
         </div>
     </div>
@@ -47,6 +47,9 @@ export default {
         },
         cartLength() {
             return this.$store.getters.cart.length;
+        },
+        pageState() {
+            return this.$store.getters.pageState;
         }
     },
     data() {
@@ -70,15 +73,18 @@ export default {
             if(target)
                 this.dish = target;
 
+            let pageState = 0;
             if(value!=null && this.dish!=null){
-                this.showDishDetailPage=true;
-            }else{
-                this.showDishDetailPage=false;
+                pageState = 1;                
             }
+            this.$store.dispatch('updatePageState', {pageState: pageState });
         },
         backToMenu() {
             this.showDishDetailPage = false;
-        }        
+        },
+        goToShippingCart() {
+
+        }
     },
 };
 </script>

@@ -3,6 +3,7 @@ import { createStore } from 'vuex';
 export default createStore({
   state: {
     cart: [],  // 購物車
+    pageState: 0 //0 my menu, 1 dish detail, 2 shopping cart
   },
   mutations: {
     // 新增產品到購物車
@@ -84,6 +85,10 @@ export default createStore({
         productInCart.quantity = quantity;
       }
     },
+
+    UPDATE_PAGE_STATE(state, { pageState }) {
+      state.pageState = pageState;
+    },
   },
   actions: {
     addToCart({ commit }, { product, quantity }) {
@@ -97,8 +102,13 @@ export default createStore({
     updateCartQuantity({ commit }, { product, quantity }) {
       commit('UPDATE_CART_QUANTITY', { product, quantity });
     },
+
+    updatePageState({ commit }, { pageState }) {
+      commit('UPDATE_PAGE_STATE', { pageState });
+    },
   },
   getters: {
-    cart: state => state.cart
+    cart: state => state.cart,
+    pageState: state => state.pageState
   }
 });

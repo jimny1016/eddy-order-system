@@ -5,9 +5,9 @@
         </div>
             <a href="#" >{{title}}</a>
         <div class="absolute top-[8px] right-0">
-            <a href="#" class="mr-2 relative" v-show="!isHomePage">
+            <a href="#" class="mr-2 relative" v-show="!isHomePage" @click="shopping_cart()">
                 <span class="cart">
-                    <font-awesome-icon icon="cart-shopping" style="color: #1e90ff;" size="xl"  @click="shopping_cart()"/>
+                    <font-awesome-icon icon="cart-shopping" style="color: #1e90ff;" size="xl" />
                 </span>
                 <span class="absolute bottom-[-8px] right-0 bg-red-500 px-[2px] leading-[1.2] text-white text-sm rounded-sm">
                     {{ cartLength }}
