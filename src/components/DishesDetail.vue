@@ -2,7 +2,7 @@
     <div @click="backToMenu()">
         <MyImage imagePath="/image/icon/previous-blue.png" firstLayerClass="!fixed top-10 ml-2 z-10 !w-auto !h-auto" secondLayerClass="!w-auto !h-auto" imageClass="!w-10 !h-10" />
     </div>    
-    <div v-if="dish">
+    <div v-if="dish" class="mb-20">
         <div>            
             <!-- {{ dish.imgPath }} -->
             <MyImage imagePath="/image/slick/restaurant-bg-1.jpg" firstLayerClass="!h-[30vh]"/>
@@ -114,12 +114,12 @@
                             </div>
                         </div>
                     </div>
-                    <div v-for="(optionVaule, optionVauleIndex) in option.OptionVaules" :key="'optionVauleRadio-' + optionVauleIndex" class="flex items-center space-x-2 my-2 cursor-pointer">
+                    <div v-for="(optionVaule, optionVauleIndex) in option.OptionVaules" :key="'optionVauleRadio-' + optionVauleIndex" class="flex items-center space-x-2 my-2">
                         <div class="flex justify-between w-full">
                             <div class="flex">
-                                <MyImage imagePath="/image/icon/minus.png" @click="()=>{ optionVaule.Content = parseInt(optionVaule.Content) - 1 < 0 ? 0 : parseInt(optionVaule.Content) - 1 }"  firstLayerClass="!w-auto !h-auto top-[0.3rem]" secondLayerClass="!w-auto !h-auto" imageClass="!w-4 !h-4" />
+                                <MyImage imagePath="/image/icon/minus.png" @click="()=>{ optionVaule.Content = parseInt(optionVaule.Content) - 1 < 0 ? 0 : parseInt(optionVaule.Content) - 1 }"  firstLayerClass="!w-auto !h-auto top-[0.3rem] cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-4 !h-4" />
                                 <div class="mx-2 text-center">{{ optionVaule.Content }}</div>
-                                <MyImage imagePath="/image/icon/plus.png" @click="()=>{ optionVaule.Content = parseInt(optionVaule.Content) + 1 }"  firstLayerClass="!w-auto !h-auto top-[0.3rem]" secondLayerClass="!w-auto !h-auto" imageClass="!w-4 !h-4" />
+                                <MyImage imagePath="/image/icon/plus.png" @click="()=>{ optionVaule.Content = parseInt(optionVaule.Content) + 1 }"  firstLayerClass="!w-auto !h-auto top-[0.3rem] cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-4 !h-4" />
                                 <label class="text-lg ml-2">{{ optionVaule.ValueName }}</label>
                             </div>
                             <div v-if="optionVaule.Price > 0">
@@ -129,12 +129,19 @@
                     </div>
                 </div>
             </div>            
-            {{ this.disheOptions }}
+            <!-- {{ this.disheOptions }} -->
         </div>
     </div>
-<!-- <div>
-    <OrderBar :item="item" :itemList="itemList"/>
-</div> -->
+    <div class="!fixed left-0 bottom-0 w-[100vw] z-10!h-auto p-4 bg-white">
+        <div class="flex justify-between max-w-3xl m-auto items-center">
+            <div class="flex">
+                <MyImage imagePath="/image/icon/minus.png" @click="()=>{ dishesCount = parseInt(dishesCount) - 1 < 1 ? 1 : parseInt(dishesCount) - 1 }"  firstLayerClass="!w-auto !h-auto cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-10 !h-10" />
+                <div class="mx-2 text-center text-2xl self-center">{{ dishesCount }}</div>
+                <MyImage imagePath="/image/icon/plus.png" @click="()=>{ dishesCount = parseInt(dishesCount) + 1 }"  firstLayerClass="!w-auto !h-auto cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-10 !h-10" />
+            </div>
+            <div class="bg-blue-400 px-14 py-2 rounded-md text-white text-center text-2xl self-center">加入購物車</div>
+        </div>
+    </div>
 
 </template>
 
@@ -145,11 +152,12 @@
         name: 'dish-detail',
         props: ['dish'],
         components: {
-            MyImage
+            MyImage,
         },
         data() {
             return {
-                disheOptions:[]
+                disheOptions:[],
+                dishesCount: 1
             };
         },
         watch: {
