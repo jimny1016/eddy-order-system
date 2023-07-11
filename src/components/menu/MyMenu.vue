@@ -3,7 +3,7 @@
         <!--with navigation bar-->
         <div v-show="pageState == 0">
             <Navbar :tableNum="tableNum" :title="pageTitle" shoppingcartshow="true"/>
-            <CategoryTabs class="w-full lg:w-10/12 mx-auto" :tabList="tabList">
+            <CategoryTabs class="w-full mx-auto" :tabList="tabList">
                 <div v-for="(tab, index) in tabList" :key="index" >
                     <slot tabindex="${index}">{{ tab.tabLabel }}</slot>
                     <slot :tabindex="index">{{ tabNames[index] }}</slot>

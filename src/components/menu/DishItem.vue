@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="w-[120px] h-[120px] relative">
-            <MyImage imagePath="/image/slick/restaurant-bg-1.jpg" firstLayerClass="w-full h-full left-[-15px]" imageClass="rounded-2xl" />
+            <MyImage imagePath="/image/slick/restaurant-bg-1.jpg" firstLayerClass="w-full h-full lg:!h-full left-[-15px]" imageClass="rounded-2xl" />
             <!-- {{ dish.imgPath }} -->
             <div class="absolute-right-center cursor-pointer">
                 <font-awesome-icon :icon="['fas', 'plus-circle']" style="color: #1e90ff;" size="2xl" @click="sendBakValue(dish.DishKey)"/>
