@@ -68,22 +68,14 @@ export default createStore({
       } 
     },
 
-    // 從購物車中移除產品
-    REMOVE_FROM_CART(state, product) {
-      state.cart = state.cart.filter(item => {
-        return item.product.id !== product.id;
-      });
-    },
-
     // 修改購物車中的產品數量
-    UPDATE_CART_QUANTITY(state, { product, quantity }) {
-      let productInCart = state.cart.find(item => {
-        return item.product.id === product.id;
-      });
-
-      if (productInCart) {
-        productInCart.quantity = quantity;
+    UPDATE_CART_QUANTITY(state, { dishIndex, quantity }) {
+      if(quantity == 0) {
+        state.cart.splice(dishIndex, 1);
+        return;
       }
+
+      state.cart[dishIndex].quantity = quantity;
     },
 
     UPDATE_PAGE_STATE(state, { pageState }) {
@@ -95,12 +87,8 @@ export default createStore({
       commit('ADD_TO_CART', { product, quantity });
     },
 
-    removeFromCart({ commit }, product) {
-      commit('REMOVE_FROM_CART', product);
-    },
-
-    updateCartQuantity({ commit }, { product, quantity }) {
-      commit('UPDATE_CART_QUANTITY', { product, quantity });
+    updateCartQuantity({ commit }, { dishIndex, quantity }) {
+      commit('UPDATE_CART_QUANTITY', { dishIndex, quantity });
     },
 
     updatePageState({ commit }, { pageState }) {

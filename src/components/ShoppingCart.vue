@@ -15,9 +15,9 @@
             <div>
                 <div v-for="(dish, dishIndex) in cart" :key="'dish-' + dishIndex" class="mb-8 w-full grid grid-cols-7">
                     <div class="flex">
-                        <MyImage imagePath="/image/icon/minus.png" @click="()=>{  }"  firstLayerClass="!w-auto !h-auto cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-8 !h-8" />
+                        <MyImage imagePath="/image/icon/minus.png" @click="()=>{ changeDishQuantity(dishIndex, dish.quantity - 1); }"  firstLayerClass="!w-auto !h-auto cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-8 !h-8" />
                         <div class="mx-2 self-center text-center text-lg">{{ dish.quantity }}</div>
-                        <MyImage imagePath="/image/icon/plus.png" @click="()=>{  }"  firstLayerClass="!w-auto !h-auto cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-8 !h-8" />
+                        <MyImage imagePath="/image/icon/plus.png" @click="()=>{ changeDishQuantity(dishIndex, dish.quantity + 1); }"  firstLayerClass="!w-auto !h-auto cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-8 !h-8" />
                     </div>
                     <div class="col-span-5 self-center text-xl font-bold">
                         {{ dish.product.title }}
@@ -54,6 +54,9 @@
             backToMenu(){
                 this.$store.dispatch('updatePageState', {pageState: 0 });
             },
+            changeDishQuantity(dishIndex, quantity){
+                this.$store.dispatch('updateCartQuantity', {dishIndex, quantity });
+            }
         }
     };
 </script>
