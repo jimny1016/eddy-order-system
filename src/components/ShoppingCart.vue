@@ -26,7 +26,7 @@
                         $ {{ dish.product.price }}
                     </div>
                     <div></div>
-                    <div class="col-span-5">123</div>
+                    <div class="col-span-5">{{ getOptionWord(dish.product.Options) }}</div>
                     <div></div>
                 </div>
             </div>
@@ -56,6 +56,29 @@
             },
             changeDishQuantity(dishIndex, quantity){
                 this.$store.dispatch('updateCartQuantity', {dishIndex, quantity });
+            },
+            getOptionWord(options){
+                let result = [];
+                options.forEach((option) => {                    
+                    option.OptionVaules.forEach((optionVaule) => {
+                        switch(option.Type) {
+                        case 1:
+                        case 2:
+                            if(optionVaule.BeChoise)
+                                result.push(optionVaule.ValueName);
+                            break;
+                        case 3:
+                            if(optionVaule.Content)
+                                result.push('備註:' + optionVaule.Content);                                
+                            break;
+                        }
+                    });
+                });
+                
+                if(result.length > 0)
+                    return result.join(', ');
+                else
+                    return '';
             }
         }
     };
