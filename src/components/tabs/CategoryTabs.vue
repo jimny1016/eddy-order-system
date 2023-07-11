@@ -34,6 +34,7 @@
             :value="index + 1"
             v-model="activeTab"
             class="hidden"
+            @click="scrollTo(tab)"
             />
         </li>
         </ul>
@@ -51,23 +52,29 @@
 
 <script>
     export default {
-    props: {
-        tabList: {
-        type: Array,
-        required: true,
+        props: {
+            tabList: {
+            type: Array,
+            required: true,
+            },
+            variant: {
+            type: String,
+            required: false,
+            default: () => "vertical",
+            validator: (value) => ["horizontal", "vertical"].includes(value),
+            },
         },
-        variant: {
-        type: String,
-        required: false,
-        default: () => "vertical",
-        validator: (value) => ["horizontal", "vertical"].includes(value),
+        data() {
+            return {
+                activeTab: 1,
+            };
         },
-    },
-    data() {
-        return {
-        activeTab: 1,
-        };
-    },
+        methods: {
+            scrollTo(tab) {
+                const element = document.getElementById(tab);
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
     };
 
 </script>
