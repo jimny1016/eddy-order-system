@@ -23,7 +23,7 @@
                         {{ dish.product.title }}
                     </div>
                     <div class="self-center text-right text-lg ">
-                        $ {{ dish.product.price }}
+                        $ {{ getDishPrice(dish) }}
                     </div>
                     <div></div>
                     <div class="col-span-5">{{ getOptionWord(dish.product.Options) }}</div>
@@ -74,11 +74,36 @@
                         }
                     });
                 });
-                
+
                 if(result.length > 0)
                     return result.join(', ');
                 else
                     return '';
+            },
+            getDishPrice(dish){
+                var product = dish.product;
+                let result = product.price;
+                product.Options.forEach((option) => {                    
+                    option.OptionVaules.forEach((optionVaule) => {
+                        switch(option.Type) {
+                        case 1:
+                        case 2:
+                            if(optionVaule.BeChoise)
+                                result += optionVaule.Price;
+                            break;
+                        case 3:
+                            if(optionVaule.Content)
+                                result += optionVaule.Price;
+                            break;
+                        case 4:
+                            if(parseInt(optionVaule.Content) > 0)
+                                result += parseInt(optionVaule.Content) * optionVaule.Content;  
+                            break;
+                        }
+                    });
+                });
+
+                return result * dish.quantity;
             }
         }
     };
