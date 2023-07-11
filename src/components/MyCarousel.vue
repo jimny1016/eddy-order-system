@@ -1,7 +1,7 @@
 <template>
   <div>
       <transition-group tag="div" :name="transitionName" class="slides-group h-[100vh]">
-        <div :key="current" class="slide w-full h-full lg:h-screen bg-center bg-clip-border bg-cover bg-no-repeat relative">
+        <div :key="current" class="slide w-full h-full lg:h-screen bg-center bg-clip-border bg-cover bg-no-repeat absolute">
           <div class="relative w-full h-full">
             <img :src="getImagePath(slides[current].restaurantbg)" class="object-cover w-full h-full" alt="" />
           </div>
@@ -35,9 +35,9 @@
     methods: {
       slide(dir) {
         this.direction = dir;
-        dir === 1
-          ? (this.transitionName = "slide-next")
-          : (this.transitionName = "slide-prev");
+        // dir === 1
+        //   ? (this.transitionName = "slide-next")
+        //   : (this.transitionName = "slide-prev");
         var len = this.slides.length;
         this.current = ((this.current + dir) % len + len) % len;
       },
@@ -60,15 +60,8 @@
 <style scoped>
   @import url("https://fonts.googleapis.com/css?family=Crimson+Text");
 
-  /* FADE IN */
-  .fade-enter-active {
-    transition: opacity 1s;
-  }
-  .fade-enter {
-    opacity: 0;
-  }
 
-  .slide-next-enter-active,
+  /* .slide-next-enter-active,
   .slide-next-leave-active {
     transition: transform 0.5s ease-in-out;
   }
@@ -90,7 +83,7 @@
 
   .slide-prev-leave-to {
     transform: translate(100%);
-  }
+  } */
 
   .btn {
     z-index: 10;
