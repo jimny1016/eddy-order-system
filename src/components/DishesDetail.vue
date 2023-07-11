@@ -169,6 +169,9 @@
                     if (newVal && newVal.Options) {
                         this.disheOptions = JSON.parse(JSON.stringify(newVal.Options));
                     }
+                    else{
+                        this.disheOptions = null;
+                    }
                 },
             },
         },       
