@@ -12,7 +12,7 @@
             <Menupage :manuData="manuData[0].Display" @dishKey="getValue"/>
         </div>
         <!--without navigation bar showDishDetailPage-->
-        <div v-show="pageState == 1">
+        <div v-if="pageState == 1">
             <DishDetail :dish="dish" @backToMenu="backToMenu" />
         </div>
         <div v-show="pageState == 2">
