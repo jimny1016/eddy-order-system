@@ -89,21 +89,24 @@
             },
             getOptionWord(options){
                 let result = [];
-                options.forEach((option) => {                    
-                    option.OptionVaules.forEach((optionVaule) => {
-                        switch(option.Type) {
-                        case 1:
-                        case 2:
-                            if(optionVaule.BeChoise)
-                                result.push(optionVaule.ValueName);
-                            break;
-                        case 3:
-                            if(optionVaule.Content)
-                                result.push('備註:' + optionVaule.Content);                                
-                            break;
-                        }
+                if(options){
+                    options.forEach((option) => {                    
+                        option.OptionVaules.forEach((optionVaule) => {
+                            switch(option.Type) {
+                            case 1:
+                            case 2:
+                                if(optionVaule.BeChoise)
+                                    result.push(optionVaule.ValueName);
+                                break;
+                            case 3:
+                                if(optionVaule.Content)
+                                    result.push('備註:' + optionVaule.Content);                                
+                                break;
+                            }
+                        });
                     });
-                });
+                }
+                
 
                 if(result.length > 0)
                     return result.join(', ');
@@ -113,25 +116,27 @@
             getDishPrice(dish){
                 var product = dish.product;
                 let result = product.price;
-                product.Options.forEach((option) => {
-                    option.OptionVaules.forEach((optionVaule) => {
-                        switch(option.Type) {
-                        case 1:
-                        case 2:
-                            if(optionVaule.BeChoise)
-                                result += optionVaule.Price;
-                            break;
-                        case 3:
-                            if(optionVaule.Content)
-                                result += optionVaule.Price;
-                            break;
-                        case 4:
-                            if(parseInt(optionVaule.Content) > 0)
-                                result += parseInt(optionVaule.Content) * optionVaule.Content;  
-                            break;
-                        }
+                if(product.Options){
+                    product.Options.forEach((option) => {
+                        option.OptionVaules.forEach((optionVaule) => {
+                            switch(option.Type) {
+                            case 1:
+                            case 2:
+                                if(optionVaule.BeChoise)
+                                    result += optionVaule.Price;
+                                break;
+                            case 3:
+                                if(optionVaule.Content)
+                                    result += optionVaule.Price;
+                                break;
+                            case 4:
+                                if(parseInt(optionVaule.Content) > 0)
+                                    result += parseInt(optionVaule.Content) * optionVaule.Content;  
+                                break;
+                            }
+                        });
                     });
-                });
+                }
 
                 return result * dish.quantity;
             },

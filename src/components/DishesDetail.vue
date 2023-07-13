@@ -130,9 +130,9 @@
                 </div>
             </div>            
             <!-- {{ this.disheOptions }} -->
-            <!-- {{ this.$store.getters.cart }} -->
         </div>
     </div>
+            {{ this.$store.getters.cart }}
     <div class="!fixed left-0 bottom-0 w-[100vw] z-10!h-auto p-4 bg-white">
         <div class="flex justify-between max-w-3xl m-auto items-center">
             <div class="flex">
@@ -202,33 +202,36 @@
             checkRequirement() {
                 let isOk = true;
                 let message = '';
-                for (let optionIndex = 0; optionIndex < this.disheOptions.length; optionIndex++) {
-                    let option = this.disheOptions[optionIndex];
 
-                    if(!option.Requirement) {
-                        continue;
-                    }
-                    let isChecked = false;
-                    for (let optionVaulesIndex = 0; optionVaulesIndex < option.OptionVaules.length; optionVaulesIndex++) {
-                        let optionValue = option.OptionVaules[optionVaulesIndex];
-                        switch(option.Type) {
-                            case 1:
-                            case 2:
-                                isChecked = optionValue.BeChoise || isChecked;
-                            break;     
-                            case 3:
-                            case 4:
-                                isChecked = !(optionValue.Content == '' || optionValue.Content == '0');
-                            break;    
-                            default:
-                                throw new Error("Option type not included.");
+                if(this.disheOptions){
+                    for (let optionIndex = 0; optionIndex < this.disheOptions.length; optionIndex++) {
+                        let option = this.disheOptions[optionIndex];
+
+                        if(!option.Requirement) {
+                            continue;
                         }
+                        let isChecked = false;
+                        for (let optionVaulesIndex = 0; optionVaulesIndex < option.OptionVaules.length; optionVaulesIndex++) {
+                            let optionValue = option.OptionVaules[optionVaulesIndex];
+                            switch(option.Type) {
+                                case 1:
+                                case 2:
+                                    isChecked = optionValue.BeChoise || isChecked;
+                                break;     
+                                case 3:
+                                case 4:
+                                    isChecked = !(optionValue.Content == '' || optionValue.Content == '0');
+                                break;    
+                                default:
+                                    throw new Error("Option type not included.");
+                            }
+                        }
+                        if(!isChecked) {
+                            message += option.Name + '尚未選擇, ';
+                        }
+                        
+                        isOk = isOk && isChecked;
                     }
-                    if(!isChecked) {
-                        message += option.Name + '尚未選擇, ';
-                    }
-                    
-                    isOk = isOk && isChecked;
                 }
 
                 if(message) {

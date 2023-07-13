@@ -34,6 +34,7 @@ export default createStore({
                     }
                     let optionValue = option.OptionVaules[optionVaulesIndex];
                     let targetOptionValue = targetOption.OptionVaules[optionVaulesIndex];
+                    //alert(optionValue.Name + ":" + String(optionValue.BeChoise) + " " + String(targetOptionValue.BeChoise) + " " + String(optionValue.BeChoise === targetOptionValue.BeChoise));
                     switch(option.Type) {
                       case 1:
                       case 2:
