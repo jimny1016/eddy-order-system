@@ -132,7 +132,7 @@
             <!-- {{ this.disheOptions }} -->
         </div>
     </div>
-            {{ this.$store.getters.cart }}
+            <!-- {{ this.$store.getters.cart }} -->
     <div class="!fixed left-0 bottom-0 w-[100vw] z-10!h-auto p-4 bg-white">
         <div class="flex justify-between max-w-3xl m-auto items-center">
             <div class="flex">
