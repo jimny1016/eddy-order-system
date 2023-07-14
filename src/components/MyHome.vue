@@ -192,6 +192,54 @@
                 }
               ]
             },
+            {
+                "TabName": "a la carte - Rice",
+                "Dishes" : [
+                    {
+                        "title": "經典炸物",
+                        "DishKey":"side_1",
+                        "unit": "一份5個",
+                        "imgPath": "../src/image",
+                        "price": 80
+                    }
+                ]
+            },
+            {
+                "TabName": "a la carte - Noodle",
+                "Dishes" : [
+                    {
+                        "title": "經典炸物",
+                        "DishKey":"side_1",
+                        "unit": "一份5個",
+                        "imgPath": "../src/image",
+                        "price": 80
+                    }
+                ]
+            },
+            {
+                "TabName": "a la carte - Soup",
+                "Dishes" : [
+                    {
+                        "title": "經典炸物",
+                        "DishKey":"side_1",
+                        "unit": "一份5個",
+                        "imgPath": "../src/image",
+                        "price": 80
+                    }
+                ]
+            },
+            {
+                "TabName": "a la carte - Beverage",
+                "Dishes" : [
+                    {
+                        "title": "經典炸物",
+                        "DishKey":"side_1",
+                        "unit": "一份5個",
+                        "imgPath": "../src/image",
+                        "price": 80
+                    }
+                ]
+            }
           ]          
         }
       },
