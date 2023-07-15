@@ -8,7 +8,12 @@
                 購物車
             </div>
         </div>
-        <div>
+        <div v-show="cart && cart.length < 1" class="absolute-center">
+            <MyImage imagePath="/image/icon/shopping-bag.png" firstLayerClass="mr-2 z-10 !w-auto !h-auto" secondLayerClass="!w-auto !h-auto" imageClass="!w-[40vw] max-w-[302px]" />
+            <div class="text-center text-gray-700 text-lg font-bold mt-2 mb-4">尚未有訂單成立</div>
+            <div @click="backToMenu()" class="text-center text-lg font-bold text-blue-600 cursor-pointer">立即點餐</div>
+        </div>
+        <div v-show="cart && cart.length > 0">
             <div class="text-lg font-semibold my-2">
                 您的餐點
             </div>
@@ -55,7 +60,7 @@
                 </div>
             </div>
         </div>
-        <div class="!fixed left-0 bottom-0 w-[100vw] z-10!h-auto p-4 bg-white">
+        <div v-show="cart && cart.length > 0" class="!fixed left-0 bottom-0 w-[100vw] z-10!h-auto p-4 bg-white">
             <div class="flex justify-between max-w-3xl m-auto items-center">
                 <div @click="backToMenu()" class="bg-blue-400 px-2 sm:px-14 py-2 rounded-md text-white text-center text-md sm:text-2xl self-center cursor-pointer">添加新的餐點</div>
                 <div @click="sentShoppingCart(cart)" class="bg-blue-400 px-2 sm:px-14 py-2 rounded-md text-white text-center text-md sm:text-2xl self-center cursor-pointer">立即下單結帳</div>
