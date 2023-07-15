@@ -1,5 +1,5 @@
 <template>
-    <div class="relative bg-gray-400 text-center py-2">
+    <div class="relative text-center py-2">
         <div v-show="!isHomePage" class="text-center absolute ml-2">
             <a href="#" class="bg-blue-500 text-white rounded-lg px-2">{{tableNum}}桌</a>
         </div>
