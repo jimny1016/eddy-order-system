@@ -2,7 +2,7 @@
     <div>
         <div class="flex py-4">
             <div @click="backToMenu()" class="cursor-pointer">
-                <MyImage imagePath="/image/icon/previous-blue.png" firstLayerClass="mr-2 z-10 !w-auto !h-auto" secondLayerClass="!w-auto !h-auto" imageClass="!w-10 !h-10" />
+                <MyImage imagePath="/image/icon/previous-blue.png" firstLayerClass="mr-2 z-1 !w-auto !h-auto" secondLayerClass="!w-auto !h-auto" imageClass="!w-10 !h-10" />
             </div>
             <div class="text-2xl font-semibold self-center">
                 購物車
@@ -63,10 +63,34 @@
         <div v-show="cart && cart.length > 0" class="!fixed left-0 bottom-0 w-[100vw] z-10!h-auto p-4 bg-white">
             <div class="flex justify-between max-w-3xl m-auto items-center">
                 <div @click="backToMenu()" class="bg-blue-400 px-2 sm:px-14 py-2 rounded-md text-white text-center text-md sm:text-2xl self-center cursor-pointer">添加新的餐點</div>
-                <div @click="sentShoppingCart(cart)" class="bg-blue-400 px-2 sm:px-14 py-2 rounded-md text-white text-center text-md sm:text-2xl self-center cursor-pointer">立即下單結帳</div>
+                <div @click="showSendConfirm()" class="bg-blue-400 px-2 sm:px-14 py-2 rounded-md text-white text-center text-md sm:text-2xl self-center cursor-pointer">立即下單結帳</div>
             </div>
         </div>
         <!-- {{ cart }} -->
+        <div v-if="isPopUp" @click="()=>{ changeIsPopUp(false); }" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
+            <div @click.stop class="bg-white p-4 relative rounded-md max-w-lg max-h-lg w-[80vw] h-[40vh]">
+                <div v-show="popUpState == 0">
+                    <div class="absolute-center text-xl font-bold">
+                        是否確定下單?
+                    </div>
+                    <div class="absolute bottom-0 left-0 flex justify-center w-full m-auto items-center mb-4">
+                        <div @click="()=>{ changeIsPopUp(false); }" class=" border border-solid border-gray-400 px-8 py-2 rounded-md text-blue-400 text-center text-md sm:text-2xl font-bold self-center cursor-pointer mr-2">回購物車</div>
+                        <div @click="sentShoppingCart(cart)" class="bg-blue-400 px-8 py-2 rounded-md text-white text-center text-md sm:text-2xl self-center cursor-pointer">立即下單</div>
+                    </div>
+                </div>
+                <div v-show="popUpState == 1">
+                    <MyImage @click="()=>{ changeIsPopUp(false); }" imagePath="/image/icon/close.png" firstLayerClass="!absolute right-4 z-1 !w-3 !h-3" secondLayerClass="!w-3 !h-3" imageClass="!w-3 !h-3" />
+                    <div class="absolute-center text-xl font-bold">
+                        <div class="text-center">
+                            下單成功！
+                        </div>
+                        <div class="text-center">
+                            請至櫃台結帳，謝謝！
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
     </div>
 </template>
 
@@ -78,6 +102,8 @@
         },
         data() {
             return {
+                isPopUp: false,
+                popUpState: 0
             };
         },
         computed:{
@@ -86,6 +112,16 @@
             }
         },
         methods: {
+            changeIsPopUp(isPopUp){
+                this.isPopUp = isPopUp;
+            },
+            changePopUpState(popUpState){
+                this.popUpState = popUpState;
+            },
+            showSendConfirm(){
+                this.changeIsPopUp(true);
+                this.changePopUpState(0);
+            },
             backToMenu(){
                 this.$store.dispatch('updatePageState', {pageState: 0 });
             },
@@ -110,8 +146,7 @@
                             }
                         });
                     });
-                }
-                
+                }                
 
                 if(result.length > 0)
                     return result.join(', ');
@@ -159,12 +194,12 @@
                 return this.getLittlePrice(cart) + this.getServicePrice(cart);
             },
             sentShoppingCart(cart){
-                alert('訂單已送出!');
+                this.changePopUpState(1);
+                this.changeIsPopUp(true); 
                 cart.forEach((dish, index) => {
                     this.$store.dispatch('updateCartQuantity', {dishIndex:index, quantity:0 });
                 });
-                this.backToMenu();
-            }
+            },
         }
     };
 </script>
