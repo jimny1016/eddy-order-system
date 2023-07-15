@@ -16,7 +16,7 @@
             <DishDetail :dish="dish" @backToMenu="backToMenu" />
         </div>
         <div v-show="pageState == 2">
-            <ShoppingCart />
+            <ShoppingCart :tableNum="tableNum" />
         </div>
     </div>
 </template>

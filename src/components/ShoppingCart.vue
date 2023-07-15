@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="flex self-center">
-                <div class="bg-blue-500 text-white rounded-lg px-2">3桌</div>
+                <div class="bg-blue-500 text-white rounded-lg px-2">{{tableNum}}桌</div>
             </div>            
         </div>
         <div v-show="cart && cart.length < 1" class="absolute-center">
@@ -111,6 +111,7 @@
                 popUpState: 0
             };
         },
+        props: ['tableNum'],
         computed:{
             cart() {
                 return this.$store.getters.cart;

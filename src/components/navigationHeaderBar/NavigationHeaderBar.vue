@@ -1,7 +1,7 @@
 <template>
     <div class="relative bg-gray-400 text-center py-2">
         <div v-show="!isHomePage" class="text-center absolute ml-2">
-            <a href="#" >{{tableNum}}</a>
+            <a href="#" class="bg-blue-500 text-white rounded-lg px-2">{{tableNum}}桌</a>
         </div>
             <a href="#" >{{title}}</a>
         <div class="absolute top-[8px] right-0">
