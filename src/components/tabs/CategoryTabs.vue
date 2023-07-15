@@ -7,46 +7,37 @@
         }"
     >
         <ul
-        class="list-none bg-blue-900 bg-opacity-30 p-1.5 rounded-lg text-center overflow-auto whitespace-nowrap"
+        class="list-none bg-opacity-30 p-1.5 rounded-lg text-center overflow-auto whitespace-nowrap"
         :class="{
             'flex items-center': variant === 'vertical',
         }"
         >
-        <li
-            v-for="(tab, index) in tabList"
-            :key="index"
-            class="w-full px-4 py-1.5 rounded-lg"
-            :class="{
-            'text-blue-600 bg-white shadow-xl': index + 1 === activeTab,
-            'text-white': index + 1 !== activeTab,
-            }"
-        >
-        <!-- 產出頁籤，而tab.name是從調用端傳給tab，再取this.$children來取得裡面的props -->
-            <label
-            :for="`${_uid}${index}`"
-            v-text="tab"
-            class="cursor-pointer block"
-            ></label>
-            <input
-            :id="`${_uid}${index}`"
-            type="radio"
-            :name="`${_uid}-tab`"
-            :value="index + 1"
-            v-model="activeTab"
-            class="hidden"
-            @click="scrollTo(tab)"
-            />
-        </li>
+            <li
+                v-for="(tab, index) in tabList"
+                :key="index"
+                class="mr-2 p-1.5 font-bold"
+                :class="{
+                'text-black bg-white shadow-xl border-b-4 border-blue-400': index + 1 === activeTab,
+                'text-gray-400': index + 1 !== activeTab,
+                }"
+            >
+            <!-- 產出頁籤，而tab.name是從調用端傳給tab，再取this.$children來取得裡面的props -->
+                <label
+                :for="`${_uid}${index}`"
+                v-text="tab"
+                class="cursor-pointer block"
+                ></label>
+                <input
+                :id="`${_uid}${index}`"
+                type="radio"
+                :name="`${_uid}-tab`"
+                :value="index + 1"
+                v-model="activeTab"
+                class="hidden"
+                @click="scrollTo(tab)"
+                />
+            </li>
         </ul>
-        <!-- <template v-for="(tab, index) in tabList">
-        <div
-            :key="index"
-            v-if="index + 1 === activeTab"
-            class="flex-grow bg-white rounded-lg shadow-xl p-4"
-        >
-            <slot :name="`tabPanel-${index + 1}`"></slot>
-        </div>
-        </template> -->
     </div>
 </template>
 
