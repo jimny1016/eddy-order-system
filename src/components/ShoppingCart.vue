@@ -1,12 +1,17 @@
 <template>
     <div>
-        <div class="flex py-4">
-            <div @click="backToMenu()" class="cursor-pointer">
-                <MyImage imagePath="/image/icon/previous-blue.png" firstLayerClass="mr-2 z-1 !w-auto !h-auto" secondLayerClass="!w-auto !h-auto" imageClass="!w-10 !h-10" />
+        <div class="flex justify-between py-4">
+            <div class="flex">
+                <div @click="backToMenu()" class="cursor-pointer">
+                    <MyImage imagePath="/image/icon/previous-blue.png" firstLayerClass="mr-2 z-1 !w-auto !h-auto" secondLayerClass="!w-auto !h-auto" imageClass="!w-10 !h-10" />
+                </div>
+                <div class="text-2xl font-semibold self-center">
+                    購物車
+                </div>
             </div>
-            <div class="text-2xl font-semibold self-center">
-                購物車
-            </div>
+            <div class="flex self-center">
+                <div class="bg-blue-500 text-white rounded-lg px-2">3桌</div>
+            </div>            
         </div>
         <div v-show="cart && cart.length < 1" class="absolute-center">
             <MyImage imagePath="/image/icon/shopping-bag.png" firstLayerClass="mr-2 z-10 !w-auto !h-auto" secondLayerClass="!w-auto !h-auto" imageClass="!w-[40vw] max-w-[302px]" />
