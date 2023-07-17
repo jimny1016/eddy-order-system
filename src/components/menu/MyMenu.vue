@@ -10,10 +10,17 @@
                 </div>
             </CategoryTabs>
             <Menupage :manuData="manuData[0].Display" @dishKey="getValue"/>
+            <transition name="fade">
+                <div v-if="isDivVisible" class="fixed bottom-0 left-0 w-full flex justify-center items-center mb-28">
+                    <div class="p-4 rounded-md w-full max-w-3xl bg-gray-200">
+                        <p>餐點已加入購物車</p>
+                    </div>
+                </div>
+            </transition>
         </div>
         <!--without navigation bar showDishDetailPage-->
         <div v-if="pageState == 1">
-            <DishDetail :dish="dish" @backToMenu="backToMenu" />
+            <DishDetail :dish="dish" @showAddSuccess="showDiv" />
         </div>
         <div v-show="pageState == 2">
             <ShoppingCart :tableNum="tableNum" />
@@ -59,7 +66,7 @@ export default {
     data() {
         return {       
             dish: null, //save variable 
-            showDishDetailPage: false // 控制是否显示DishDetail组件
+            isDivVisible: false
         };
     },
     methods: {
@@ -83,16 +90,24 @@ export default {
             }
             this.$store.dispatch('updatePageState', {pageState: pageState });
         },
-        backToMenu() {
-            this.showDishDetailPage = false;
-        },
-        goToShippingCart() {
-
+        showDiv() {
+            this.isDivVisible = true;
+            setTimeout(() => {
+                this.isDivVisible = false;
+            }, 1000);
         }
     },
 };
 </script>
 
 <style scoped>
-
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+  
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
 </style>

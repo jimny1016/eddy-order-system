@@ -197,7 +197,8 @@
                 this.$store.dispatch('addToCart', {product: myDish, quantity: this.dishesCount });
                 
                 alert('新增餐點成功!');
-                this.backToMenu();
+                this.backToMenu();                
+                this.$emit('showAddSuccess');                
             },
             checkRequirement() {
                 let isOk = true;
