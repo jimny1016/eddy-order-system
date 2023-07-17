@@ -11,19 +11,19 @@
             </CategoryTabs>
             <Menupage :manuData="manuData[0].Display" @dishKey="getValue"/>
             <transition name="fade">
-                <div v-if="isDivVisible" class="fixed bottom-0 left-0 w-full flex justify-center items-center mb-28">
+                <div v-if="isDivVisible" class="fixed bottom-0 left-0 w-full flex justify-center items-center mb-20">
                     <div class="p-4 rounded-md w-full max-w-3xl bg-gray-200">
                         <p>餐點已加入購物車</p>
                     </div>
                 </div>
             </transition>
-            <div v-show="cartLength > 0" class="fixed bottom-0 w-full max-w-3xl bg-blue-500 p-4 rounded-md mb-2 grid grid-cols-3">
+            <div v-show="cartLength > 0" @click="() =>{this.$store.dispatch('updatePageState', {pageState: 2 });}" class="fixed bottom-0 w-full max-w-3xl bg-blue-500 p-4 rounded-md mb-2 grid grid-cols-4 cursor-pointer">
                 <div class="flex items-center">
                     <div class="border border-white text-center px-[2px] w-6 h-6 text-white rounded-full">
                         {{ cartLength }}
                     </div>                    
                 </div>
-                <div class="text-white text-lg font-bold flex">
+                <div class="text-white text-lg font-bold flex col-span-2">
                     <MyImage imagePath="/image/icon/shopping-cart-white.png" firstLayerClass="mr-2 z-1 !w-auto !h-auto" secondLayerClass="!w-auto !h-auto" imageClass="!w-6 !h-6" />
                     檢視購物車
                 </div>
