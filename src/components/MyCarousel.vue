@@ -7,10 +7,10 @@
           </div>
         </div>
       </transition-group>
-      <div class="btn btn-prev" aria-label="Previous slide" @click="slide(-1)">
+      <div v-show="current > 0" class="btn btn-prev" aria-label="Previous slide" @click="slide(-1)">
         <img :src="getImagePath('image/slick/arrow-circle-left-solid.svg')">
       </div>
-      <div class="btn btn-next" aria-label="Next slide" @click="slide(1)">
+      <div v-show="current < 2" class="btn btn-next" aria-label="Next slide" @click="slide(1)">
         <img :src="getImagePath('image/slick/arrow-circle-right-solid.svg')">
       </div>      
   </div>        
