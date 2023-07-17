@@ -27,7 +27,7 @@
                     <MyImage imagePath="/image/icon/shopping-cart-white.png" firstLayerClass="mr-2 z-1 !w-auto !h-auto" secondLayerClass="!w-auto !h-auto" imageClass="!w-6 !h-6" />
                     檢視購物車
                 </div>
-                <div>
+                <div class="flex items-center justify-end mr-4 text-white">
                     NT$
                 </div>
             </div>
