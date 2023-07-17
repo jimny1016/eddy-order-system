@@ -18,12 +18,13 @@
                 </div>
             </transition>
             <div v-show="cartLength > 0" class="fixed bottom-0 w-full max-w-3xl bg-blue-500 p-4 rounded-md mb-2 grid grid-cols-3">
-                <div>
-                    <div class="border border-white text-center	 px-[2px] w-6 h-6 text-white rounded-full">
+                <div class="flex items-center">
+                    <div class="border border-white text-center px-[2px] w-6 h-6 text-white rounded-full">
                         {{ cartLength }}
                     </div>                    
                 </div>
-                <div>
+                <div class="text-white text-lg font-bold flex">
+                    <MyImage imagePath="/image/icon/shopping-cart-white.png" firstLayerClass="mr-2 z-1 !w-auto !h-auto" secondLayerClass="!w-auto !h-auto" imageClass="!w-6 !h-6" />
                     檢視購物車
                 </div>
                 <div>
@@ -47,12 +48,13 @@ import CategoryTabs from '../tabs/CategoryTabs.vue';
 import Menupage from './MenuPage.vue';
 import DishDetail from '../DishesDetail.vue';
 import ShoppingCart from '../ShoppingCart.vue';
+import MyImage from '../tools/MyImage.vue';
 
 export default {
     name: 'my-menu',
     props: ['manuData'],
     components: {
-        Navbar,CategoryTabs,Menupage,DishDetail,ShoppingCart
+        Navbar,CategoryTabs,Menupage,DishDetail,ShoppingCart,MyImage
     },
     computed:{
         tableNum(){
