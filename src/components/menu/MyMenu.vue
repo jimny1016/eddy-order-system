@@ -17,6 +17,19 @@
                     </div>
                 </div>
             </transition>
+            <div v-show="cartLength > 0" class="fixed bottom-0 w-full max-w-3xl bg-blue-500 p-4 rounded-md mb-2 grid grid-cols-3">
+                <div>
+                    <div class="border border-white text-center	 px-[2px] w-6 h-6 text-white rounded-full">
+                        {{ cartLength }}
+                    </div>                    
+                </div>
+                <div>
+                    檢視購物車
+                </div>
+                <div>
+                    NT$
+                </div>
+            </div>
         </div>
         <!--without navigation bar showDishDetailPage-->
         <div v-if="pageState == 1">
