@@ -28,7 +28,7 @@
                     檢視購物車
                 </div>
                 <div class="flex items-center justify-end mr-4 text-white">
-                    NT$
+                    NT${{ getTotalPrice(cart) }}
                 </div>
             </div>
         </div>
@@ -43,76 +43,81 @@
 </template>
 
 <script>
-import Navbar from './../navigationHeaderBar/NavigationHeaderBar.vue';
-import CategoryTabs from '../tabs/CategoryTabs.vue';
-import Menupage from './MenuPage.vue';
-import DishDetail from '../DishesDetail.vue';
-import ShoppingCart from '../ShoppingCart.vue';
-import MyImage from '../tools/MyImage.vue';
+    import Navbar from './../navigationHeaderBar/NavigationHeaderBar.vue';
+    import CategoryTabs from '../tabs/CategoryTabs.vue';
+    import Menupage from './MenuPage.vue';
+    import DishDetail from '../DishesDetail.vue';
+    import ShoppingCart from '../ShoppingCart.vue';
+    import MyImage from '../tools/MyImage.vue';
+    import { shoppingCartMixin } from '../../ShopooingCartMixins.js'
 
-export default {
-    name: 'my-menu',
-    props: ['manuData'],
-    components: {
-        Navbar,CategoryTabs,Menupage,DishDetail,ShoppingCart,MyImage
-    },
-    computed:{
-        tableNum(){
-            return this.manuData[0].TableNum;
+    export default {
+        name: 'my-menu',
+        props: ['manuData'],
+        components: {
+            Navbar,CategoryTabs,Menupage,DishDetail,ShoppingCart,MyImage
         },
-        pageTitle() {
-            return this.manuData[0].PageTitle;
-        },
-        tabList(){
-            // 從 manuData 中取得 tabList 的值
-            if (this.manuData[0].Display) {
-                return this.manuData[0].Display.map(tab=>tab.TabName);
-            } else {
-                return [];
+        mixins: [shoppingCartMixin],
+        computed:{
+            tableNum(){
+                return this.manuData[0].TableNum;
+            },
+            pageTitle() {
+                return this.manuData[0].PageTitle;
+            },
+            tabList(){
+                // 從 manuData 中取得 tabList 的值
+                if (this.manuData[0].Display) {
+                    return this.manuData[0].Display.map(tab=>tab.TabName);
+                } else {
+                    return [];
+                }
+            },
+            cartLength() {
+                return this.$store.getters.cart.length;
+            },
+            pageState() {
+                return this.$store.getters.pageState;
+            },
+            cart() {
+                return this.$store.getters.cart;
             }
         },
-        cartLength() {
-            return this.$store.getters.cart.length;
+        data() {
+            return {       
+                dish: null, //save variable 
+                isDivVisible: false
+            };
         },
-        pageState() {
-            return this.$store.getters.pageState;
-        }
-    },
-    data() {
-        return {       
-            dish: null, //save variable 
-            isDivVisible: false
-        };
-    },
-    methods: {
-        getValue(value) {
-            this.receivedValue = value;
-            this.value = value; // 保存value到this.value
-            var target;
-            this.manuData[0].Display.forEach(tab => {
-                var temp = tab.Dishes.find(dish => dish.DishKey === value);
-                if(temp)
-                {
-                    target = temp;
-                }                    
-            });
-            if(target)
-                this.dish = target;
+        methods: {
+            getValue(value) {
+                this.receivedValue = value;
+                this.value = value; // 保存value到this.value
+                var target;
+                this.manuData[0].Display.forEach(tab => {
+                    var temp = tab.Dishes.find(dish => dish.DishKey === value);
+                    if(temp)
+                    {
+                        target = temp;
+                    }                    
+                });
+                if(target)
+                    this.dish = target;
 
-            let pageState = 0;
-            if(value!=null && this.dish!=null){
-                pageState = 1;                
+                let pageState = 0;
+                if(value!=null && this.dish!=null){
+                    pageState = 1;                
+                }
+                this.$store.dispatch('updatePageState', {pageState: pageState });
+            },
+            showDiv() {
+                this.isDivVisible = true;
+                setTimeout(() => {
+                    this.isDivVisible = false;
+                }, 1000);
             }
-            this.$store.dispatch('updatePageState', {pageState: pageState });
         },
-        showDiv() {
-            this.isDivVisible = true;
-            setTimeout(() => {
-                this.isDivVisible = false;
-            }, 1000);
-        }
-    },
-};
+    };
 </script>
 
 <style scoped>
