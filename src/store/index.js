@@ -3,7 +3,8 @@ import { createStore } from 'vuex';
 export default createStore({
   state: {
     cart: [],  // 購物車
-    pageState: 0 //0 my menu, 1 dish detail, 2 shopping cart
+    pageState: 0, //0 my menu, 1 dish detail, 2 shopping cart
+    beUpdatedCartCell: null
   },
   mutations: {
     // 新增產品到購物車
@@ -79,8 +80,19 @@ export default createStore({
       state.cart[dishIndex].quantity = quantity;
     },
 
+    UPDATE_CART_CELL(state) {
+      if(state.beUpdatedCartCell)
+      {
+        state.cart[state.beUpdatedCartCell.cartIndex] = state.beUpdatedCartCell.cartCell;
+      }      
+    },
+
     UPDATE_PAGE_STATE(state, { pageState }) {
       state.pageState = pageState;
+    },
+
+    UPDATE_BE_UPDATED_CART_CELL(state, { cartCell }) {
+      state.beUpdatedCartCell = cartCell;
     },
   },
   actions: {
@@ -92,12 +104,21 @@ export default createStore({
       commit('UPDATE_CART_QUANTITY', { dishIndex, quantity });
     },
 
+    updateCartCell({ commit }) {
+      commit('UPDATE_CART_CELL');
+    },
+
     updatePageState({ commit }, { pageState }) {
       commit('UPDATE_PAGE_STATE', { pageState });
+    },
+
+    updateBeUpdatedCartCell({ commit }, { cartCell }) {
+      commit('UPDATE_BE_UPDATED_CART_CELL', { cartCell });
     },
   },
   getters: {
     cart: state => state.cart,
-    pageState: state => state.pageState
+    pageState: state => state.pageState,
+    beUpdatedCartCell: state => state.beUpdatedCartCell
   }
 });

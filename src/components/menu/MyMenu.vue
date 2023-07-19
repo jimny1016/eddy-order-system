@@ -39,6 +39,9 @@
         <div v-show="pageState == 2">
             <ShoppingCart :tableNum="tableNum" />
         </div>
+        <div v-show="pageState == 3">
+            <DishesDetailUpdate />
+        </div>
     </div>
 </template>
 
@@ -47,6 +50,7 @@
     import CategoryTabs from '../tabs/CategoryTabs.vue';
     import Menupage from './MenuPage.vue';
     import DishDetail from '../DishesDetail.vue';
+    import DishesDetailUpdate from '../DishesDetailUpdate.vue';    
     import ShoppingCart from '../ShoppingCart.vue';
     import MyImage from '../tools/MyImage.vue';
     import { shoppingCartMixin } from '../../ShopooingCartMixins.js'
@@ -55,7 +59,7 @@
         name: 'my-menu',
         props: ['manuData'],
         components: {
-            Navbar,CategoryTabs,Menupage,DishDetail,ShoppingCart,MyImage
+            Navbar,CategoryTabs,Menupage,DishDetail,ShoppingCart,MyImage,DishesDetailUpdate
         },
         mixins: [shoppingCartMixin],
         computed:{

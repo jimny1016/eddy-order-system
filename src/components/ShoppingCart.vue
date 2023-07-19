@@ -29,8 +29,9 @@
                         <div class="mx-2 self-center text-center text-lg">{{ dish.quantity }}</div>
                         <MyImage imagePath="/image/icon/plus.png" @click="()=>{ changeDishQuantity(dishIndex, dish.quantity + 1); }"  firstLayerClass="!w-auto !h-auto cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-8 !h-8" />
                     </div>
-                    <div class="col-span-5 self-center text-xl font-bold">
+                    <div class="col-span-5 self-center text-xl font-bold flex">
                         {{ dish.product.title }}
+                        <MyImage imagePath="/image/icon/pen.png" @click="()=>{ adjustDishDetail(dishIndex, dish); }"  firstLayerClass="!w-auto !h-auto cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-6 !h-6" />
                     </div>
                     <div class="self-center text-right text-lg ">
                         $ {{ getDishPrice(dish) }}
@@ -176,6 +177,10 @@
                     this.$store.dispatch('updateCartQuantity', {dishIndex:index, quantity:0 });
                 });
             },
+            adjustDishDetail(cartIndex, cartCell){
+                this.$store.dispatch('updateBeUpdatedCartCell', {cartCell:{cartIndex:cartIndex, cartCell:cartCell} });
+                this.$store.dispatch('updatePageState', {pageState: 3 });
+            }
         }
     };
 </script>
