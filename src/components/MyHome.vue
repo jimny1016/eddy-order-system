@@ -1,6 +1,6 @@
 <template>
   <Navbar :tableNum="tableNum" :title="pageTitle" isHomePage="false" v-show="showSlider" id="navbar"/>
-  <MyCarousel v-if="showSlider" @showMyMenu="switchDisplay(false)"/>
+  <MyCarousel v-if="showSlider" @showMyMenu="switchDisplay"/>
   <MyMenu :manuData="manuData" v-if="!showSlider" /> 
 </template>
 
