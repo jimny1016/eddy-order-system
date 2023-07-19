@@ -12,7 +12,8 @@
       </div>
       <div v-show="current < 2" class="btn btn-next" aria-label="Next slide" @click="slide(1)">
         <img :src="getImagePath('image/slick/arrow-circle-right-solid.svg')">
-      </div>      
+      </div>   
+      <button v-show="current == 2" class="center start-ordering" @click="switchToMyMenu()">Start Ordering</button>    
   </div>        
 </template>
   
@@ -35,9 +36,6 @@
     methods: {
       slide(dir) {
         this.direction = dir;
-        // dir === 1
-        //   ? (this.transitionName = "slide-next")
-        //   : (this.transitionName = "slide-prev");
         var len = this.slides.length;
         this.current = ((this.current + dir) % len + len) % len;
       },
@@ -48,6 +46,9 @@
       getImagePath(path) {
         return "http://localhost:8080/" + path;
       },
+      switchToMyMenu() {
+        this.$emit('showMyMenu', false);
+      }      
     },
     computed: {
       showStarOrder() {
@@ -59,31 +60,6 @@
 
 <style scoped>
   @import url("https://fonts.googleapis.com/css?family=Crimson+Text");
-
-
-  /* .slide-next-enter-active,
-  .slide-next-leave-active {
-    transition: transform 0.5s ease-in-out;
-  }
-  .slide-next-enter {
-    transform: translate(100%);
-  }
-  .slide-next-leave-to {
-    transform: translate(-100%);
-  }
-
-  .slide-prev-enter-active,
-  .slide-prev-leave-active {
-    transition: transform 0.5s ease-in-out;
-  }
-
-  .slide-prev-enter {
-    transform: translate(-100%);
-  }
-
-  .slide-prev-leave-to {
-    transform: translate(100%);
-  } */
 
   .btn {
     z-index: 10;
@@ -107,6 +83,24 @@
 
   .btn:hover {
     transform: scale(1.1);
+  }
+  .center {
+    margin: 0;
+    /* position: absolute; */
+    position: fixed;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width:150px;
+    height:50px;
+    bottom: 20px; /* 距離頁面底部的距離 */
+  }
+  .start-ordering {
+    background-color: #1e90ff;
+    color: white;
+    border: 2px solid #1e90ff;
+    border-radius: 5px;
+    padding: 10px;
   }
 
 </style>
