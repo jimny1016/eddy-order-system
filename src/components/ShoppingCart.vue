@@ -48,12 +48,20 @@
                     $ {{ getLittlePrice(cart) }}
                 </div>
             </div>
-            <div class="flex justify-between mb-8">
+            <div class="flex justify-between">
                 <div class="text-xl font-semibold">
                     服務費
                 </div>
                 <div class="text-xl">
                     $ {{ getServicePrice(cart) }}
+                </div>
+            </div>
+            <div class="flex justify-between mb-8">
+                <div class="text-xl font-semibold">
+                    優惠
+                </div>
+                <div class="text-xl">
+                    $ {{ getSavePrice(cart) }}
                 </div>
             </div>
             <div class="flex justify-between mb-8">

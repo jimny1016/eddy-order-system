@@ -32,13 +32,16 @@ export const shoppingCartMixin = {
             cart.forEach((dish) => {
                 result += this.getDishPrice(dish);
             });
-            return result;
+            return Math.ceil(result);
         },
         getServicePrice(cart){
-            return this.getLittlePrice(cart) * 0.1;
+            return Math.ceil(this.getLittlePrice(cart) * 0.1);
+        },
+        getSavePrice(cart){
+            return Math.ceil(this.getLittlePrice(cart) * 0.2);
         },
         getTotalPrice(cart){
-            return this.getLittlePrice(cart) + this.getServicePrice(cart);
+            return Math.ceil(this.getLittlePrice(cart) + this.getServicePrice(cart) - this.getSavePrice(cart));
         },
     }
   }
