@@ -1,6 +1,5 @@
 <template>
-    {{ beUpdatedCartCell }}
-    <div @click="backToMenu()" class="cursor-pointer">
+    <div @click="backToShoppingCart()" class="cursor-pointer">
         <MyImage imagePath="/image/icon/previous-blue.png" firstLayerClass="!fixed top-10 ml-2 z-10 !w-auto !h-auto" secondLayerClass="!w-auto !h-auto" imageClass="!w-10 !h-10" />
     </div>    
     <div v-if="dish" class="mb-20">
@@ -134,6 +133,7 @@
         </div>
     </div>
             <!-- {{ this.$store.getters.cart }} -->
+    <!-- {{ beUpdatedCartCell }} -->
     <div class="!fixed left-0 bottom-0 w-[100vw] z-10!h-auto p-4 bg-white">
         <div class="flex justify-between max-w-3xl m-auto items-center">
             <div class="flex">
@@ -141,7 +141,7 @@
                 <div class="mx-2 text-center text-2xl self-center">{{ dishesCount }}</div>
                 <MyImage imagePath="/image/icon/plus.png" @click="()=>{ dishesCount = parseInt(dishesCount) + 1 }"  firstLayerClass="!w-auto !h-auto cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-10 !h-10" />
             </div>
-            <div @click="addToCart" class="bg-blue-400 px-14 py-2 rounded-md text-white text-center text-2xl self-center cursor-pointer">加入購物車</div>
+            <div @click="addToCart" class="bg-blue-400 px-14 py-2 rounded-md text-white text-center text-2xl self-center cursor-pointer">儲存</div>
         </div>
     </div>
 
@@ -152,30 +152,32 @@
     
     export default {
         name: 'dish-detail-update',
-        props: ['dish'],
         components: {
             MyImage,
         },
         data() {
             return {
+                dish: null,
                 disheOptions:[],
                 dishesCount: 1
             };
         },
         computed:{
-            beUpdatedCartCell() {
+            beUpdatedCartCell() {                
                 return this.$store.getters.beUpdatedCartCell;
             }
         },
         watch: {
-            dish: {
+            beUpdatedCartCell: {
                 immediate: true,
                 deep: true,
                 handler(newVal) {
-                    if (newVal && newVal.Options) {
-                        this.disheOptions = JSON.parse(JSON.stringify(newVal.Options));
+                    if (newVal && newVal.cartCell.product) {
+                        this.dish = JSON.parse(JSON.stringify(newVal.cartCell.product));
+                        this.disheOptions = JSON.parse(JSON.stringify(this.dish.Options));
                     }
                     else{
+                        this.dish = null;
                         this.disheOptions = null;
                     }
                 },
@@ -190,21 +192,26 @@
                         optionVaule.BeChoise = false;
                 });
             },
-            backToMenu(){
-                this.$store.dispatch('updatePageState', {pageState: 0 });
+            backToShoppingCart(){
+                this.$store.dispatch('updatePageState', {pageState: 2 });
             },
             addToCart() {
                 let isOk = this.checkRequirement();
                 if(!isOk) {
                     return;
                 }
-                let myDish = JSON.parse(JSON.stringify(this.dish));
+                let myDish = this.dish;
                 myDish.Options = this.disheOptions;
-                this.$store.dispatch('addToCart', {product: myDish, quantity: this.dishesCount });
+
+                let resultCartCell = JSON.parse(JSON.stringify(this.beUpdatedCartCell));
+                resultCartCell.cartCell.product = myDish;
+                resultCartCell.cartCell.quantity = this.dishesCount;
+                                
+                this.$store.dispatch('updateBeUpdatedCartCell', {cartCell:resultCartCell});
+                this.$store.dispatch('updateCartCell');
+                this.$store.dispatch('updateBeUpdatedCartCell', {cartCell:null});
                 
-                alert('新增餐點成功!');
-                this.backToMenu();                
-                this.$emit('showAddSuccess');                
+                this.backToShoppingCart();              
             },
             checkRequirement() {
                 let isOk = true;
