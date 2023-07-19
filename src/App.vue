@@ -5,11 +5,14 @@
 
   <!-- <FadeTest></FadeTest> -->
   <!-- <RouterView/> -->
+  <!-- <AxiosTest></AxiosTest> -->
 </template>
 
 <script>
   // import { RouterView } from 'vue-router'
   import MyHome from './components/MyHome.vue';
+  // import AxiosTest from './components/AxiosTest.vue';
+  
   // import StoreTest from './components/StoreTest.vue';
   // import FadeTest from './components/FadeTest.vue';
   
@@ -23,6 +26,7 @@
       MyHome,
       //StoreTest,
       //FadeTest,
+      //AxiosTest
     },
   };
 </script>
