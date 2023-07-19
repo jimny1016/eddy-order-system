@@ -95,18 +95,13 @@
         },
         methods: {
             getValue(value) {
-                this.receivedValue = value;
-                this.value = value; // 保存value到this.value
-                var target;
                 this.manuData[0].Display.forEach(tab => {
                     var temp = tab.Dishes.find(dish => dish.DishKey === value);
                     if(temp)
                     {
-                        target = temp;
+                        this.dish = temp;
                     }                    
                 });
-                if(target)
-                    this.dish = target;
 
                 let pageState = 0;
                 if(value!=null && this.dish!=null){
