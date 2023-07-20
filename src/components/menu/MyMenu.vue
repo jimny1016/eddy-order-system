@@ -114,8 +114,10 @@
                 let pageState = 0;
                 if(value!=null && this.dish!=null){
                     pageState = 1;
-                    if(this.dish.isCombo)
+                    if(this.dish.isCombo){
                         pageState = 4;
+                        this.$store.dispatch('updateTempCombo', {tempCombo: this.dish });
+                    }                        
                 }
                 this.$store.dispatch('updatePageState', {pageState: pageState });
             },

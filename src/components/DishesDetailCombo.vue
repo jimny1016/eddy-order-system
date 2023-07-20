@@ -156,7 +156,7 @@
                     </div>
                 </div>
             </div>            
-            {{ this.disheOptions }}
+            {{ this.dish }}
         </div>
     </div>
             <!-- {{ this.$store.getters.cart }} -->
@@ -179,26 +179,33 @@
     
     export default {
         name: 'dish-detail',
-        props: ['dish'],
         components: {
             MyImage,
             DishItem,
         },
         data() {
             return {
+                dish: null,
                 disheOptions:[],
                 dishesCount: 1
             };
         },
+        computed:{
+            tempCombo() {                
+                return this.$store.getters.tempCombo;
+            }
+        },
         watch: {
-            dish: {
+            tempCombo: {
                 immediate: true,
                 deep: true,
                 handler(newVal) {
-                    if (newVal && newVal.Options) {
-                        this.disheOptions = JSON.parse(JSON.stringify(newVal.Options));
+                    if (newVal) {
+                        this.dish = JSON.parse(JSON.stringify(newVal));
+                        this.disheOptions = JSON.parse(JSON.stringify(this.dish.Options));
                     }
                     else{
+                        this.dish = null;
                         this.disheOptions = null;
                     }
                 },
