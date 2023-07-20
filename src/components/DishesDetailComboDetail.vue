@@ -230,11 +230,16 @@
                 }
                 let myDish = JSON.parse(JSON.stringify(this.dish));
                 myDish.Options = this.disheOptions;
-                // this.$store.dispatch('addToCart', {product: myDish, quantity: this.dishesCount });
-                
-                // alert('新增餐點成功!');
-                // this.backToMenu();
-                // this.$emit('showAddSuccess');
+                let tempComboResult = JSON.parse(JSON.stringify(this.tempCombo));
+                tempComboResult.Options[this.tempComboDishDetailKey.optionIndex].OptionVaules[this.tempComboDishDetailKey.optionValueIndex] = myDish;
+                tempComboResult.Options[this.tempComboDishDetailKey.optionIndex].OptionVaules.forEach((optionVaule, index) => {
+                    if(index == this.tempComboDishDetailKey.optionValueIndex)
+                        optionVaule.BeChoise = true;
+                    else
+                        optionVaule.BeChoise = false;
+                });
+                this.$store.dispatch('updateTempCombo', {tempCombo: tempComboResult });
+                this.$store.dispatch('updatePageState', {pageState: 4 });
             },
             checkRequirement() {
                 let isOk = true;

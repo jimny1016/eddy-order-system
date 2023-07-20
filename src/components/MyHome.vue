@@ -173,7 +173,7 @@
                                 unit: "一份",
                                 imgPath: "../src/image",
                                 price: 90,
-                                isCombo: false,
+                                BeChoise:false,
                                 Options: [
                                   {
                                     Type:2,
@@ -256,27 +256,27 @@
                                 ]
                               },
                               {
-                                  title: "主廚特調乾拉麵",
-                                  DishKey:"recommend_2",
-                                  unit: "一份",
-                                  imgPath: "../src/image",
-                                  price: 100,
-                                  isCombo: false
+                                title: "主廚特調乾拉麵",
+                                DishKey:"recommend_2",
+                                unit: "一份",
+                                imgPath: "../src/image",
+                                price: 100,
+                                BeChoise:false,
                               },
                               {
-                                  title: "綜合天婦羅",
-                                  DishKey:"recommend_3",
-                                  unit: "大蝦天婦羅*3、地瓜天婦羅*3、蔬菜天婦羅*3 一份9個",
-                                  imgPath: "../src/image",
-                                  price: 200,
-                                  isCombo: false
+                                title: "綜合天婦羅",
+                                DishKey:"recommend_3",
+                                unit: "大蝦天婦羅*3、地瓜天婦羅*3、蔬菜天婦羅*3 一份9個",
+                                imgPath: "../src/image",
+                                price: 200,
+                                BeChoise:false,
                               },{
-                                  title: "當日特選餐",
-                                  DishKey:"recommend_4",
-                                  unit: "每日特選餐點不同，請至櫃檯詢問謝謝",
-                                  imgPath: "../src/image",
-                                  price: 0,
-                                  isCombo: false
+                                title: "當日特選餐",
+                                DishKey:"recommend_4",
+                                unit: "每日特選餐點不同，請至櫃檯詢問謝謝",
+                                imgPath: "../src/image",
+                                price: 0,
+                                BeChoise:false,
                               }
                             ]
                           },
@@ -293,7 +293,6 @@
                                 unit: "一份",
                                 imgPath: "../src/image",
                                 price: 0,
-                                isCombo: false,
                                 Options: [
                                   {
                                     Type:2,
@@ -381,7 +380,6 @@
                                 unit: "一份",
                                 imgPath: "../src/image",
                                 price: 10,
-                                isCombo: false,
                                 Options: [
                                   {
                                     Type:2,
@@ -478,7 +476,6 @@
                                 unit: "一份",
                                 imgPath: "../src/image",
                                 price: 0,
-                                isCombo: false,
                                 Options: [
                                   {
                                     Type:2,
@@ -534,7 +531,6 @@
                                 unit: "一杯",
                                 imgPath: "../src/image",
                                 price: 10,
-                                isCombo: false,
                                 Options: [
                                   {
                                     Type:2,
