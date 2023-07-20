@@ -101,8 +101,8 @@ export default createStore({
       state.tempCombo = tempCombo;
     },
 
-    UPDATE_TEMP_COMBO_DISH_DETAIL_KEY(state, { optionKey, dishKey }) {
-      state.tempComboDishDetailKey = { optionKey, dishKey };
+    UPDATE_TEMP_COMBO_DISH_DETAIL_KEY(state, { optionIndex, optionValueIndex }) {
+      state.tempComboDishDetailKey = { optionIndex, optionValueIndex };
     },    
   },
   actions: {
@@ -130,8 +130,8 @@ export default createStore({
       commit('UPDATE_TEMP_COMBO', { tempCombo });
     },
 
-    updateTempComboDishDetailKey({ commit }, { optionKey, dishKey }) {
-      commit('UPDATE_TEMP_COMBO_DISH_DETAIL_KEY', { optionKey, dishKey });
+    updateTempComboDishDetailKey({ commit }, { optionIndex, optionValueIndex }) {
+      commit('UPDATE_TEMP_COMBO_DISH_DETAIL_KEY', { optionIndex, optionValueIndex });
     },
   },
   getters: {

@@ -144,7 +144,7 @@
                             </div>
                         </div>
                     </div>
-                    <div v-for="(optionVaule, optionVauleIndex) in option.OptionVaules" :key="'optionVauleComboRadio-' + optionVauleIndex" @click="handleRadioChange(optionIndex, optionVauleIndex)" class="flex items-center space-x-2 my-2 cursor-pointer">
+                    <div v-for="(optionVaule, optionVauleIndex) in option.OptionVaules" :key="'optionVauleComboRadio-' + optionVauleIndex" @click="openComboDetail(optionIndex, optionVauleIndex)" class="flex items-center space-x-2 my-2 cursor-pointer">
                         <div class="flex w-full">
                             <div>
                                 <input type="radio" :name="'radio-combo-' + option.Key" :checked="optionVaule.BeChoise" class="w-5 h-5 text-blue-500 rounded mr-1 relative top-0.5" /> 
@@ -212,13 +212,9 @@
             },
         },       
         methods:{
-            handleRadioChange(optionIndex, optinValueIndex) {
-                this.disheOptions[optionIndex].OptionVaules.forEach((optionVaule, index) => {
-                    if(index == optinValueIndex)
-                        optionVaule.BeChoise = true;
-                    else
-                        optionVaule.BeChoise = false;
-                });
+            openComboDetail(optionIndex, optionValueIndex) {
+                this.$store.dispatch('updateTempComboDishDetailKey', {optionIndex:optionIndex, optionValueIndex:optionValueIndex });
+                this.$store.dispatch('updatePageState', {pageState: 5 });
             },
             backToMenu(){
                 this.$store.dispatch('updatePageState', {pageState: 0 });

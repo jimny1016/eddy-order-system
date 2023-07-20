@@ -156,7 +156,7 @@
                     </div>
                 </div>
             </div>            
-            {{ this.disheOptions }}
+            {{ this.$store.getters.tempComboDishDetailKey }}
         </div>
     </div>
     <div class="!fixed left-0 bottom-0 w-[100vw] z-10!h-auto p-4 bg-white">
