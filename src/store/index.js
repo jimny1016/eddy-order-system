@@ -4,7 +4,9 @@ export default createStore({
   state: {
     cart: [],  // 購物車
     pageState: 0, //0 my menu, 1 dish detail, 2 shopping cart
-    beUpdatedCartCell: null
+    beUpdatedCartCell: null,
+    tempCombo: null,
+    tempComboDishDetailKey: null
   },
   mutations: {
     // 新增產品到購物車
@@ -94,6 +96,14 @@ export default createStore({
     UPDATE_BE_UPDATED_CART_CELL(state, { cartCell }) {
       state.beUpdatedCartCell = cartCell;
     },
+
+    UPDATE_TEMP_COMBO(state, { tempCombo }) {
+      state.tempCombo = tempCombo;
+    },
+
+    UPDATE_TEMP_COMBO_DISH_DETAIL_KEY(state, { optionKey, dishKey }) {
+      state.tempComboDishDetailKey = { optionKey, dishKey };
+    },    
   },
   actions: {
     addToCart({ commit }, { product, quantity }) {
@@ -115,10 +125,20 @@ export default createStore({
     updateBeUpdatedCartCell({ commit }, { cartCell }) {
       commit('UPDATE_BE_UPDATED_CART_CELL', { cartCell });
     },
+
+    updateTempCombo({ commit }, { tempCombo }) {
+      commit('UPDATE_TEMP_COMBO', { tempCombo });
+    },
+
+    updateTempComboDishDetailKey({ commit }, { optionKey, dishKey }) {
+      commit('UPDATE_TEMP_COMBO_DISH_DETAIL_KEY', { optionKey, dishKey });
+    },
   },
   getters: {
     cart: state => state.cart,
     pageState: state => state.pageState,
-    beUpdatedCartCell: state => state.beUpdatedCartCell
+    beUpdatedCartCell: state => state.beUpdatedCartCell,
+    tempCombo: state => state.tempCombo,
+    tempComboDishDetailKey: state => state.tempComboDishDetailKey
   }
 });
