@@ -42,6 +42,12 @@
         <div v-show="pageState == 3">
             <DishesDetailUpdate />
         </div>
+        <div v-if="pageState == 4">
+            <DishesDetailCombo :dish="dish" @showAddSuccess="showDiv" />
+        </div>
+        <div v-if="pageState == 5">
+            <DishesDetailComboDetail :dish="dish" @showAddSuccess="showDiv" />
+        </div>
     </div>
 </template>
 
@@ -50,7 +56,9 @@
     import CategoryTabs from '../tabs/CategoryTabs.vue';
     import Menupage from './MenuPage.vue';
     import DishDetail from '../DishesDetail.vue';
-    import DishesDetailUpdate from '../DishesDetailUpdate.vue';    
+    import DishesDetailUpdate from '../DishesDetailUpdate.vue';
+    import DishesDetailCombo from '../DishesDetailCombo.vue';
+    import DishesDetailComboDetail from '../DishesDetailComboDetail.vue';    
     import ShoppingCart from '../ShoppingCart.vue';
     import MyImage from '../tools/MyImage.vue';
     import { shoppingCartMixin } from '../../ShopooingCartMixins.js'
@@ -59,7 +67,7 @@
         name: 'my-menu',
         props: ['manuData'],
         components: {
-            Navbar,CategoryTabs,Menupage,DishDetail,ShoppingCart,MyImage,DishesDetailUpdate
+            Navbar,CategoryTabs,Menupage,DishDetail,ShoppingCart,MyImage,DishesDetailUpdate,DishesDetailCombo,DishesDetailComboDetail
         },
         mixins: [shoppingCartMixin],
         computed:{
@@ -105,7 +113,9 @@
 
                 let pageState = 0;
                 if(value!=null && this.dish!=null){
-                    pageState = 1;                
+                    pageState = 1;
+                    if(this.dish.isCombo)
+                        pageState = 4;
                 }
                 this.$store.dispatch('updatePageState', {pageState: pageState });
             },

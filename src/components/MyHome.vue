@@ -1,5 +1,4 @@
 <template>
-  {{ manuData }}
   <Navbar :tableNum="tableNum" :title="pageTitle" isHomePage="false" v-show="showSlider" id="navbar"/>
   <MyCarousel v-if="showSlider" @showMyMenu="switchDisplay"/>
   <MyMenu :manuData="manuData" v-if="!showSlider" /> 
@@ -284,7 +283,7 @@
                           {
                             Type:5,
                             Requirement:true,
-                            Key:1,
+                            Key:2,
                             Name:"炸物1選擇",
                             Memo:"Please Select 1 option",
                             OptionVaules:[
@@ -469,7 +468,7 @@
                           {
                             Type:5,
                             Requirement:true,
-                            Key:1,
+                            Key:3,
                             Name:"湯品/飲料 1選擇",
                             Memo:"Please Select 1 option",
                             OptionVaules:[
