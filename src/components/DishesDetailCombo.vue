@@ -212,6 +212,14 @@
             },
         },       
         methods:{
+            handleRadioChange(optionIndex, optinValueIndex) {
+                this.disheOptions[optionIndex].OptionVaules.forEach((optionVaule, index) => {
+                    if(index == optinValueIndex)
+                        optionVaule.BeChoise = true;
+                    else
+                        optionVaule.BeChoise = false;
+                });
+            },
             openComboDetail(optionIndex, optionValueIndex) {
                 this.$store.dispatch('updateTempComboDishDetailKey', {optionIndex:optionIndex, optionValueIndex:optionValueIndex });
                 this.$store.dispatch('updatePageState', {pageState: 5 });

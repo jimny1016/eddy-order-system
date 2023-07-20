@@ -162,7 +162,7 @@
     <div class="!fixed left-0 bottom-0 w-[100vw] z-10!h-auto p-4 bg-white">
         <div class="flex justify-between max-w-3xl m-auto items-center">
             <div class="flex">
-                <div class="mx-2 text-center text-2xl self-center">{{ dishesCount }}</div>
+                <div class="mx-2 text-center text-2xl self-center"></div>
             </div>
             <div @click="addToCombo" class="bg-blue-400 px-14 py-2 rounded-md text-white text-center text-2xl self-center cursor-pointer">確定</div>
         </div>
@@ -176,26 +176,36 @@
     
     export default {
         name: 'dish-detail',
-        props: ['dish'],
         components: {
             MyImage,
             DishItem,
         },
         data() {
             return {
+                dish: null,
                 disheOptions:[],
                 dishesCount: 1
             };
         },
+        computed:{
+            tempCombo() {                
+                return this.$store.getters.tempCombo;
+            },
+            tempComboDishDetailKey() {                
+                return this.$store.getters.tempComboDishDetailKey;
+            }
+        },
         watch: {
-            dish: {
+            tempComboDishDetailKey: {
                 immediate: true,
                 deep: true,
                 handler(newVal) {
-                    if (newVal && newVal.Options) {
-                        this.disheOptions = JSON.parse(JSON.stringify(newVal.Options));
+                    if (newVal) {
+                        this.dish = JSON.parse(JSON.stringify(this.tempCombo.Options[this.tempComboDishDetailKey.optionIndex].OptionVaules[this.tempComboDishDetailKey.optionValueIndex]));
+                        this.disheOptions = JSON.parse(JSON.stringify(this.dish.Options));
                     }
                     else{
+                        this.dish = null;
                         this.disheOptions = null;
                     }
                 },
