@@ -202,7 +202,8 @@
                 handler(newVal) {
                     if (newVal) {
                         this.dish = JSON.parse(JSON.stringify(this.tempCombo.Options[this.tempComboDishDetailKey.optionIndex].OptionVaules[this.tempComboDishDetailKey.optionValueIndex]));
-                        this.disheOptions = JSON.parse(JSON.stringify(this.dish.Options));
+                        if(this.dish.Options)
+                            this.disheOptions = JSON.parse(JSON.stringify(this.dish.Options));
                     }
                     else{
                         this.dish = null;
