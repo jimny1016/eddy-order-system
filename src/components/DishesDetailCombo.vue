@@ -156,7 +156,7 @@
                     </div>
                 </div>
             </div>            
-            {{ this.dish }}
+            <!-- {{ this.dish }} -->
         </div>
     </div>
             <!-- {{ this.$store.getters.cart }} -->
