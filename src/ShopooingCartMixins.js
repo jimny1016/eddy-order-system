@@ -4,28 +4,33 @@ export const shoppingCartMixin = {
             var product = dish.product;
             let result = product.price;
             if(product.Options){
-                product.Options.forEach((option) => {
-                    option.OptionVaules.forEach((optionVaule) => {
-                        switch(option.Type) {
-                        case 1:
-                        case 2:
-                            if(optionVaule.BeChoise)
-                                result += optionVaule.Price;
-                            break;
-                        case 3:
-                            if(optionVaule.Content)
-                                result += optionVaule.Price;
-                            break;
-                        case 4:
-                            if(parseInt(optionVaule.Content) > 0)
-                                result += parseInt(optionVaule.Content) * optionVaule.Content;  
-                            break;
-                        }
-                    });
-                });
+                result += this.getOptionsPrice(product.Options);
             }
 
             return result * dish.quantity;
+        },
+        getOptionsPrice(options){
+            let result = 0;
+            options.forEach((option) => {
+                option.OptionVaules.forEach((optionVaule) => {
+                    switch(option.Type) {
+                    case 1:
+                    case 2:
+                        if(optionVaule.BeChoise)
+                            result += optionVaule.Price;
+                        break;
+                    case 3:
+                        if(optionVaule.Content)
+                            result += optionVaule.Price;
+                        break;
+                    case 4:
+                        if(parseInt(optionVaule.Content) > 0)
+                            result += parseInt(optionVaule.Content) * optionVaule.Content;  
+                        break;
+                    }
+                });
+            });
+            return result;
         },
         getLittlePrice(cart){
             let result = 0;

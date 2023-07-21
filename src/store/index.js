@@ -46,9 +46,10 @@ export default createStore({
                       case 3:
                       case 4:
                         isLivedInShoppingCart = optionValue.Content === targetOptionValue.Content;
-                        break;    
-                      default:
-                        throw new Error("Option type not included.");
+                        break;
+                      case 5:
+                        isLivedInShoppingCart = false;
+                        break;
                     }
                   }
                 }
@@ -67,7 +68,7 @@ export default createStore({
             quantity
         });
       } catch (error) {
-        alert('新增餐點發生錯誤。');
+        alert('新增餐點發生錯誤。' + error);
         return;
       } 
     },

@@ -162,10 +162,7 @@
             <!-- {{ this.$store.getters.cart }} -->
     <div class="!fixed left-0 bottom-0 w-[100vw] z-10!h-auto p-4 bg-white">
         <div class="flex justify-between max-w-3xl m-auto items-center">
-            <div class="flex">
-                <MyImage imagePath="/image/icon/minus.png" @click="()=>{ dishesCount = parseInt(dishesCount) - 1 < 1 ? 1 : parseInt(dishesCount) - 1 }"  firstLayerClass="!w-auto !h-auto cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-10 !h-10" />
-                <div class="mx-2 text-center text-2xl self-center">{{ dishesCount }}</div>
-                <MyImage imagePath="/image/icon/plus.png" @click="()=>{ dishesCount = parseInt(dishesCount) + 1 }"  firstLayerClass="!w-auto !h-auto cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-10 !h-10" />
+            <div class="flex">                
             </div>
             <div @click="addToCart" class="bg-blue-400 px-14 py-2 rounded-md text-white text-center text-2xl self-center cursor-pointer">加入購物車</div>
         </div>
@@ -257,6 +254,7 @@
                             switch(option.Type) {
                                 case 1:
                                 case 2:
+                                case 5:
                                     isChecked = optionValue.BeChoise || isChecked;
                                 break;     
                                 case 3:

@@ -22,8 +22,8 @@
             <div class="text-lg font-semibold my-2">
                 您的餐點
             </div>
-            <div>
-                <div v-for="(dish, dishIndex) in cart" :key="'dish-' + dishIndex" class="mb-8 w-full grid grid-cols-7">
+            <div v-for="(dish, dishIndex) in cart" :key="'dish-' + dishIndex">
+                <div v-if="!dish.product.isCombo" class="mb-8 w-full grid grid-cols-7">
                     <div class="flex">
                         <MyImage imagePath="/image/icon/minus.png" @click="()=>{ changeDishQuantity(dishIndex, dish.quantity - 1); }"  firstLayerClass="!w-auto !h-auto cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-8 !h-8" />
                         <div class="mx-2 self-center text-center text-lg">{{ dish.quantity }}</div>
@@ -33,15 +33,51 @@
                         {{ dish.product.title }}
                         <MyImage imagePath="/image/icon/pen.png" @click="()=>{ adjustDishDetail(dishIndex, dish); }"  firstLayerClass="!w-auto !h-auto cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-6 !h-6" />
                     </div>
-                    <div class="self-center text-right text-lg ">
+                    <div class="self-center text-right text-lg">
                         $ {{ getDishPrice(dish) }}
                     </div>
                     <div></div>
-                    <div class="col-span-5">{{ getOptionWord(dish.product.Options) }}</div>
+                    <div class="col-span-5 text-gray-400">{{ getOptionWord(dish.product.Options) }}</div>
                     <div></div>
                 </div>
+                <div v-if="dish.product.isCombo">
+                    <div class="flex justify-between">
+                        <div class="text-lg font-bold py-4">
+                            {{ dish.product.title }}
+                        </div>
+                        <div class="text-lg font-bold py-4">
+                            $ {{ dish.product.price }}
+                        </div>
+                    </div>
+                    <div v-for="(option, optionIndex) in dish.product.Options" :key="'dish-' + dishIndex + '-option-' + optionIndex">                        
+                        <div v-for="(optionVaule, OptionVauleIndex) in option.OptionVaules" :key="'dish-' + dishIndex + '-option-' + optionIndex + '-optionVaule-' + OptionVauleIndex">
+                            <div v-if="optionVaule.BeChoise" class="flex justify-between mb-4">
+                                <div class="flex">
+                                    <div>
+                                        <div class="bg-gray-400 w-auto inline-block px-1 rounded-sm text-white mr-2">
+                                            1
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="text-lg font-bold">{{ optionVaule.title }}</div>
+                                        <div class="text-gray-400">{{ getOptionWord(optionVaule.Options) }}</div>
+                                    </div>
+                                </div>
+                                <div class="self-center text-right text-lg">
+                                    <div>
+                                        $ {{ getOptionsPrice(optionVaule.Options) }}
+                                    </div>
+                                    <div>
+                                        &nbsp;
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full border border-gray-300"></div>
+                </div>
             </div>
-            <div class="flex justify-between mb-2">
+            <div class="flex justify-between my-2">
                 <div class="text-xl font-semibold">
                     小計
                 </div>
