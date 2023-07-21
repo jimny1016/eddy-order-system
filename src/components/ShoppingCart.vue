@@ -42,8 +42,9 @@
                 </div>
                 <div v-if="dish.product.isCombo">
                     <div class="flex justify-between">
-                        <div class="text-lg font-bold py-4">
+                        <div class="text-lg font-bold py-4 flex">
                             {{ dish.product.title }}
+                            <MyImage imagePath="/image/icon/pen.png" @click="()=>{ adjustComboDishDetail(dishIndex, dish); }"  firstLayerClass="!w-auto !h-auto cursor-pointer" secondLayerClass="!w-auto !h-auto" imageClass="!w-6 !h-6" />
                         </div>
                         <div class="text-lg font-bold py-4">
                             $ {{ dish.product.price }}
@@ -116,7 +117,6 @@
                 <div @click="showSendConfirm()" class="bg-blue-400 px-2 sm:px-14 py-2 rounded-md text-white text-center text-md sm:text-2xl self-center cursor-pointer">立即下單結帳</div>
             </div>
         </div>
-        <!-- {{ cart }} -->
         <div v-if="isPopUp" @click="()=>{ changeIsPopUp(false); }" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
             <div @click.stop class="bg-white p-4 relative rounded-md max-w-lg max-h-lg w-[80vw] h-[40vh]">
                 <div v-show="popUpState == 0">
@@ -216,6 +216,10 @@
             adjustDishDetail(cartIndex, cartCell){
                 this.$store.dispatch('updateBeUpdatedCartCell', {cartCell:{cartIndex:cartIndex, cartCell:cartCell} });
                 this.$store.dispatch('updatePageState', {pageState: 3 });
+            },
+            adjustComboDishDetail(cartIndex, cartCell){
+                this.$store.dispatch('updateBeUpdatedCartCell', {cartCell:{cartIndex:cartIndex, cartCell:cartCell} });
+                this.$store.dispatch('updatePageState', {pageState: 6 });
             }
         }
     };

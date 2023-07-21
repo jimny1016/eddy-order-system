@@ -43,11 +43,14 @@
             <DishesDetailUpdate />
         </div>
         <div v-if="pageState == 4">
-            <DishesDetailCombo :dish="dish" @showAddSuccess="showDiv" />
+            <DishesDetailCombo @showAddSuccess="showDiv" />
         </div>
         <div v-if="pageState == 5">
-            <DishesDetailComboDetail :dish="dish" @showAddSuccess="showDiv" />
+            <DishesDetailComboDetail />
         </div>
+        <div v-if="pageState == 6">
+            <DishesDetailComboUpdate />
+        </div>        
     </div>
 </template>
 
@@ -58,7 +61,8 @@
     import DishDetail from '../DishesDetail.vue';
     import DishesDetailUpdate from '../DishesDetailUpdate.vue';
     import DishesDetailCombo from '../DishesDetailCombo.vue';
-    import DishesDetailComboDetail from '../DishesDetailComboDetail.vue';    
+    import DishesDetailComboDetail from '../DishesDetailComboDetail.vue';
+    import DishesDetailComboUpdate from '../DishesDetailComboUpdate.vue';
     import ShoppingCart from '../ShoppingCart.vue';
     import MyImage from '../tools/MyImage.vue';
     import { shoppingCartMixin } from '../../ShopooingCartMixins.js'
@@ -67,7 +71,7 @@
         name: 'my-menu',
         props: ['manuData'],
         components: {
-            Navbar,CategoryTabs,Menupage,DishDetail,ShoppingCart,MyImage,DishesDetailUpdate,DishesDetailCombo,DishesDetailComboDetail
+            Navbar,CategoryTabs,Menupage,DishDetail,ShoppingCart,MyImage,DishesDetailUpdate,DishesDetailCombo,DishesDetailComboDetail,DishesDetailComboUpdate
         },
         mixins: [shoppingCartMixin],
         computed:{
