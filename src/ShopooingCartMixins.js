@@ -32,10 +32,34 @@ export const shoppingCartMixin = {
             });
             return result;
         },
+        getComboPrice(dish){            
+            var product = dish.product;
+            let result = product.price;
+            if(product.Options){
+                result += this.getOptionsPrice(product.Options);
+                let filteredOption = product.Options.filter(obj => obj.Type === 5);
+                if(filteredOption){
+                    filteredOption.forEach((option) => {
+                        let filteredOptionValues = option.OptionVaules.filter(obj => obj.BeChoise === true);
+                        if(filteredOptionValues){
+                            filteredOptionValues.forEach((optionVaule) => {
+                                result += this.getOptionsPrice(optionVaule.Options);
+                            });
+                        }
+                    });
+                }
+            }
+            return result;
+        },
         getLittlePrice(cart){
             let result = 0;
             cart.forEach((dish) => {
-                result += this.getDishPrice(dish);
+                if(dish.product.isCombo){
+                    result += this.getComboPrice(dish);
+                }                
+                else{
+                    result += this.getDishPrice(dish);
+                }                
             });
             return Math.ceil(result);
         },
