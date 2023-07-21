@@ -43,6 +43,7 @@ export const shoppingCartMixin = {
                         let filteredOptionValues = option.OptionVaules.filter(obj => obj.BeChoise === true);
                         if(filteredOptionValues){
                             filteredOptionValues.forEach((optionVaule) => {
+                                result += optionVaule.price;
                                 result += this.getOptionsPrice(optionVaule.Options);
                             });
                         }

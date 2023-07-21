@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="self-center text-right text-lg">
                                     <div>
-                                        $ {{ getOptionsPrice(optionVaule.Options) }}
+                                        +$ {{ optionVaule.price + getOptionsPrice(optionVaule.Options) }}
                                     </div>
                                     <div>
                                         &nbsp;
