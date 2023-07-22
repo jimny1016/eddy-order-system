@@ -50,7 +50,10 @@
         </div>
         <div v-if="pageState == 6">
             <DishesDetailComboUpdate />
-        </div>        
+        </div>
+        <div v-if="pageState == 7">
+            <DishesDetailComboDetailUpdate />
+        </div>
     </div>
 </template>
 
@@ -63,6 +66,7 @@
     import DishesDetailCombo from '../DishesDetailCombo.vue';
     import DishesDetailComboDetail from '../DishesDetailComboDetail.vue';
     import DishesDetailComboUpdate from '../DishesDetailComboUpdate.vue';
+    import DishesDetailComboDetailUpdate from '../DishesDetailComboDetailUpdate.vue';
     import ShoppingCart from '../ShoppingCart.vue';
     import MyImage from '../tools/MyImage.vue';
     import { shoppingCartMixin } from '../../ShopooingCartMixins.js'
@@ -71,7 +75,7 @@
         name: 'my-menu',
         props: ['manuData'],
         components: {
-            Navbar,CategoryTabs,Menupage,DishDetail,ShoppingCart,MyImage,DishesDetailUpdate,DishesDetailCombo,DishesDetailComboDetail,DishesDetailComboUpdate
+            Navbar,CategoryTabs,Menupage,DishDetail,ShoppingCart,MyImage,DishesDetailUpdate,DishesDetailCombo,DishesDetailComboDetail,DishesDetailComboUpdate,DishesDetailComboDetailUpdate
         },
         mixins: [shoppingCartMixin],
         computed:{

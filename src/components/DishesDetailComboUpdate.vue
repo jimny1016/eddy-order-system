@@ -217,7 +217,7 @@
             },
             openComboDetail(optionIndex, optionValueIndex) {
                 this.$store.dispatch('updateTempComboDishDetailKey', {optionIndex:optionIndex, optionValueIndex:optionValueIndex });
-                this.$store.dispatch('updatePageState', {pageState: 5 });
+                this.$store.dispatch('updatePageState', {pageState: 7 });
             },
             backToShoppingCart(){
                 this.$store.dispatch('updatePageState', {pageState: 2 });
