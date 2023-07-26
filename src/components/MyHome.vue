@@ -584,7 +584,841 @@
                         unit: "主餐*2+經典炸物*2+湯品*2+飲品*2",
                         imgPath: "../src/image",
                         price: 420,
-                        isCombo: true
+                        isCombo: true,
+                        Options: [
+                          {
+                            Type:5,
+                            Requirement:true,
+                            Key:1,
+                            Name:"主餐1選擇",
+                            Memo:"Please Select 1 option",
+                            OptionVaules:[
+                              {
+                                title: "招牌蛋炒飯",
+                                DishKey:"recommend_1",
+                                unit: "一份",
+                                imgPath: "../src/image",
+                                price: 90,
+                                BeChoise:false,
+                                Options: [
+                                  {
+                                    Type:2,
+                                    Requirement:true,
+                                    Key:1,
+                                    Name:"辣度選擇",
+                                    Memo:"Please Select 1 option",
+                                    OptionVaules:[{
+                                      ValueName:"不辣",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    },{
+                                      ValueName:"小辣",
+                                      ValueKey:"2",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"中辣",
+                                      ValueKey:"3",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"大辣",
+                                      ValueKey:"4",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    }]
+                                  },
+                                  {
+                                    Type:1,
+                                    Requirement:false,
+                                    Key:2,
+                                    Name:"加購",
+                                    Memo:"Recommendation",
+                                    OptionVaules:[{
+                                      ValueName:"Coca Cola",
+                                      ValueKey:"1",
+                                      Price:30,
+                                      BeChoise:false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Apple Sidra",
+                                      ValueKey:"2",
+                                      Price:40,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Pepsi",
+                                      ValueKey:"3",
+                                      Price:50,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Sprite",
+                                      ValueKey:"4",
+                                      Price:60,
+                                      BeChoise: false,
+                                      Content:""
+                                    }]
+                                  },
+                                  {
+                                    Type:3,
+                                    Requirement:false,
+                                    Key:4,
+                                    Name:"備註",
+                                    Memo:"如有任何需求或打包服務請備註",
+                                    OptionVaules:[{
+                                      ValueName:"備註",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    }]
+                                  },
+                                ]
+                              },
+                              {
+                                title: "主廚特調乾拉麵",
+                                DishKey:"recommend_2",
+                                unit: "一份",
+                                imgPath: "../src/image",
+                                price: 100,
+                                BeChoise:false,
+                              },
+                              {
+                                title: "綜合天婦羅",
+                                DishKey:"recommend_3",
+                                unit: "大蝦天婦羅*3、地瓜天婦羅*3、蔬菜天婦羅*3 一份9個",
+                                imgPath: "../src/image",
+                                price: 200,
+                                BeChoise:false,
+                              },{
+                                title: "當日特選餐",
+                                DishKey:"recommend_4",
+                                unit: "每日特選餐點不同，請至櫃檯詢問謝謝",
+                                imgPath: "../src/image",
+                                price: 0,
+                                BeChoise:false,
+                              }
+                            ]
+                          },
+                          {
+                            Type:5,
+                            Requirement:true,
+                            Key:2,
+                            Name:"炸物1選擇",
+                            Memo:"Please Select 1 option",
+                            OptionVaules:[
+                              {
+                                title: "炸鹹酥雞",
+                                DishKey:"recommend_1",
+                                unit: "一份",
+                                imgPath: "../src/image",
+                                price: 0,
+                                Options: [
+                                  {
+                                    Type:2,
+                                    Requirement:true,
+                                    Key:1,
+                                    Name:"辣度選擇",
+                                    Memo:"Please Select 1 option",
+                                    OptionVaules:[{
+                                      ValueName:"不辣",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    },{
+                                      ValueName:"小辣",
+                                      ValueKey:"2",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"中辣",
+                                      ValueKey:"3",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"大辣",
+                                      ValueKey:"4",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    }]
+                                  },
+                                  {
+                                    Type:1,
+                                    Requirement:false,
+                                    Key:2,
+                                    Name:"加購",
+                                    Memo:"Recommendation",
+                                    OptionVaules:[{
+                                      ValueName:"Coca Cola",
+                                      ValueKey:"1",
+                                      Price:30,
+                                      BeChoise:false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Apple Sidra",
+                                      ValueKey:"2",
+                                      Price:40,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Pepsi",
+                                      ValueKey:"3",
+                                      Price:50,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Sprite",
+                                      ValueKey:"4",
+                                      Price:60,
+                                      BeChoise: false,
+                                      Content:""
+                                    }]
+                                  },
+                                  {
+                                    Type:3,
+                                    Requirement:false,
+                                    Key:4,
+                                    Name:"備註",
+                                    Memo:"如有任何需求或打包服務請備註",
+                                    OptionVaules:[{
+                                      ValueName:"備註",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    }]
+                                  },
+                                ]
+                              },
+                              {
+                                title: "炸魷魚",
+                                DishKey:"recommend_2",
+                                unit: "一份",
+                                imgPath: "../src/image",
+                                price: 10,
+                                Options: [
+                                  {
+                                    Type:2,
+                                    Requirement:true,
+                                    Key:1,
+                                    Name:"辣度選擇",
+                                    Memo:"Please Select 1 option",
+                                    OptionVaules:[{
+                                      ValueName:"不辣",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    },{
+                                      ValueName:"小辣",
+                                      ValueKey:"2",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"中辣",
+                                      ValueKey:"3",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"大辣",
+                                      ValueKey:"4",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    }]
+                                  },
+                                  {
+                                    Type:1,
+                                    Requirement:false,
+                                    Key:2,
+                                    Name:"加購",
+                                    Memo:"Recommendation",
+                                    OptionVaules:[{
+                                      ValueName:"Coca Cola",
+                                      ValueKey:"1",
+                                      Price:30,
+                                      BeChoise:false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Apple Sidra",
+                                      ValueKey:"2",
+                                      Price:40,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Pepsi",
+                                      ValueKey:"3",
+                                      Price:50,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Sprite",
+                                      ValueKey:"4",
+                                      Price:60,
+                                      BeChoise: false,
+                                      Content:""
+                                    }]
+                                  },
+                                  {
+                                    Type:3,
+                                    Requirement:false,
+                                    Key:4,
+                                    Name:"備註",
+                                    Memo:"如有任何需求或打包服務請備註",
+                                    OptionVaules:[{
+                                      ValueName:"備註",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    }]
+                                  },
+                                ]
+                              },
+                            ]
+                          },
+                          {
+                            Type:5,
+                            Requirement:true,
+                            Key:3,
+                            Name:"湯品/飲料 1選擇",
+                            Memo:"Please Select 1 option",
+                            OptionVaules:[
+                              {
+                                title: "主廚濃湯",
+                                DishKey:"recommend_1",
+                                unit: "一份",
+                                imgPath: "../src/image",
+                                price: 0,
+                                Options: [
+                                  {
+                                    Type:2,
+                                    Requirement:true,
+                                    Key:1,
+                                    Name:"辣度選擇",
+                                    Memo:"Please Select 1 option",
+                                    OptionVaules:[{
+                                      ValueName:"不辣",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    },{
+                                      ValueName:"小辣",
+                                      ValueKey:"2",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"中辣",
+                                      ValueKey:"3",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"大辣",
+                                      ValueKey:"4",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    }]
+                                  },
+                                  {
+                                    Type:3,
+                                    Requirement:false,
+                                    Key:4,
+                                    Name:"備註",
+                                    Memo:"如有任何需求或打包服務請備註",
+                                    OptionVaules:[{
+                                      ValueName:"備註",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    }]
+                                  },
+                                ]
+                              },
+                              {
+                                title: "精選紅茶",
+                                DishKey:"recommend_2",
+                                unit: "一杯",
+                                imgPath: "../src/image",
+                                price: 10,
+                                Options: [
+                                  {
+                                    Type:2,
+                                    Requirement:true,
+                                    Key:1,
+                                    Name:"冰量選擇",
+                                    Memo:"Please Select 1 option",
+                                    OptionVaules:[{
+                                      ValueName:"去冰",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    },{
+                                      ValueName:"少冰",
+                                      ValueKey:"2",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"正常冰",
+                                      ValueKey:"3",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    }]
+                                  },
+                                  {
+                                    Type:3,
+                                    Requirement:false,
+                                    Key:4,
+                                    Name:"備註",
+                                    Memo:"如有任何需求或打包服務請備註",
+                                    OptionVaules:[{
+                                      ValueName:"備註",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    }]
+                                  },
+                                ]
+                              },
+                            ]
+                          },
+                          {
+                            Type:5,
+                            Requirement:true,
+                            Key:4,
+                            Name:"主餐2選擇",
+                            Memo:"Please Select 1 option",
+                            OptionVaules:[
+                              {
+                                title: "招牌蛋炒飯",
+                                DishKey:"recommend_1",
+                                unit: "一份",
+                                imgPath: "../src/image",
+                                price: 90,
+                                BeChoise:false,
+                                Options: [
+                                  {
+                                    Type:2,
+                                    Requirement:true,
+                                    Key:1,
+                                    Name:"辣度選擇",
+                                    Memo:"Please Select 1 option",
+                                    OptionVaules:[{
+                                      ValueName:"不辣",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    },{
+                                      ValueName:"小辣",
+                                      ValueKey:"2",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"中辣",
+                                      ValueKey:"3",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"大辣",
+                                      ValueKey:"4",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    }]
+                                  },
+                                  {
+                                    Type:1,
+                                    Requirement:false,
+                                    Key:2,
+                                    Name:"加購",
+                                    Memo:"Recommendation",
+                                    OptionVaules:[{
+                                      ValueName:"Coca Cola",
+                                      ValueKey:"1",
+                                      Price:30,
+                                      BeChoise:false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Apple Sidra",
+                                      ValueKey:"2",
+                                      Price:40,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Pepsi",
+                                      ValueKey:"3",
+                                      Price:50,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Sprite",
+                                      ValueKey:"4",
+                                      Price:60,
+                                      BeChoise: false,
+                                      Content:""
+                                    }]
+                                  },
+                                  {
+                                    Type:3,
+                                    Requirement:false,
+                                    Key:4,
+                                    Name:"備註",
+                                    Memo:"如有任何需求或打包服務請備註",
+                                    OptionVaules:[{
+                                      ValueName:"備註",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    }]
+                                  },
+                                ]
+                              },
+                              {
+                                title: "主廚特調乾拉麵",
+                                DishKey:"recommend_2",
+                                unit: "一份",
+                                imgPath: "../src/image",
+                                price: 100,
+                                BeChoise:false,
+                              },
+                              {
+                                title: "綜合天婦羅",
+                                DishKey:"recommend_3",
+                                unit: "大蝦天婦羅*3、地瓜天婦羅*3、蔬菜天婦羅*3 一份9個",
+                                imgPath: "../src/image",
+                                price: 200,
+                                BeChoise:false,
+                              },{
+                                title: "當日特選餐",
+                                DishKey:"recommend_4",
+                                unit: "每日特選餐點不同，請至櫃檯詢問謝謝",
+                                imgPath: "../src/image",
+                                price: 0,
+                                BeChoise:false,
+                              }
+                            ]
+                          },
+                          {
+                            Type:5,
+                            Requirement:true,
+                            Key:5,
+                            Name:"炸物1選擇",
+                            Memo:"Please Select 1 option",
+                            OptionVaules:[
+                              {
+                                title: "炸鹹酥雞",
+                                DishKey:"recommend_1",
+                                unit: "一份",
+                                imgPath: "../src/image",
+                                price: 0,
+                                Options: [
+                                  {
+                                    Type:2,
+                                    Requirement:true,
+                                    Key:1,
+                                    Name:"辣度選擇",
+                                    Memo:"Please Select 1 option",
+                                    OptionVaules:[{
+                                      ValueName:"不辣",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    },{
+                                      ValueName:"小辣",
+                                      ValueKey:"2",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"中辣",
+                                      ValueKey:"3",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"大辣",
+                                      ValueKey:"4",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    }]
+                                  },
+                                  {
+                                    Type:1,
+                                    Requirement:false,
+                                    Key:2,
+                                    Name:"加購",
+                                    Memo:"Recommendation",
+                                    OptionVaules:[{
+                                      ValueName:"Coca Cola",
+                                      ValueKey:"1",
+                                      Price:30,
+                                      BeChoise:false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Apple Sidra",
+                                      ValueKey:"2",
+                                      Price:40,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Pepsi",
+                                      ValueKey:"3",
+                                      Price:50,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Sprite",
+                                      ValueKey:"4",
+                                      Price:60,
+                                      BeChoise: false,
+                                      Content:""
+                                    }]
+                                  },
+                                  {
+                                    Type:3,
+                                    Requirement:false,
+                                    Key:4,
+                                    Name:"備註",
+                                    Memo:"如有任何需求或打包服務請備註",
+                                    OptionVaules:[{
+                                      ValueName:"備註",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    }]
+                                  },
+                                ]
+                              },
+                              {
+                                title: "炸魷魚",
+                                DishKey:"recommend_2",
+                                unit: "一份",
+                                imgPath: "../src/image",
+                                price: 10,
+                                Options: [
+                                  {
+                                    Type:2,
+                                    Requirement:true,
+                                    Key:1,
+                                    Name:"辣度選擇",
+                                    Memo:"Please Select 1 option",
+                                    OptionVaules:[{
+                                      ValueName:"不辣",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    },{
+                                      ValueName:"小辣",
+                                      ValueKey:"2",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"中辣",
+                                      ValueKey:"3",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"大辣",
+                                      ValueKey:"4",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    }]
+                                  },
+                                  {
+                                    Type:1,
+                                    Requirement:false,
+                                    Key:2,
+                                    Name:"加購",
+                                    Memo:"Recommendation",
+                                    OptionVaules:[{
+                                      ValueName:"Coca Cola",
+                                      ValueKey:"1",
+                                      Price:30,
+                                      BeChoise:false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Apple Sidra",
+                                      ValueKey:"2",
+                                      Price:40,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Pepsi",
+                                      ValueKey:"3",
+                                      Price:50,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"Sprite",
+                                      ValueKey:"4",
+                                      Price:60,
+                                      BeChoise: false,
+                                      Content:""
+                                    }]
+                                  },
+                                  {
+                                    Type:3,
+                                    Requirement:false,
+                                    Key:4,
+                                    Name:"備註",
+                                    Memo:"如有任何需求或打包服務請備註",
+                                    OptionVaules:[{
+                                      ValueName:"備註",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    }]
+                                  },
+                                ]
+                              },
+                            ]
+                          },
+                          {
+                            Type:5,
+                            Requirement:true,
+                            Key:6,
+                            Name:"湯品/飲料 1選擇",
+                            Memo:"Please Select 1 option",
+                            OptionVaules:[
+                              {
+                                title: "主廚濃湯",
+                                DishKey:"recommend_1",
+                                unit: "一份",
+                                imgPath: "../src/image",
+                                price: 0,
+                                Options: [
+                                  {
+                                    Type:2,
+                                    Requirement:true,
+                                    Key:1,
+                                    Name:"辣度選擇",
+                                    Memo:"Please Select 1 option",
+                                    OptionVaules:[{
+                                      ValueName:"不辣",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    },{
+                                      ValueName:"小辣",
+                                      ValueKey:"2",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"中辣",
+                                      ValueKey:"3",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"大辣",
+                                      ValueKey:"4",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    }]
+                                  },
+                                  {
+                                    Type:3,
+                                    Requirement:false,
+                                    Key:4,
+                                    Name:"備註",
+                                    Memo:"如有任何需求或打包服務請備註",
+                                    OptionVaules:[{
+                                      ValueName:"備註",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    }]
+                                  },
+                                ]
+                              },
+                              {
+                                title: "精選紅茶",
+                                DishKey:"recommend_2",
+                                unit: "一杯",
+                                imgPath: "../src/image",
+                                price: 10,
+                                Options: [
+                                  {
+                                    Type:2,
+                                    Requirement:true,
+                                    Key:1,
+                                    Name:"冰量選擇",
+                                    Memo:"Please Select 1 option",
+                                    OptionVaules:[{
+                                      ValueName:"去冰",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    },{
+                                      ValueName:"少冰",
+                                      ValueKey:"2",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    },{
+                                      ValueName:"正常冰",
+                                      ValueKey:"3",
+                                      Price:0,
+                                      BeChoise: false,
+                                      Content:""
+                                    }]
+                                  },
+                                  {
+                                    Type:3,
+                                    Requirement:false,
+                                    Key:4,
+                                    Name:"備註",
+                                    Memo:"如有任何需求或打包服務請備註",
+                                    OptionVaules:[{
+                                      ValueName:"備註",
+                                      ValueKey:"1",
+                                      Price:0,
+                                      BeChoise:false,
+                                      Content:""
+                                    }]
+                                  },
+                                ]
+                              },
+                            ]
+                          },
+                        ]  
                     },
                     {
                         title: "四人套餐",
