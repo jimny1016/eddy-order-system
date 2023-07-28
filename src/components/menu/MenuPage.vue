@@ -1,4 +1,7 @@
 <template>
+    <div class="h-[96px]">
+
+    </div>
     <div class="px-2 md:pr-0">
         <div v-for="(tab, tabIndex) in manuData" :key="`tab-${tabIndex}`">
             <div class="text-2xl py-1 font-bold" :id="tab.TabName">{{ tab.TabName }}</div>

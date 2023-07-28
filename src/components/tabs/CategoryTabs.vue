@@ -63,7 +63,22 @@
         methods: {
             scrollTo(tab) {
                 const element = document.getElementById(tab);
-                element.scrollIntoView({ behavior: 'smooth' });
+                if (element) {
+                    const elementRect = element.getBoundingClientRect();
+                    const offsetTop = elementRect.top;
+                    const offsetLeft = elementRect.left;
+
+                    // 計算偏移後的目標位置
+                    const targetTop = offsetTop + window.pageYOffset - 96;
+                    const targetLeft = offsetLeft + window.pageXOffset;
+
+                    // 平滑滾動到目標位置
+                    window.scrollTo({
+                        top: targetTop,
+                        left: targetLeft,
+                        behavior: 'smooth'
+                    });
+                }
             }
         }
     };

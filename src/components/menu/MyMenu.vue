@@ -2,13 +2,15 @@
     <div class="max-w-3xl m-auto">
         <!--with navigation bar-->
         <div v-show="pageState == 0">
-            <Navbar :tableNum="tableNum" :title="pageTitle" shoppingcartshow="true"/>
-            <CategoryTabs class="w-full mx-auto" :tabList="tabList">
-                <div v-for="(tab, index) in tabList" :key="index" >
-                    <slot tabindex="${index}">{{ tab.tabLabel }}</slot>
-                    <slot :tabindex="index">{{ tabNames[index] }}</slot>
-                </div>
-            </CategoryTabs>
+            <div class=" fixed max-w-3xl z-10 bg-white">
+                <Navbar :tableNum="tableNum" :title="pageTitle" shoppingcartshow="true"/>
+                <CategoryTabs class="w-full mx-auto" :tabList="tabList">
+                    <div v-for="(tab, index) in tabList" :key="index" >
+                        <slot tabindex="${index}">{{ tab.tabLabel }}</slot>
+                        <slot :tabindex="index">{{ tabNames[index] }}</slot>
+                    </div>
+                </CategoryTabs>
+            </div>
             <Menupage :manuData="manuData[0].Display" @dishKey="getValue"/>
             <transition name="fade">
                 <div v-if="isDivVisible" class="fixed bottom-0 left-0 w-full flex justify-center items-center mb-20">
