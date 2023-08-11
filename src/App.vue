@@ -1,17 +1,17 @@
 <template>
 
-  <MyHome></MyHome>
+  <!-- <MyHome></MyHome> -->
   <!-- <StoreTest></StoreTest> -->
 
   <!-- <FadeTest></FadeTest> -->
   <!-- <RouterView/> -->
-  <!-- <AxiosTest></AxiosTest> -->
+  <AxiosTest></AxiosTest>
 </template>
 
 <script>
   // import { RouterView } from 'vue-router'
-  import MyHome from './components/MyHome.vue';
-  // import AxiosTest from './components/AxiosTest.vue';
+  // import MyHome from './components/MyHome.vue';
+  import AxiosTest from './components/AxiosTest.vue';
   
   // import StoreTest from './components/StoreTest.vue';
   // import FadeTest from './components/FadeTest.vue';
@@ -23,10 +23,10 @@
   export default {
     name: 'App',
     components: {
-      MyHome,
+      // MyHome,
       //StoreTest,
       //FadeTest,
-      //AxiosTest
+      AxiosTest
     },
   };
 </script>

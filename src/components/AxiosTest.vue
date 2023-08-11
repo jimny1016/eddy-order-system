@@ -21,7 +21,7 @@ export default {
         });
     },
     makeGetRequest() {
-      axios.get('http://localhost:5126/WeatherForecast')
+      axios.get('http://localhost:5126/weatherforecast/GetWeatherForecast2')
         .then(response => {
           console.log(response.data);
         })
