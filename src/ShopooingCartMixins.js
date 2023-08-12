@@ -3,8 +3,8 @@ export const shoppingCartMixin = {
         getDishPrice(dish){
             var product = dish.product;
             let result = product.price;
-            if(product.Options){
-                result += this.getOptionsPrice(product.Options);
+            if(product.options){
+                result += this.getOptionsPrice(product.options);
             }
 
             return result * dish.quantity;
@@ -12,20 +12,20 @@ export const shoppingCartMixin = {
         getOptionsPrice(options){
             let result = 0;
             options.forEach((option) => {
-                option.OptionVaules.forEach((optionVaule) => {
-                    switch(option.Type) {
+                option.optionVaules.forEach((optionVaule) => {
+                    switch(option.type) {
                     case 1:
                     case 2:
-                        if(optionVaule.BeChoise)
-                            result += optionVaule.Price;
+                        if(optionVaule.beChoise)
+                            result += optionVaule.price;
                         break;
                     case 3:
-                        if(optionVaule.Content)
-                            result += optionVaule.Price;
+                        if(optionVaule.content)
+                            result += optionVaule.price;
                         break;
                     case 4:
-                        if(parseInt(optionVaule.Content) > 0)
-                            result += parseInt(optionVaule.Content) * optionVaule.Content;  
+                        if(parseInt(optionVaule.content) > 0)
+                            result += parseInt(optionVaule.content) * optionVaule.content;  
                         break;
                     }
                 });
@@ -35,16 +35,16 @@ export const shoppingCartMixin = {
         getComboPrice(dish){            
             var product = dish.product;
             let result = product.price;
-            if(product.Options){
-                result += this.getOptionsPrice(product.Options);
-                let filteredOption = product.Options.filter(obj => obj.Type === 5);
+            if(product.options){
+                result += this.getOptionsPrice(product.options);
+                let filteredOption = product.options.filter(obj => obj.type === 5);
                 if(filteredOption){
                     filteredOption.forEach((option) => {
-                        let filteredOptionValues = option.OptionVaules.filter(obj => obj.BeChoise === true);
+                        let filteredOptionValues = option.optionVaules.filter(obj => obj.beChoise === true);
                         if(filteredOptionValues){
                             filteredOptionValues.forEach((optionVaule) => {
                                 result += optionVaule.price;
-                                result += this.getOptionsPrice(optionVaule.Options);
+                                result += this.getOptionsPrice(optionVaule.options);
                             });
                         }
                     });

@@ -25,101 +25,101 @@
             const store = useStore();
             var ddd = {
                         title: "招牌蛋炒飯",
-                        DishKey:"recommend_1",
+                        dishKey:"recommend_1",
                         unit: "一份",
                         imgPath: "../src/image",
                         price: 90,
-                        Options: [
+                        options: [
                         {
-                            Type:2,//1=check box, 2=radio button, 3=textBox, 4=count
-                            Requirement:true,//0=option, 1=required
-                            Key:1,//1=辣度選擇,2=加購,3=備註
-                            Name:"辣度選擇",
-                            Memo:"Please Select 1 option",
-                            OptionVaules:[{
-                            ValueName:"不辣",
-                            ValueKey:"1",
-                            Price:0,
-                            BeChoise:false,
-                            Content:""
+                            type:2,//1=check box, 2=radio button, 3=textBox, 4=count
+                            requirement:true,//0=option, 1=required
+                            key:1,//1=辣度選擇,2=加購,3=備註
+                            name:"辣度選擇",
+                            memo:"Please Select 1 option",
+                            optionVaules:[{
+                            valueName:"不辣",
+                            valueKey:"1",
+                            price:0,
+                            beChoise:false,
+                            content:""
                             },{
-                            ValueName:"小辣",
-                            ValueKey:"2",
-                            Price:0,
-                            BeChoise: false,
-                            Content:""
+                            valueName:"小辣",
+                            valueKey:"2",
+                            price:0,
+                            beChoise: false,
+                            content:""
                             },{
-                            ValueName:"中辣",
-                            ValueKey:"3",
-                            Price:0,
-                            BeChoise: false,
-                            Content:""
+                            valueName:"中辣",
+                            valueKey:"3",
+                            price:0,
+                            beChoise: false,
+                            content:""
                             },{
-                            ValueName:"大辣",
-                            ValueKey:"4",
-                            Price:0,
-                            BeChoise: false,
-                            Content:""
+                            valueName:"大辣",
+                            valueKey:"4",
+                            price:0,
+                            beChoise: false,
+                            content:""
                             }]
                         },
                         {
-                            Type:1,
-                            Requirement:false,
-                            Key:2,
-                            Name:"加購",
-                            Memo:"Recommendation",
-                            OptionVaules:[{
-                            ValueName:"Coca Cola",
-                            ValueKey:"1",
-                            Price:30,
-                            BeChoise:false,
-                            Content:""
+                            type:1,
+                            requirement:false,
+                            key:2,
+                            name:"加購",
+                            memo:"Recommendation",
+                            optionVaules:[{
+                            valueName:"Coca Cola",
+                            valueKey:"1",
+                            price:30,
+                            beChoise:false,
+                            content:""
                             },{
-                            ValueName:"Apple Sidra",
-                            ValueKey:"2",
-                            Price:40,
-                            BeChoise: false,
-                            Content:""
+                            valueName:"Apple Sidra",
+                            valueKey:"2",
+                            price:40,
+                            beChoise: false,
+                            content:""
                             },{
-                            ValueName:"Pepsi",
-                            ValueKey:"3",
-                            Price:50,
-                            BeChoise: false,
-                            Content:""
+                            valueName:"Pepsi",
+                            valueKey:"3",
+                            price:50,
+                            beChoise: false,
+                            content:""
                             },{
-                            ValueName:"Sprite",
-                            ValueKey:"4",
-                            Price:60,
-                            BeChoise: false,
-                            Content:""
+                            valueName:"Sprite",
+                            valueKey:"4",
+                            price:60,
+                            beChoise: false,
+                            content:""
                             }]
                         },
                         {
-                            Type:4,//1=check box, 2=radio button, 3=textBox, 4=count
-                            Requirement:false,//0=option, 1=required
-                            Key:3,//1=辣度選擇,2=加購,3=備註
-                            Name:"加購",
-                            Memo:"若超過10人享用,請加選用餐人數",
-                            OptionVaules:[{
-                            ValueName:"增加人數",
-                            ValueKey:"1",
-                            Price:200,
-                            BeChoise:false,
-                            Content:"0"
+                            type:4,//1=check box, 2=radio button, 3=textBox, 4=count
+                            requirement:false,//0=option, 1=required
+                            key:3,//1=辣度選擇,2=加購,3=備註
+                            name:"加購",
+                            memo:"若超過10人享用,請加選用餐人數",
+                            optionVaules:[{
+                            valueName:"增加人數",
+                            valueKey:"1",
+                            price:200,
+                            beChoise:false,
+                            content:"0"
                             }]
                         },
                         {
-                            Type:3,//1=check box, 2=radio button, 3=textBox, 4=count
-                            Requirement:false,//0=option, 1=required
-                            Key:4,//1=辣度選擇,2=加購,3=備註
-                            Name:"備註",
-                            Memo:"如有任何需求或打包服務請備註",
-                            OptionVaules:[{
-                            ValueName:"備註",
-                            ValueKey:"1",
-                            Price:0,
-                            BeChoise:false,
-                            Content:""
+                            type:3,//1=check box, 2=radio button, 3=textBox, 4=count
+                            requirement:false,//0=option, 1=required
+                            key:4,//1=辣度選擇,2=加購,3=備註
+                            name:"備註",
+                            memo:"如有任何需求或打包服務請備註",
+                            optionVaules:[{
+                            valueName:"備註",
+                            valueKey:"1",
+                            price:0,
+                            beChoise:false,
+                            content:""
                             }]
                         },
                         ]

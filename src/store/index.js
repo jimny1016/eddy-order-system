@@ -15,37 +15,37 @@ export default createStore({
         if(state.cart && state.cart.length > 0)
         {
           let dishesInCart = state.cart.filter(item => {
-            return item.product.DishKey === product.DishKey;
+            return item.product.dishKey === product.dishKey;
           });
       
           if (dishesInCart) { 
             for (let dishesInCartIndex = 0; dishesInCartIndex < dishesInCart.length; dishesInCartIndex++) {
               let isLivedInShoppingCart = true;
               let dishInCart = dishesInCart[dishesInCartIndex].product;
-              if(dishInCart.Options)
+              if(dishInCart.options)
               {
-                for (let optionIndex = 0; optionIndex < dishInCart.Options.length; optionIndex++) {
+                for (let optionIndex = 0; optionIndex < dishInCart.options.length; optionIndex++) {
                   if(!isLivedInShoppingCart) {
                     break;
                   }
-                  let option = dishInCart.Options[optionIndex];
-                  let targetOption = product.Options[optionIndex];
+                  let option = dishInCart.options[optionIndex];
+                  let targetOption = product.options[optionIndex];
 
-                  for (let optionVaulesIndex = 0; optionVaulesIndex < option.OptionVaules.length; optionVaulesIndex++) {
+                  for (let optionVaulesIndex = 0; optionVaulesIndex < option.optionVaules.length; optionVaulesIndex++) {
                     if(!isLivedInShoppingCart) {
                       break;
                     }
-                    let optionValue = option.OptionVaules[optionVaulesIndex];
-                    let targetOptionValue = targetOption.OptionVaules[optionVaulesIndex];
-                    //alert(optionValue.Name + ":" + String(optionValue.BeChoise) + " " + String(targetOptionValue.BeChoise) + " " + String(optionValue.BeChoise === targetOptionValue.BeChoise));
-                    switch(option.Type) {
+                    let optionValue = option.optionVaules[optionVaulesIndex];
+                    let targetOptionValue = targetOption.optionVaules[optionVaulesIndex];
+                    //alert(optionValue.name + ":" + String(optionValue.beChoise) + " " + String(targetOptionValue.beChoise) + " " + String(optionValue.beChoise === targetOptionValue.beChoise));
+                    switch(option.type) {
                       case 1:
                       case 2:
-                        isLivedInShoppingCart = optionValue.BeChoise === targetOptionValue.BeChoise;
+                        isLivedInShoppingCart = optionValue.beChoise === targetOptionValue.beChoise;
                         break;     
                       case 3:
                       case 4:
-                        isLivedInShoppingCart = optionValue.Content === targetOptionValue.Content;
+                        isLivedInShoppingCart = optionValue.content === targetOptionValue.content;
                         break;
                       case 5:
                         isLivedInShoppingCart = false;

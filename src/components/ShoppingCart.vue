@@ -37,7 +37,7 @@
                         $ {{ getDishPrice(dish) }}
                     </div>
                     <div></div>
-                    <div class="col-span-5 text-gray-400">{{ getOptionWord(dish.product.Options) }}</div>
+                    <div class="col-span-5 text-gray-400">{{ getOptionWord(dish.product.options) }}</div>
                     <div></div>
                 </div>
                 <div v-if="dish.product.isCombo">
@@ -50,9 +50,9 @@
                             $ {{ dish.product.price }}
                         </div>
                     </div>
-                    <div v-for="(option, optionIndex) in dish.product.Options" :key="'dish-' + dishIndex + '-option-' + optionIndex">                        
-                        <div v-for="(optionVaule, OptionVauleIndex) in option.OptionVaules" :key="'dish-' + dishIndex + '-option-' + optionIndex + '-optionVaule-' + OptionVauleIndex">
-                            <div v-if="optionVaule.BeChoise" class="flex justify-between mb-4">
+                    <div v-for="(option, optionIndex) in dish.product.options" :key="'dish-' + dishIndex + '-option-' + optionIndex">                        
+                        <div v-for="(optionVaule, optionVauleIndex) in option.optionVaules" :key="'dish-' + dishIndex + '-option-' + optionIndex + '-optionVaule-' + optionVauleIndex">
+                            <div v-if="optionVaule.beChoise" class="flex justify-between mb-4">
                                 <div class="flex">
                                     <div>
                                         <div class="bg-gray-400 w-auto inline-block px-1 rounded-sm text-white mr-2">
@@ -61,12 +61,12 @@
                                     </div>
                                     <div>
                                         <div class="text-lg font-bold">{{ optionVaule.title }}</div>
-                                        <div class="text-gray-400">{{ getOptionWord(optionVaule.Options) }}</div>
+                                        <div class="text-gray-400">{{ getOptionWord(optionVaule.options) }}</div>
                                     </div>
                                 </div>
                                 <div class="self-center text-right text-lg">
                                     <div>
-                                        +$ {{ optionVaule.price + getOptionsPrice(optionVaule.Options) }}
+                                        +$ {{ optionVaule.price + getOptionsPrice(optionVaule.options) }}
                                     </div>
                                     <div>
                                         &nbsp;
@@ -185,16 +185,16 @@
                 let result = [];
                 if(options){
                     options.forEach((option) => {                    
-                        option.OptionVaules.forEach((optionVaule) => {
-                            switch(option.Type) {
+                        option.optionVaules.forEach((optionVaule) => {
+                            switch(option.type) {
                             case 1:
                             case 2:
-                                if(optionVaule.BeChoise)
-                                    result.push(optionVaule.ValueName);
+                                if(optionVaule.beChoise)
+                                    result.push(optionVaule.valueName);
                                 break;
                             case 3:
-                                if(optionVaule.Content)
-                                    result.push('備註:' + optionVaule.Content);                                
+                                if(optionVaule.content)
+                                    result.push('備註:' + optionVaule.content);                                
                                 break;
                             }
                         });

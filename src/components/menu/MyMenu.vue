@@ -11,7 +11,7 @@
                     </div>
                 </CategoryTabs>
             </div>
-            <Menupage :manuData="manuData[0].Display" @dishKey="getValue"/>
+            <Menupage :manuData="manuData[0].display" @dishKey="getValue"/>
             <transition name="fade">
                 <div v-if="isDivVisible" class="fixed bottom-0 left-0 w-full flex justify-center items-center mb-20">
                     <div class="p-4 rounded-md w-full max-w-3xl bg-gray-200">
@@ -82,15 +82,15 @@
         mixins: [shoppingCartMixin],
         computed:{
             tableNum(){
-                return this.manuData[0].TableNum;
+                return this.manuData[0].tableNum;
             },
             pageTitle() {
-                return this.manuData[0].PageTitle;
+                return this.manuData[0].pageTitle;
             },
             tabList(){
                 // 從 manuData 中取得 tabList 的值
-                if (this.manuData[0].Display) {
-                    return this.manuData[0].Display.map(tab=>tab.TabName);
+                if (this.manuData[0].display) {
+                    return this.manuData[0].display.map(tab=>tab.tabName);
                 } else {
                     return [];
                 }
@@ -113,8 +113,8 @@
         },
         methods: {
             getValue(value) {
-                this.manuData[0].Display.forEach(tab => {
-                    var temp = tab.Dishes.find(dish => dish.DishKey === value);
+                this.manuData[0].display.forEach(tab => {
+                    var temp = tab.dishes.find(dish => dish.dishKey === value);
                     if(temp)
                     {
                         this.dish = temp;

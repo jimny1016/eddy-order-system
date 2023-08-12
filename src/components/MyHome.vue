@@ -35,7 +35,7 @@
             return this.manuData[0].tableNum;
         },
         pageTitle() {
-          return this.manuData[0].PageTitle;
+          return this.manuData[0].pageTitle;
         }
       },
       methods: {
@@ -44,6 +44,7 @@
           this.isHomePage = false;
         },
         makeGetRequest() {
+          //http://localhost:5126/weatherforecast/GetWeatherForecast2
           axios.get('http://localhost:5126/weatherforecast/GetWeatherForecast2')
             .then(response => {
               console.log(response.data);
