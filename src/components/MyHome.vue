@@ -11,11 +11,13 @@
   import MyMenu from './menu/MyMenu.vue';
   import Navbar from './navigationHeaderBar/NavigationHeaderBar.vue';
   import axios from 'axios';
-  
+  import { GET_API_URL } from '../script/config.js';
+
   export default {
       name: "my-home",
       data() {
         return {
+          getApiUrl:GET_API_URL,
           showSlider: true,
           manuData: null,
           isLoading: true,
@@ -45,7 +47,7 @@
         },
         makeGetRequest() {
           //http://localhost:5126/weatherforecast/GetWeatherForecast2
-          axios.get('http://localhost:5126/weatherforecast/GetWeatherForecast2')
+          axios.get(`${this.getApiUrl}`)
             .then(response => {
               console.log(response.data);
               this.manuData = [response.data];

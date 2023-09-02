@@ -7,8 +7,14 @@
 </template>
   
 <script>
+import { IMAGE_PATH } from '../../script/config.js';
   export default {
     name: "MyImage",
+    data() {
+      return{
+        imgPath:IMAGE_PATH
+      };
+    },
     props: {
       imagePath: {
         type: String,
@@ -29,7 +35,8 @@
     },
     methods: {
       getImagePath(path) {
-        return "http://localhost:8080/" + path;
+        //return "http://localhost:8080/" + path;
+        return `${this.imgPath}`+ path;
       }
     }
   }

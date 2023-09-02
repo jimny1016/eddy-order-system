@@ -18,10 +18,13 @@
 </template>
   
 <script>
+import { IMAGE_PATH } from '../script/config.js';
+
   export default {
     name: "my-carousel",
     data() {
       return {
+        imgPath:IMAGE_PATH,
         current: 0,
         direction: 1,
         transitionName: "fade",
@@ -44,7 +47,8 @@
         this.current===len?this.isShow=true :this.isShow=false;
       },
       getImagePath(path) {
-        return "http://localhost:8080/" + path;
+        //return "http://localhost:8080/" + path;
+        return `${this.imgPath}`+ path;
       },
       switchToMyMenu() {
         this.$emit('showMyMenu', false);
