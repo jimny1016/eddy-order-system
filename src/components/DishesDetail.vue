@@ -148,7 +148,7 @@
 
 <script>
     import MyImage from './tools/MyImage.vue';
-    import axios from 'axios';
+ //   import axios from 'axios';
     
     export default {
         name: 'dish-detail',
@@ -194,15 +194,9 @@
                     return;
                 }
                 let myDish = JSON.parse(JSON.stringify(this.dish));
-                alert(this.disheOptions);
                 myDish.options = this.disheOptions;
                 this.$store.dispatch('addToCart', {product: myDish, quantity: this.dishesCount });
                 
-                axios.post('http://localhost:5126/weatherforecast/PostShoppingCart',myDish)
-                .then(response=>{console.log(response.data);
-                })
-                .catch(error=>{console.error(error);});
-
                 alert('新增餐點成功!');
                 this.backToMenu();                
                 this.$emit('showAddSuccess');                
@@ -247,6 +241,18 @@
                 }
                 return isOk;
             }
+  //          ,
+  //          makeJsonData(){
+                // Define a JavaScript object
+  //              const shoppingData={
+                    
+   //             }
+                // Convert the JavaScript object to a JSON string
+   //             const jsonString = JSON.stringify(shoppingData, null, 2); // The 'null, 2' parameters add indentation for readability
+
+                // Log the JSON string
+   //             console.log(jsonString);
+  //          }
         },
     };
 </script>
