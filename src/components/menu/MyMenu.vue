@@ -11,6 +11,10 @@
                     </div>
                 </CategoryTabs>
             </div>
+                <div>{{ this.$store.getters.cart }}</div>
+                <div>
+                    <button @click="postTest">Post test</button>
+                </div>
             <Menupage :manuData="manuData[0].display" @dishKey="getValue"/>
             <transition name="fade">
                 <div v-if="isDivVisible" class="fixed bottom-0 left-0 w-full flex justify-center items-center mb-20">
@@ -72,6 +76,7 @@
     import ShoppingCart from '../ShoppingCart.vue';
     import MyImage from '../tools/MyImage.vue';
     import { shoppingCartMixin } from '../../ShopooingCartMixins.js'
+    import axios from 'axios';
 
     export default {
         name: 'my-menu',
@@ -136,6 +141,15 @@
                 setTimeout(() => {
                     this.isDivVisible = false;
                 }, 1000);
+            },
+            postTest(){
+                alert('I am here');
+                var shoppingCartData = this.$store.getters.cart;
+                axios.post('http://localhost:5126/weatherforecast/PostShoppingCart', shoppingCartData)
+                .then(
+                    response=>{console.log(response.data);
+                })
+                .catch(error=>{console.error(error);});
             }
         },
     };
